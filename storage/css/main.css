@@ -1,0 +1,46 @@
+/* #region Maintenance */
+#maintenance{
+    width:30vw;
+    aspect-ratio: 1;
+    margin:auto;
+    display: block;
+    background-size:cover;
+}
+
+#workInProgress{
+    text-align: center;
+}
+
+/* #endregion  */
+
+/* #region LanguageSwitch */
+
+#language_container{
+    background-color: #ffffff;
+    border-radius: 0 20px;
+    width:5vw;
+    height:4vh;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    right:1vh;
+}
+
+.language_option{
+    height: 4vh;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-size:cover;
+}
+
+/* #endregion */
+
+body {
+    background-color: #101222;
+}
+
+* {
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    color:white;
+}

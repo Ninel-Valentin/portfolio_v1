@@ -1,0 +1,50 @@
+{
+    "@type": "languageContent",
+    "default":"EN",
+    "content": [
+        {
+            "lang": "EN",
+            "data": [
+                {
+                    "@type": "maintenance",
+                    "message": "Hi there! Apologies but we are working on this for now. Come back later!"
+                },
+                {
+                    "@type": "cookiesPopUp",
+                    "content": [
+                        {
+                            "@type": "text",
+                            "message": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!\nBut who doesn't like cookies?"
+                        },
+                        {
+                            "@type": "accept",
+                            "message": "I understand!"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "lang": "RO",
+            "data": [
+                {
+                    "@type": "maintenance",
+                    "message": "Salutare! Scuze dar lucrăm la partea asta momentan. Vino mai târziu!"
+                },
+                {
+                    "@type": "cookiesPopUp",
+                    "content": [
+                        {
+                            "@type": "text",
+                            "message": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita. Sper să nu vă deranjeze!\nDar cui nu îi plac biscuiții?"
+                        },
+                        {
+                            "@type": "accept",
+                            "message": "Am înțeles!"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
