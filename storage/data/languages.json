@@ -1,26 +1,35 @@
 {
     "@type": "languageContent",
-    "default":"EN",
+    "default": "EN",
     "content": [
         {
             "lang": "EN",
             "data": [
                 {
-                    "@type": "maintenance",
+                    "@type": "workInProgress",
                     "message": "Hi there! Apologies but we are working on this for now. Come back later!"
                 },
                 {
-                    "@type": "cookiesPopUp",
-                    "content": [
-                        {
-                            "@type": "text",
-                            "message": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!\nBut who doesn't like cookies?"
-                        },
-                        {
-                            "@type": "accept",
-                            "message": "I understand!"
-                        }
-                    ]
+                    "@type": "returnHome",
+                    "message": "← Return to home page!"
+                },
+                {
+                    "@type": "cookiesText",
+                    "message": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!</br>But who doesn't like cookies?"
+                },
+                {
+                    "@type": "cookiesAccept",
+                    "message": "Allow"
+                }
+            ],
+            "titles": [
+                {
+                    "@type": "workInProgress",
+                    "message": "Still working here..."
+                },
+                {
+                    "@type": "home",
+                    "message": "Home ~ Bănică Ninel-Valentin"
                 }
             ]
         },
@@ -28,21 +37,30 @@
             "lang": "RO",
             "data": [
                 {
-                    "@type": "maintenance",
+                    "@type": "workInProgress",
                     "message": "Salutare! Scuze dar lucrăm la partea asta momentan. Vino mai târziu!"
                 },
                 {
-                    "@type": "cookiesPopUp",
-                    "content": [
-                        {
-                            "@type": "text",
-                            "message": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita. Sper să nu vă deranjeze!\nDar cui nu îi plac biscuiții?"
-                        },
-                        {
-                            "@type": "accept",
-                            "message": "Am înțeles!"
-                        }
-                    ]
+                    "@type": "returnHome",
+                    "message": "← Înapoi la pagina principală!"
+                },
+                {
+                    "@type": "cookiesText",
+                    "message": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?</br>"
+                },
+                {
+                    "@type": "cookiesAccept",
+                    "message": "Permiteți"
+                }
+            ],
+            "titles": [
+                {
+                    "@type": "workInProgress",
+                    "message": "Încă lucrez la asta..."
+                },
+                {
+                    "@type": "home",
+                    "message": "Acasă ~ Bănică Ninel-Valentin"
                 }
             ]
         }

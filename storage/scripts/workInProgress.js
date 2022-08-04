@@ -2,7 +2,7 @@
 import languageJson from '../data/languages.json' assert {type: 'json'}
 import { getCookie } from '../scripts/cookieService.js'
 
-let language = getCookie('lang');
+let language = getCookie('lang',true);
 language = language ? language : languageJson.default;
 
 const e = React.createElement;
@@ -13,20 +13,32 @@ class Maintenance extends React.Component {
             'img',
             {
                 id: 'maintenance',
+                key: 'maintenance',
                 src: '../storage/media/workInProgress.png',
-                alt: 'Maintenance image',
-                key: 'mentenanceImg'
+                alt: 'Maintenance image'
             }
         ),
         e(
             'h2',
             {
                 id: 'workInProgress',
-                key: 'mentenanceTitle'
+                key: 'workInProgress'
             },
             languageJson
                 .content.find(x => x.lang == language)
-                .data.find(x => x['@type'] == 'maintenance')
+                .data.find(x => x['@type'] == 'workInProgress')
+                .message
+        ),
+        e(
+            'a',
+            {
+                id: 'returnHome',
+                key: 'returnHome',
+                href: '/main.html'
+            },
+            languageJson
+                .content.find(x => x.lang == language)
+                .data.find(x => x['@type'] == 'returnHome')
                 .message
         )
         ];
