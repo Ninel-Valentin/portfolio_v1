@@ -24,7 +24,7 @@ export function getCookie(cName, onlyValue) {
     // Remove spaces around cookies
     cArray = cArray.map((c) => c.trim());
 
-    let regexp = new RegExp(`${cName}\=`,'g');
+    let regexp = new RegExp(`${cName}\=`, 'g');
     let cookie = cArray.find((c) => c.match(regexp))
 
     return cookie ? (onlyValue ? cookie.split('=').pop() : cookie) : "";
@@ -33,14 +33,14 @@ export function getCookie(cName, onlyValue) {
 'use strict';
 import languageJson from '../data/languages.json' assert {type: 'json'}
 
-let language = getCookie('lang',true);
+let language = getCookie('lang', true);
 language = language ? language : languageJson.default;
 
 const e = React.createElement;
 
 class CookiesPopUp extends React.Component {
     render() {
-        return !getCookie('c',true) ? e(
+        return !getCookie('c', true) ? e(
             'div',
             {
                 id: "cookiesPopUp",
@@ -64,7 +64,9 @@ class CookiesPopUp extends React.Component {
                         key: 'cookiesAccept',
                         onClick: () => {
                             setCookie('c', 'true', 30, timeUnits.days);
-                            console.log(getCookie('c',true));
+                            let self = document.querySelector('#cookiesPopUp');
+                            self.className = 'fade';
+                            setTimeout(() => { self.remove() }, 1000);
                         }
                     },
                     languageJson

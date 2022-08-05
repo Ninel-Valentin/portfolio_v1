@@ -1,0 +1,12 @@
+MODIFY README.md https://ninel-valentin.github.io/
+
+send me an email function
+download my cv doc/pdf
+preview my cv (data taken from json so can be updated easily)
+
+FINAL:
+do App function {
+    start loading screen
+    - promise load everything on page:
+    .then(remove loading screen)
+}

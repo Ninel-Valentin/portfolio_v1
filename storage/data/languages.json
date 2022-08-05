@@ -4,6 +4,7 @@
     "content": [
         {
             "lang": "EN",
+            "@usable": true,
             "data": [
                 {
                     "@type": "workInProgress",
@@ -35,6 +36,7 @@
         },
         {
             "lang": "RO",
+            "@usable": true,
             "data": [
                 {
                     "@type": "workInProgress",
@@ -46,7 +48,7 @@
                 },
                 {
                     "@type": "cookiesText",
-                    "message": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?</br>"
+                    "message": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?"
                 },
                 {
                     "@type": "cookiesAccept",
@@ -61,6 +63,38 @@
                 {
                     "@type": "home",
                     "message": "Acasă ~ Bănică Ninel-Valentin"
+                }
+            ]
+        },
+        {
+            "lang": "FR",
+            "@usable": true,
+            "data": [
+                {
+                    "@type": "workInProgress",
+                    "message": "Salut! Désolé mais nous y travaillons pour le moment. Revenez plus tard!"
+                },
+                {
+                    "@type": "returnHome",
+                    "message": "← Retour à la page d'accueil!"
+                },
+                {
+                    "@type": "cookiesText",
+                    "message": "Hé! Ce site utilise peu de cookies pour optimiser votre visite. J'espère que cela ne vous dérange pas !</br>Mais qui n'aime pas les cookies ?"
+                },
+                {
+                    "@type": "cookiesAccept",
+                    "message": "Permettre"
+                }
+            ],
+            "titles": [
+                {
+                    "@type": "workInProgress",
+                    "message": "Je travail encore dessus..."
+                },
+                {
+                    "@type": "home",
+                    "message": "Page d'accueil ~ Bănică Ninel-Valentin"
                 }
             ]
         }

@@ -1,5 +1,3 @@
-/* #region LanguageSwitch */
-
 /* #region CookiePopUp */
 #cookiesPopUp {
     width: 100vw;
@@ -12,7 +10,12 @@
     text-align: center;
 }
 
-#cookiesText{
+#cookiesPopUp.fade {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#cookiesText {
     color: #101222 !important;
     font-size: larger;
     font-weight: bold;
@@ -33,22 +36,51 @@
     background-color: #1c2146;
 }
 
-#cookiesAccept:active{
+#cookiesAccept:active {
     background-color: #14193f;
 }
 
 /* #endregion */
 
-#language_container {
+/* #region LanguageSwitch */
+
+#language_preview {
     background-color: gainsboro;
-    border-radius: 0 22px;
-    width: 5vw;
+    border-radius: 22px;
     height: 4vh;
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    aspect-ratio: 1;
+    position: fixed;
     right: 1vh;
+    top: 1vh;
+    overflow: hidden;
+    transition: height .3s, border-radius .3s;
+}
+
+#language_preview.active {
+    height: 20vh;
+    border-radius: 22px 0 0 22px;
+    transition: height .3s, border-radius .3s;
+    overflow-y: auto;
+}
+
+/* width */
+#language_preview.active::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+#language_preview.active::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+#language_preview.active::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+#language_preview.active::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .language_option {
@@ -56,10 +88,15 @@
     aspect-ratio: 1;
     border-radius: 100%;
     background-size: cover;
+    margin: .4vh;
 }
 
 .language_option:hover {
     cursor: pointer;
+}
+
+.language_option:hover::after{
+    content:'FR',
 }
 
 /* #endregion */
