@@ -31,7 +31,7 @@ export function getCookie(cName, onlyValue) {
 }
 
 'use strict';
-import languageJson from '../data/languages.json' assert {type: 'json'}
+import languageJson from '../../data/languages.json' assert {type: 'json'}
 
 let language = getCookie('lang', true);
 language = language ? language : languageJson.default;

@@ -2,22 +2,28 @@
 <html>
 
 <head>
-	<title type="home">Bănică Ninel-Valentin ~ Profile</title>
+	<title type="home">Home ~ Bănică Ninel-Valentin</title>
 	<link rel="stylesheet" href="/storage/css/common.css" />
+	<link rel="stylesheet" href="/storage/css/main.css" />
 	<!--<meta http-equiv="refresh" content=".1;url=/workInProgress.html" />-->
 </head>
 
 <body>
-	<div id="language_container"></div>
-	<div id="content_container"></div>
+	<div id="scroll" data-type="container">
+	</div>
+	<div id="language" data-type="container"></div>
+	<div id="content" data-type="container"></div>
+	<div id="content" data-type="container"></div>
 	<!-- Load React. -->
 	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
 	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
 	<!-- Load our React components. -->
-	<script type="module" src="/storage/scripts/languageService.js"></script>
-	<script type="module" src="/storage/scripts/cookieService.js"></script>
+	<script type="module" src="/storage/scripts/common/languageService.js"></script>
+	<script type="module" src="/storage/scripts/common/cookieService.js"></script>
+	<script type="module" src="/storage/scripts/mainService.js"></script>
+	<script type="module" src="/storage/scripts/scrollService.js"></script>
 	<footer>
 	</footer>
 </body>

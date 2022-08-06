@@ -1,0 +1,89 @@
+/* #region ImageFrame */
+#imageFrame {
+    height: 60vh;
+    width: 20vw;
+    background-color: white;
+    position: relative;
+    top: 5vh;
+    float: right;
+    right: 10vw;
+    background-image: url(../media/pictures/profile.jpg);
+    background-size: 20vw 60vh;
+    border-radius: 0 125px;
+    transition: height .3s, width .3s, right .3s, background-position .3s, border-radius .3s;
+}
+
+#imageFrame:hover {
+    right: 15vw;
+    height: 30vh;
+    width: 10vw;
+    background-position: -5vw 0;
+    border-radius: 0 75px;
+    transition: height .3s, width .3s, right .3s, background-position .3s, border-radius .3s;
+}
+
+/* #endregion */
+
+/* #region Scroll */
+#ruller {
+    width: 3vw;
+    height: 200vh;
+    position: fixed;
+    left: 0;
+}
+
+#ruller #up {
+    background-color: white;
+    width: 3vw;
+    height: 95vh;
+    position: relative;
+    border-radius: 0 0 40px 0;
+}
+
+#ruller #down {
+    background-color: white;
+    width: 3vw;
+    height: 95vh;
+    position: relative;
+    border-radius: 0 40px 0 0;
+    top: 5vh;
+}
+
+#buttons {
+    width: 3vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+}
+
+.rullerButton {
+    width: 5vh;
+    aspect-ratio: 1;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #101222 !important;
+    z-index: 4;
+}
+
+.rullerButton.active {
+    color: white !important;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+/* #endregion */
+
+#mainTitle {
+    display: block;
+    position: absolute;
+    left: 15vw;
+    top:10vh;
+    font-size:3em;
+}

@@ -24,8 +24,8 @@
 </head>
 
 <body>
-	<div id="language_container"></div>
-	<div id="content_container"></div>
+	<div id="language" data-type="container"></div>
+	<div id="content" data-type="container"></div>
 	<!-- Load React. -->
 	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
 	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -33,8 +33,8 @@
 
 	<!-- Load our React components. -->
 	<script type="module" src="/storage/scripts/workInProgress.js"></script>
-	<script type="module" src="/storage/scripts/languageService.js"></script>
-	<script type="module" src="/storage/scripts/cookieService.js"></script>
+	<script type="module" src="/storage/scripts/common/languageService.js"></script>
+	<script type="module" src="/storage/scripts/common/cookieService.js"></script>
 	<footer>
 	</footer>
 </body>

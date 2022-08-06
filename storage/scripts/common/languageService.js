@@ -1,6 +1,6 @@
 'use strict';
-import languageJson from '../data/languages.json' assert {type: 'json'}
-import { getCookie, setCookie, timeUnits } from '../scripts/cookieService.js'
+import languageJson from '../../data/languages.json' assert {type: 'json'}
+import { getCookie, setCookie, timeUnits } from './cookieService.js'
 
 let language = getCookie('lang', true);
 language = language ? language : languageJson.default;
@@ -114,7 +114,7 @@ class LanguagePreview extends React.Component {
     }
 }
 
-const domContainer = document.querySelector('#language_container');
+const domContainer = document.querySelector('#language[data-type="container"]');
 const root = ReactDOM.createRoot(domContainer);
 root.render(e(LanguagePreview));
 

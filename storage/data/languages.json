@@ -21,6 +21,10 @@
                 {
                     "@type": "cookiesAccept",
                     "message": "Allow"
+                },
+                {
+                    "@type": "mainTitle",
+                    "message": "Hello, and welcome to my website</br>where I will be presenting you</br>a thing or two about myself."
                 }
             ],
             "titles": [

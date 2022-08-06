@@ -1,6 +1,6 @@
 'use strict';
 import languageJson from '../data/languages.json' assert {type: 'json'}
-import { getCookie } from '../scripts/cookieService.js'
+import { getCookie } from './common/cookieService.js'
 
 let language = getCookie('lang',true);
 language = language ? language : languageJson.default;
@@ -45,6 +45,6 @@ class Maintenance extends React.Component {
     }
 }
 
-const domContainer = document.querySelector('#content_container');
+const domContainer = document.querySelector('#content[data-type="container"]');
 const root = ReactDOM.createRoot(domContainer);
 root.render(e(Maintenance));

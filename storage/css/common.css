@@ -43,7 +43,6 @@
 /* #endregion */
 
 /* #region LanguageSwitch */
-
 #language_preview {
     background-color: gainsboro;
     border-radius: 22px;
@@ -54,6 +53,7 @@
     top: 1vh;
     overflow: hidden;
     transition: height .3s, border-radius .3s;
+    z-index: 3;
 }
 
 #language_preview.active {
@@ -95,14 +95,15 @@
     cursor: pointer;
 }
 
-.language_option:hover::after{
-    content:'FR',
+.language_option:hover::after {
+    content: 'FR',
 }
 
 /* #endregion */
 
 body {
     background-color: #101222;
+    overflow:hidden;
 }
 
 * {
