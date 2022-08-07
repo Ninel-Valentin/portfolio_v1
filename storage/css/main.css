@@ -3,7 +3,7 @@
     height: 60vh;
     width: 20vw;
     background-color: white;
-    position: relative;
+    position: absolute;
     top: 5vh;
     float: right;
     right: 10vw;
@@ -13,6 +13,7 @@
     transition: height .3s, width .3s, right .3s, background-position .3s, border-radius .3s;
 }
 
+/*
 #imageFrame:hover {
     right: 15vw;
     height: 30vh;
@@ -21,7 +22,7 @@
     border-radius: 0 75px;
     transition: height .3s, width .3s, right .3s, background-position .3s, border-radius .3s;
 }
-
+*/
 /* #endregion */
 
 /* #region Scroll */
@@ -82,8 +83,19 @@
 
 #mainTitle {
     display: block;
-    position: absolute;
-    left: 15vw;
-    top:10vh;
-    font-size:3em;
+    margin: 2vw 0 0 15vw;
+    font-size: 3em;
+}
+
+.question {
+    display: block;
+    margin: 5vh 0 0 15vw;
+    font-size: 2.5em;
+}
+
+.answer {
+    display: block;
+    margin: 0 0 0 15vw;
+    font-size: 2em;
+    width: 55vw;
 }

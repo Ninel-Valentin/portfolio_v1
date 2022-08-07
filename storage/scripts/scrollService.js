@@ -48,7 +48,7 @@ class ScrollBar extends React.Component {
                         className: `rullerButton${this.state.active == x.id ? ' active' : ''}`,
                         key: `rullerButton${x.id}`,
                         value: x.id,
-                        onClick: async (e) => {
+                        onClick: (e) => {
                             let currentActive = this.state.active;
                             let currentNode = document.querySelector(`div[value="${currentActive}"]`);
                             currentNode.className = 'rullerButton';
@@ -86,7 +86,7 @@ class ScrollBar extends React.Component {
     }
 }
 
-function scrollDown(event) {
+function scroll(event) {
     // MIGHT BE DISABLED
     if (canScroll) {
         let active = document.querySelector('.active').getAttribute('value');
@@ -103,7 +103,7 @@ function scrollDown(event) {
     canScroll = false;
 }
 
-document.onwheel = scrollDown;
+document.onwheel = scroll;
 
 const domContainer = document.querySelector('#scroll[data-type="container"]');
 const root = ReactDOM.createRoot(domContainer);

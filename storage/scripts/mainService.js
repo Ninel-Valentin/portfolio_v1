@@ -9,41 +9,69 @@ const e = React.createElement;
 
 class Text extends React.Component {
     render() {
-        return e(
+        function ContentParser(content, contentType) {
+            switch (contentType) {
+                case 'Q&A':
+                    let final = [];
+                    content.forEach((x, index) => {
+                        final.push(...[e(
+                            'h4',
+                            {
+                                key: `q${index}`,
+                                className: `question`
+                            },
+                            x.q
+                        ),
+                        e(
+                            'h6',
+                            {
+                                key: `a${index}`,
+                                className: `answer`
+                            },
+                            ...x.a.split('</br>').map((y, i) =>
+                                ['→ ', y, e('br', { key: `brAnswer${i}` })]
+                            )
+                        )]);
+                    })
+                    return final;
+                default:
+                    throw ('Wrong content type passed in the parser!');
+            }
+        }
+
+        return [e(
             'h1',
             {
                 id: "mainTitle",
                 key: "mainTitle"
             },
-            ...languageJson
+            ...['mainTitle', 'mainContent'].map(x =>
+                languageJson
+                    .content.find(y => y.lang == language)
+                    .data.find(y => y['@type'] == x)
+                    .message.split('</br>').map((y, index) =>
+                        [y, e('br', { key: `brContent${index}` })])
+            )
+        ),
+        ContentParser(languageJson
+            .content.find(x => x.lang == language)
+            .data.find(x => x['@type'] == 'mainContent').content,
+            languageJson
                 .content.find(x => x.lang == language)
-                .data.find(x => x['@type'] == 'mainTitle')
-                .message.split('</br>').map((x, index) => [x, e('br', { key: `br${index}` })])
-        )
+                .data.find(x => x['@type'] == 'mainContent')['@contentType'])
+        ]
     }
 }
 
 class ImageFrame extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            step: 0
-        }
-    }
-
     render() {
-        switch (this.state.step) {
-            default:
-                throw ('Invalid step on ImageFrame');
-            case 0:
-                return e(
-                    'img',
-                    {
-                        id: 'imageFrame',
-                        key: 'imageFrame'
-                    }
-                );
-        }
+        return e(
+            'img',
+            {
+                id: 'imageFrame',
+                key: 'imageFrame'
+            }
+        );
     }
 }
 

@@ -24,7 +24,61 @@
                 },
                 {
                     "@type": "mainTitle",
-                    "message": "Hello, and welcome to my website</br>where I will be presenting you</br>a thing or two about myself."
+                    "message": "Hello, and welcome to my web portofolio!"
+                },
+                {
+                    "@type": "mainContent",
+                    "message":"Let's start with the basics!",
+                    "@contentType":"Q&A",
+                    "content":[
+                        {
+                            "q":"Who am I?",
+                            "a":"My name is Ninel-Valentin L. Bănică."
+                        },
+                        {
+                            "q":"What is my occupation?",
+                            "a":"I am an Electrical Engineering & Computer Science student in Brașov, Romania;</br>I work as an Programmer Analyst - Web Crawler Dev at ChannelSight: eCommerce Intelligence."
+                        }
+                    ]
+                },
+                {
+                    "@type": "bio",
+                    "message":"Few things about myself:",
+                    "@contentType":"Table",
+                    "content":[
+                        {
+                            "name":"dateOfBirth",
+                            "value":"14/02/2003"
+                        },
+                        {
+                            "name":"address",
+                            "value":"374 Iordăcheanu, Prahova, Romania"
+                        },
+                        {
+                            "name":"phone",
+                            "value": "+40 730 042 104"
+                        },
+                        {
+                            "name":"eMail",
+                            "value":"valentinbanica8@gmail.com"
+                        },
+                        {
+                            "name":"Skype",
+                            "value":""
+                        },
+                        {
+                            "name":"Zoom",
+                            "value":""
+                        },
+                        {
+                            "name":"Sex",
+                            "value":"M"
+                        },
+                        {
+                            "name":"Nationality",
+                            "value":"Romanian"
+                        }
+                    ]
                 }
             ],
             "titles": [
@@ -57,6 +111,10 @@
                 {
                     "@type": "cookiesAccept",
                     "message": "Permiteți"
+                },
+                {
+                    "@type": "mainTitle",
+                    "message": "Salutări, și bine ați venit pe portofoliul meu web!"
                 }
             ],
             "titles": [
@@ -89,6 +147,10 @@
                 {
                     "@type": "cookiesAccept",
                     "message": "Permettre"
+                },
+                {
+                    "@type": "mainTitle",
+                    "message": "Hello, and welcome to my portofolio website!"
                 }
             ],
             "titles": [
