@@ -4,7 +4,7 @@
     width: 20vw;
     background-color: white;
     position: absolute;
-    top: 5vh;
+    top: 0vh;
     float: right;
     right: 10vw;
     background-image: url(../media/pictures/profile.jpg);
@@ -81,21 +81,32 @@
 
 /* #endregion */
 
+/* #region Section 1 */
+
 #mainTitle {
     display: block;
-    margin: 2vw 0 0 15vw;
+    margin: 2vw 0 5vw 10vw;
     font-size: 3em;
 }
 
 .question {
     display: block;
-    margin: 5vh 0 0 15vw;
+    margin: 5vh 0 0 10vw;
     font-size: 2.5em;
 }
 
 .answer {
     display: block;
-    margin: 0 0 0 15vw;
+    margin: 0 0 0 10vw;
     font-size: 2em;
     width: 55vw;
+}
+
+/* #endregion */
+
+#content {
+    top: 10vh;
+    left:5vw;
+    position: relative;
+    z-index: 1;
 }

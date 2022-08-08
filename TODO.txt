@@ -3,6 +3,11 @@ MODIFY README.md https://ninel-valentin.github.io/
 move address to Data.json/cv.json and take it from there
 separate contact and only display few things on the first page
 
+set scroll based on url
+add scroll info
+
+try instead of fading to scroll from middle to top and from bottom to middle on scroll animate
+
 send me an email function
 - add email contact but be sent by custom mail
 download my cv doc/pdf

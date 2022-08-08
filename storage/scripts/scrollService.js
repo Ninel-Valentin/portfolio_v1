@@ -4,6 +4,7 @@ import stepsJson from '../data/mainSteps.json' assert {type: 'json'}
 const e = React.createElement;
 var canScroll = true;
 
+
 class ScrollBar extends React.Component {
     constructor(props) {
         super(props);
@@ -12,6 +13,32 @@ class ScrollBar extends React.Component {
         }
     }
     render() {
+
+        window.addEventListener('load', (e) => {
+            let url = window.location.href.split('?page=')
+            let page = url.length > 1 ? url.pop() : 0;
+
+            // Move ruller
+            document.querySelector('#ruller').setAttribute('style',
+                `top: ${CalculateHeight(page)}vh`);
+            // Set text colors
+            document.querySelectorAll('.rullerButton').forEach(x => x.className = 'rullerButton');
+            document.querySelector(`.rullerButton[value="${page}"]`).classList.add('active');
+            this.setState({ active: page });
+        });
+
+        function ModifyUrl(myUrl, senderId) {
+            if (myUrl.includes('?')) {
+                myUrl = `${myUrl.split('?').shift()}?page=${senderId}`;
+            } else {
+                myUrl += `?page=${senderId}`;
+            }
+
+            history.replaceState({
+                id: senderId,
+                source: 'web'
+            }, '', myUrl);
+        }
 
         function CalculateHeight(index) {
             // calculate for #down
@@ -55,6 +82,9 @@ class ScrollBar extends React.Component {
                             e.target.className = 'rullerButton active';
                             let targetActive = e.target.getAttribute('value');
 
+                            //Change URL
+                            ModifyUrl(window.location.href, +targetActive)
+
                             let ruller = document.querySelector('#ruller');
                             let rullerStyle = ruller.getAttribute('style');
                             let rullerHeight = rullerStyle.match(/-?\d+(\.\d+)?/g)[0];
@@ -93,7 +123,6 @@ function scroll(event) {
         if (event.deltaY) {
             // Scroll Up / Down
             let next = +active + (event.deltaY / Math.abs(event.deltaY));
-            console.log()
             // If the move is impossible, do nothing
             if (next >= stepsJson.content.length || next < 0) return;
             let nextNode = document.querySelector(`[value="${next}"]`);

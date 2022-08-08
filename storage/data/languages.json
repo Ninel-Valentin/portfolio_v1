@@ -47,15 +47,15 @@
                     "@contentType":"Table",
                     "content":[
                         {
-                            "name":"dateOfBirth",
+                            "name":"Date of birth",
                             "value":"14/02/2003"
                         },
                         {
-                            "name":"address",
+                            "name":"Address",
                             "value":"374 Iordăcheanu, Prahova, Romania"
                         },
                         {
-                            "name":"phone",
+                            "name":"Phone",
                             "value": "+40 730 042 104"
                         },
                         {
@@ -64,11 +64,7 @@
                         },
                         {
                             "name":"Skype",
-                            "value":""
-                        },
-                        {
-                            "name":"Zoom",
-                            "value":""
+                            "value":"live:valentinbanica8"
                         },
                         {
                             "name":"Sex",
