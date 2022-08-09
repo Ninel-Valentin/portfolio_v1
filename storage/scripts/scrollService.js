@@ -18,6 +18,13 @@ class ScrollBar extends React.Component {
             let url = window.location.href.split('?page=')
             let page = url.length > 1 ? url.pop() : 0;
 
+            let start = stepsJson.content[0].id;
+            let end = stepsJson.content[stepsJson.content.length - 1].id;
+            if (start > page || end < page) {
+                page = +Math.min(end, Math.max(start, page));
+                window.location.href = `${url[0]}?page=${page}`;
+            }
+
             // Move ruller
             document.querySelector('#ruller').setAttribute('style',
                 `top: ${CalculateHeight(page)}vh`);
@@ -42,6 +49,7 @@ class ScrollBar extends React.Component {
 
         function CalculateHeight(index) {
             // calculate for #down
+            //100 vh / number of steps - 5vh (selected space) / 2
             let pSize = (100 / stepsJson.content.length - 5) / 2;
             let height = -100 + index * (2 * pSize + 5) + pSize + 5;
             return height;

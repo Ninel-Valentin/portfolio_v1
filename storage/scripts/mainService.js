@@ -56,12 +56,10 @@ class Text extends React.Component {
                                     [y, e('br', { key: `brContent${index}` })])
                         )
                     ),
-                    ContentParser(languageJson
-                        .content.find(x => x.lang == language)
-                        .data.find(x => x['@type'] == 'mainContent').content,
+                    ContentParser(
                         languageJson
                             .content.find(x => x.lang == language)
-                            .data.find(x => x['@type'] == 'mainContent')['@contentType']),
+                            .data.find(x => x['@type'] == 'mainContent')),
                     e(
                         'img',
                         {
@@ -69,7 +67,11 @@ class Text extends React.Component {
                             key: 'imageFrame'
                         }
                     )]
-                    break;
+                case 1:
+                    return ContentParser(
+                        languageJson
+                            .content.find(x => x.lang == language)
+                            .data.find(x => x['@type'] == 'bio'))
                 default:
                     return [e(
                         'h1',
@@ -79,12 +81,12 @@ class Text extends React.Component {
                         },
                         'hey'
                     )]
-                    break;
             }
         }
 
-        function ContentParser(content, contentType) {
-            switch (contentType) {
+        function ContentParser(contentNode) {
+            let content = contentNode.content;
+            switch (contentNode['@contentType']) {
                 case 'Q&A':
                     let final = [];
                     content.forEach((x, index) => {
@@ -108,6 +110,57 @@ class Text extends React.Component {
                         )]);
                     })
                     return final;
+                case 'Table':
+                    return e(
+                        'table',
+                        {
+                            id: 'bio',
+                            key: 'bio'
+                        },
+                        e(
+                            'tbody',
+                            {
+                                key: 'biotbody'
+                            },
+                            content.map((x, index) => {
+                                return [e(
+                                    'tr',
+                                    {
+                                        key: `biotr${index}`
+                                    },
+                                    ...[
+                                        e('td', {
+                                            key: `biotdname${index}`,
+                                            className: 'biotdname'
+                                        }, x.name
+                                        ),
+                                        e('td', {
+                                            key: `biotdvalue${index}`,
+                                            className: 'biotdvalue',
+                                            onClick: (e) => {
+                                                navigator.clipboard.writeText(x.value);
+                                                e.target.innerText = 'Value copied to the clipboard!';
+
+                                                let animFT = [
+                                                    { color: 'white' },
+                                                    { color: '#101222'}
+                                                ]
+                                                let animProps = {
+                                                    duration: 1000,
+                                                    easing: 'ease-in-out'
+                                                }
+                                                e.target.animate(animFT, animProps);
+
+                                                setTimeout(() => {
+                                                    e.target.innerText = x.value;
+                                                }, 1000);
+                                            }
+                                        }, x.value
+                                        )]
+                                )];
+                            })
+                        )
+                    )
                 default:
                     throw ('Wrong content type passed in the parser!');
             }

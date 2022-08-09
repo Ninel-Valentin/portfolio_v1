@@ -104,9 +104,39 @@
 
 /* #endregion */
 
+/* #region Section 2 */
+
+#bio {
+    background-color:white;
+    width: 90vw;
+    margin-top: 10vh;
+    font-size: xx-large;
+}
+
+#bio td{
+    background-color:#101222;
+    padding-top:2vh;
+}
+
+#bio .biotdname {
+    text-align: right;
+    width: 30%;
+}
+
+#bio .biotdvalue {
+    text-align: center;
+}
+
+#bio .biotdvalue:hover{
+    border-radius:100px 0 100px 0;
+    cursor:pointer;
+}
+
+/* #endregion */
+
 #content {
     top: 10vh;
-    left:5vw;
+    left: 5vw;
     position: relative;
     z-index: 1;
 }

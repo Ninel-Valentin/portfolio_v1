@@ -1,11 +1,5 @@
 MODIFY README.md https://ninel-valentin.github.io/
 
-move address to Data.json/cv.json and take it from there
-separate contact and only display few things on the first page
-
-set scroll based on url
-add scroll info
-
 try instead of fading to scroll from middle to top and from bottom to middle on scroll animate
 
 send me an email function
@@ -13,6 +7,8 @@ send me an email function
 download my cv doc/pdf
 preview my cv (data taken from json so can be updated easily)
 animated svg
+
+load animated svg as frame on each scroll 
 
 FINAL:
 do App function {
