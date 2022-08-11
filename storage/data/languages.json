@@ -28,53 +28,57 @@
                 },
                 {
                     "@type": "mainContent",
-                    "message":"Let's start with the basics!",
-                    "@contentType":"Q&A",
-                    "content":[
+                    "message": "Let's start with the basics!",
+                    "@contentType": "Q&A",
+                    "content": [
                         {
-                            "q":"Who am I?",
-                            "a":"My name is Ninel-Valentin L. Bănică."
+                            "q": "Who am I?",
+                            "a": "My name is Ninel-Valentin L. Bănică."
                         },
                         {
-                            "q":"What is my occupation?",
-                            "a":"I am an Electrical Engineering & Computer Science student in Brașov, Romania;</br>I work as an Programmer Analyst - Web Crawler Dev at ChannelSight: eCommerce Intelligence."
+                            "q": "What is my occupation?",
+                            "a": "I am an Electrical Engineering & Computer Science student in Brașov, Romania;</br>I work as an Programmer Analyst - Web Crawler Dev at ChannelSight: eCommerce Intelligence."
                         }
                     ]
                 },
                 {
                     "@type": "bio",
-                    "message":"Few things about myself:",
-                    "@contentType":"Table",
-                    "content":[
+                    "message": "Few things about myself:",
+                    "@contentType": "Table",
+                    "content": [
                         {
-                            "name":"Date of birth",
-                            "value":"14/02/2003"
+                            "name": "Date of birth",
+                            "value": "14/02/2003"
                         },
                         {
-                            "name":"Address",
-                            "value":"374 Iordăcheanu, Prahova, Romania"
+                            "name": "Address",
+                            "value": "374 Iordăcheanu, Prahova, Romania"
                         },
                         {
-                            "name":"Phone",
+                            "name": "Phone",
                             "value": "+40 730 042 104"
                         },
                         {
-                            "name":"eMail",
-                            "value":"valentinbanica8@gmail.com"
+                            "name": "eMail",
+                            "value": "valentinbanica8@gmail.com"
                         },
                         {
-                            "name":"Skype",
-                            "value":"live:valentinbanica8"
+                            "name": "Skype",
+                            "value": "live:valentinbanica8"
                         },
                         {
-                            "name":"Sex",
-                            "value":"M"
+                            "name": "Sex",
+                            "value": "M"
                         },
                         {
-                            "name":"Nationality",
-                            "value":"Romanian"
+                            "name": "Nationality",
+                            "value": "Romanian"
                         }
                     ]
+                },
+                {
+                    "@type": "copyToClipboard",
+                    "message": "Click any of the above cells to copy it's content!"
                 }
             ],
             "titles": [
@@ -111,6 +115,60 @@
                 {
                     "@type": "mainTitle",
                     "message": "Salutări, și bine ați venit pe portofoliul meu web!"
+                },
+                {
+                    "@type": "mainContent",
+                    "message": "Să începem cu începutul!",
+                    "@contentType": "Q&A",
+                    "content": [
+                        {
+                            "q": "Cine sunt eu?",
+                            "a": "Mă numesc Ninel-Valentin L. Bănică."
+                        },
+                        {
+                            "q": "Cu ce mă ocup?",
+                            "a": "Sunt un student în Inginerie Electrică & Știința Calculatoarelor în Brașov, România;</br>Lucrez ca și Programator Analist - Web Crawler Dev la ChannelSight: eCommerce Intelligence."
+                        }
+                    ]
+                },
+                {
+                    "@type": "bio",
+                    "message": "Câteva lucruri despre mine:",
+                    "@contentType": "Table",
+                    "content": [
+                        {
+                            "name": "Data nașterii",
+                            "value": "14/02/2003"
+                        },
+                        {
+                            "name": "Adresa",
+                            "value": "374 Iordăcheanu, Prahova, Romania"
+                        },
+                        {
+                            "name": "Telefon",
+                            "value": "+40 730 042 104"
+                        },
+                        {
+                            "name": "eMail",
+                            "value": "valentinbanica8@gmail.com"
+                        },
+                        {
+                            "name": "Skype",
+                            "value": "live:valentinbanica8"
+                        },
+                        {
+                            "name": "Sex",
+                            "value": "M"
+                        },
+                        {
+                            "name": "Naționalitate",
+                            "value": "Român"
+                        }
+                    ]
+                },
+                {
+                    "@type": "copyToClipboard",
+                    "message": "Apasă pe orice celulă de mai sus pentru a copia conținutul!"
                 }
             ],
             "titles": [
@@ -147,6 +205,60 @@
                 {
                     "@type": "mainTitle",
                     "message": "Hello, and welcome to my portofolio website!"
+                },
+                {
+                    "@type": "mainContent",
+                    "message":"Tout d'abord!",
+                    "@contentType":"Q&A",
+                    "content":[
+                        {
+                            "q":"Qui suis je?",
+                            "a":"Je m'appelle Ninel-Valentin L. Bănică."
+                        },
+                        {
+                            "q":"Que fais-je?",
+                            "a":"Je suis étudiant en génie électrique et en informatique à Brașov, en Roumanie;</br>Je travaille en tant qu'analyste programmeur - Web Crawler Dev chez ChannelSight : eCommerce Intelligence."
+                        }
+                    ]
+                },
+                {
+                    "@type": "bio",
+                    "message":"Quelques choses sur moi:",
+                    "@contentType":"Table",
+                    "content":[
+                        {
+                            "name":"Date de naissance",
+                            "value":"14/02/2003"
+                        },
+                        {
+                            "name":"Adresse",
+                            "value":"374 Iordăcheanu, Prahova, Romania"
+                        },
+                        {
+                            "name":"Téléphoner",
+                            "value": "+40 730 042 104"
+                        },
+                        {
+                            "name":"eMail",
+                            "value":"valentinbanica8@gmail.com"
+                        },
+                        {
+                            "name":"Skype",
+                            "value":"live:valentinbanica8"
+                        },
+                        {
+                            "name":"Sexe",
+                            "value":"M"
+                        },
+                        {
+                            "name":"Nationalité",
+                            "value":"Roumain"
+                        }
+                    ]
+                },
+                {
+                    "@type": "copyToClipboard",
+                    "message": "Cliquez sur l'une des cellules ci-dessus pour copier son contenu!"
                 }
             ],
             "titles": [

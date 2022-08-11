@@ -107,15 +107,15 @@
 /* #region Section 2 */
 
 #bio {
-    background-color:white;
+    background-color: white;
     width: 90vw;
     margin-top: 10vh;
     font-size: xx-large;
 }
 
-#bio td{
-    background-color:#101222;
-    padding-top:2vh;
+#bio td {
+    background-color: #101222;
+    padding-top: 2vh;
 }
 
 #bio .biotdname {
@@ -127,9 +127,78 @@
     text-align: center;
 }
 
-#bio .biotdvalue:hover{
-    border-radius:100px 0 100px 0;
-    cursor:pointer;
+#bio .biotdvalue:hover {
+    border-radius: 100px 0 100px 0;
+    cursor: pointer;
+}
+
+/* #endregion */
+
+/* #region Section 2*/
+
+#bioTable {
+    position: relative;
+    top: -5vh
+}
+
+.bioHeader {
+    color: #101222;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    background-color: white;
+    border-radius: 0 28px 0 28px;
+    position: relative;
+    margin: 0 0 8vh 10vw;
+    height: 3vh;
+    width: 10vw;
+    border: dashed 3px #101222;
+}
+
+.bioRowValue{
+    color: #101222;
+    text-align: center;
+    font-size: xx-large;
+    width:63.5vw;
+    pointer-events: none;
+}
+
+.bioRow {
+    padding-top: 1vh;
+    background-color: white;
+    position: relative;
+    top: 6px;
+    left: 2vw;
+    width: 70vw;
+    height: 6vh;
+    border-radius: 0 28px 0 28px;
+    transition: background-color ease-in-out .4s;
+    border: dashed 3px #101222;
+}
+
+.bioRow:hover {
+    cursor: pointer;
+    background-color: #acacac;
+    transition: background-color .2s;
+}
+
+.bioRow .copyToClipboard {
+    height: 5.5vh;
+    aspect-ratio: 1;
+    float: right;
+    position: relative;
+    top:-4vh;
+    right:.5vw;
+    background-image: url(../media/others/copy.png);
+    background-size: cover;
+    opacity: 0;
+    transition: opacity .2s;
+    pointer-events: none;
+}
+
+.bioRow:hover .copyToClipboard {
+    opacity: 1;
+    transition: opacity .2s;
 }
 
 /* #endregion */

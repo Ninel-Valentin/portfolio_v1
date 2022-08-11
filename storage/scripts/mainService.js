@@ -68,10 +68,28 @@ class Text extends React.Component {
                         }
                     )]
                 case 1:
-                    return ContentParser(
+                    return [ContentParser(
                         languageJson
                             .content.find(x => x.lang == language)
-                            .data.find(x => x['@type'] == 'bio'))
+                            .data.find(x => x['@type'] == 'bio'), 'Table1'),
+                    e('div',
+                        {
+                            key: 'copyToClipboard',
+                            style: {
+                                'width': '90vw',
+                                'textAlign': 'right'
+                            }
+                        },
+                        languageJson
+                            .content.find(x => x.lang == language)
+                            .data.find(x => x['@type'] == 'copyToClipboard')
+                            .message
+                    )]
+                case 2: return ContentParser(
+                    languageJson
+                        .content.find(x => x.lang == language)
+                        .data.find(x => x['@type'] == 'bio'))
+
                 default:
                     return [e(
                         'h1',
@@ -84,9 +102,9 @@ class Text extends React.Component {
             }
         }
 
-        function ContentParser(contentNode) {
+        function ContentParser(contentNode, type = contentNode['@contentType']) {
             let content = contentNode.content;
-            switch (contentNode['@contentType']) {
+            switch (type) {
                 case 'Q&A':
                     let final = [];
                     content.forEach((x, index) => {
@@ -110,7 +128,7 @@ class Text extends React.Component {
                         )]);
                     })
                     return final;
-                case 'Table':
+                case 'Table1':
                     return e(
                         'table',
                         {
@@ -139,11 +157,11 @@ class Text extends React.Component {
                                             className: 'biotdvalue',
                                             onClick: (e) => {
                                                 navigator.clipboard.writeText(x.value);
-                                                e.target.innerText = 'Value copied to the clipboard!';
+                                                e.target.innerText = 'Text copied to the clipboard!';
 
                                                 let animFT = [
                                                     { color: 'white' },
-                                                    { color: '#101222'}
+                                                    { color: '#101222' }
                                                 ]
                                                 let animProps = {
                                                     duration: 1000,
@@ -161,6 +179,63 @@ class Text extends React.Component {
                             })
                         )
                     )
+                case 'Table':
+                    return e(
+                        'div',
+                        {
+                            key: 'bioTable',
+                            id: 'bioTable'
+                        },
+                        content.map((x, index) => {
+                            return e(
+                                'div',
+                                {
+                                    className: 'bioHeader',
+                                    key: `bioHeader${index}`
+                                },
+                                [x.name,
+                                e(
+                                    'div',
+                                    {
+                                        className: 'bioRow',
+                                        key: `bioRow${index}`,
+                                        onClick: (e) => {
+                                            let target = e.target.querySelector('.bioRowValue');
+                                            navigator.clipboard.writeText(x.value);
+                                            target.innerText = 'Text copied to the clipboard!';
+
+                                            let animFT = [
+                                                { color: '#101222' },
+                                                { color: 'transparent' }
+                                            ]
+                                            let animProps = {
+                                                duration: 700,
+                                                easing: 'ease-in-out'
+                                            }
+                                            target.animate(animFT, animProps);
+
+                                            setTimeout(() => {
+                                                target.innerText = x.value;
+                                            }, 685);
+                                        }
+                                    },
+                                    [e(
+                                        'div', {
+                                        className: 'bioRowValue',
+                                        key: `bioRowVal${index}`
+                                    },
+                                        x.value
+                                    ),
+                                    e('div',
+                                        {
+                                            className: 'copyToClipboard',
+                                            key: `copyImg${index}`
+                                        })
+                                    ]
+                                )]
+                            )
+                        })
+                    )
                 default:
                     throw ('Wrong content type passed in the parser!');
             }
@@ -174,4 +249,4 @@ class Text extends React.Component {
 const domContainer = document.querySelector('#content[data-type="container"]');
 const root = ReactDOM.createRoot(domContainer);
 var textNode = Text;
-root.render([e(textNode)]);
+root.render([e(textNode, { key: 'rootRender' })]);

@@ -6,7 +6,8 @@ send me an email function
 - add email contact but be sent by custom mail
 download my cv doc/pdf
 preview my cv (data taken from json so can be updated easily)
-animated svg
+animated svg with inner object shadow
+designer.mocky.io
 
 load animated svg as frame on each scroll 
 
