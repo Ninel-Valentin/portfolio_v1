@@ -2,8 +2,7 @@
 import languageJson from '../data/languages.json' assert {type: 'json'}
 import { getCookie } from '../scripts/common/cookieService.js'
 
-let language = getCookie('lang', true);
-language = language ? language : languageJson.default;
+let language = getCookie('lang', true) || languageJson.default;
 
 const e = React.createElement;
 
@@ -40,6 +39,7 @@ class Text extends React.Component {
         });
 
         function GetContent(page) {
+            language = getCookie('lang', true) || languageJson.default;
             switch (+page) {
                 case 0:
                     return [e(
@@ -48,18 +48,14 @@ class Text extends React.Component {
                             id: "mainTitle",
                             key: "mainTitle"
                         },
-                        ...['mainTitle', 'mainContent'].map(x =>
-                            languageJson
-                                .content.find(y => y.lang == language)
-                                .data.find(y => y['@type'] == x)
-                                .message.split('</br>').map((y, index) =>
-                                    [y, e('br', { key: `brContent${index}` })])
-                        )
+                        languageJson.content
+                            .find(x => x['@type'] == 'mainTitle')[language]
+                            .split('</br>').map((x, index) =>
+                                [x, e('br', { key: `brContent${index}` })])
                     ),
                     ContentParser(
-                        languageJson
-                            .content.find(x => x.lang == language)
-                            .data.find(x => x['@type'] == 'mainContent')),
+                        languageJson.content
+                            .find(x => x['@type'] == 'mainContent')),
                     e(
                         'img',
                         {
@@ -67,28 +63,9 @@ class Text extends React.Component {
                             key: 'imageFrame'
                         }
                     )]
-                case 1:
-                    return [ContentParser(
-                        languageJson
-                            .content.find(x => x.lang == language)
-                            .data.find(x => x['@type'] == 'bio'), 'Table1'),
-                    e('div',
-                        {
-                            key: 'copyToClipboard',
-                            style: {
-                                'width': '90vw',
-                                'textAlign': 'right'
-                            }
-                        },
-                        languageJson
-                            .content.find(x => x.lang == language)
-                            .data.find(x => x['@type'] == 'copyToClipboard')
-                            .message
-                    )]
-                case 2: return ContentParser(
-                    languageJson
-                        .content.find(x => x.lang == language)
-                        .data.find(x => x['@type'] == 'bio'))
+                case 1: return ContentParser(
+                    languageJson.content
+                        .find(x => x['@type'] == 'bioTable'))
 
                 default:
                     return [e(
@@ -103,7 +80,7 @@ class Text extends React.Component {
         }
 
         function ContentParser(contentNode, type = contentNode['@contentType']) {
-            let content = contentNode.content;
+            let content = contentNode.content[language];
             switch (type) {
                 case 'Q&A':
                     let final = [];
@@ -112,7 +89,8 @@ class Text extends React.Component {
                             'h4',
                             {
                                 key: `q${index}`,
-                                className: `question`
+                                className: `question`,
+                                'data-type': 'mainContent'
                             },
                             x.q
                         ),
@@ -120,65 +98,15 @@ class Text extends React.Component {
                             'h6',
                             {
                                 key: `a${index}`,
-                                className: `answer`
+                                className: `answer`,
+                                'data-type': 'mainContent'
                             },
                             ...x.a.split('</br>').map((y, i) =>
-                                ['→ ', y, e('br', { key: `brAnswer${i}` })]
+                                [y, e('br', { key: `brAnswer${i}` })]
                             )
                         )]);
                     })
                     return final;
-                case 'Table1':
-                    return e(
-                        'table',
-                        {
-                            id: 'bio',
-                            key: 'bio'
-                        },
-                        e(
-                            'tbody',
-                            {
-                                key: 'biotbody'
-                            },
-                            content.map((x, index) => {
-                                return [e(
-                                    'tr',
-                                    {
-                                        key: `biotr${index}`
-                                    },
-                                    ...[
-                                        e('td', {
-                                            key: `biotdname${index}`,
-                                            className: 'biotdname'
-                                        }, x.name
-                                        ),
-                                        e('td', {
-                                            key: `biotdvalue${index}`,
-                                            className: 'biotdvalue',
-                                            onClick: (e) => {
-                                                navigator.clipboard.writeText(x.value);
-                                                e.target.innerText = 'Text copied to the clipboard!';
-
-                                                let animFT = [
-                                                    { color: 'white' },
-                                                    { color: '#101222' }
-                                                ]
-                                                let animProps = {
-                                                    duration: 1000,
-                                                    easing: 'ease-in-out'
-                                                }
-                                                e.target.animate(animFT, animProps);
-
-                                                setTimeout(() => {
-                                                    e.target.innerText = x.value;
-                                                }, 1000);
-                                            }
-                                        }, x.value
-                                        )]
-                                )];
-                            })
-                        )
-                    )
                 case 'Table':
                     return e(
                         'div',

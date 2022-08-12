@@ -33,8 +33,7 @@ export function getCookie(cName, onlyValue) {
 'use strict';
 import languageJson from '../../data/languages.json' assert {type: 'json'}
 
-let language = getCookie('lang', true);
-language = language ? language : languageJson.default;
+let language = getCookie('lang', true) || languageJson.default;
 
 const e = React.createElement;
 
@@ -52,9 +51,8 @@ class CookiesPopUp extends React.Component {
                         id: 'cookiesText',
                         key: 'cookiesText'
                     },
-                    ...languageJson
-                        .content.find(x => x.lang == language)
-                        .data.find(x => x['@type'] == 'cookiesText').message
+                    ...languageJson.content
+                        .find(x => x['@type'] == 'cookiesText')[language]
                         .split('</br>').map(x => [x, e('br', { key: 'br' })])
                 ),
                 e(
@@ -69,9 +67,8 @@ class CookiesPopUp extends React.Component {
                             setTimeout(() => { self.remove() }, 1000);
                         }
                     },
-                    languageJson
-                        .content.find(x => x.lang == language)
-                        .data.find(x => x['@type'] == 'cookiesAccept').message,
+                    languageJson.content
+                        .find(x => x['@type'] == 'cookiesAccept')[language],
                 )
             ]
         ) : ''

@@ -2,28 +2,45 @@
 import languageJson from '../../data/languages.json' assert {type: 'json'}
 import { getCookie, setCookie, timeUnits } from './cookieService.js'
 
-let language = getCookie('lang', true);
-language = language ? language : languageJson.default;
+let language = getCookie('lang', true) || languageJson.default;
 //This doesn't update;
 
 const e = React.createElement;
 
 function RefactorLanguage(lang) {
     if (!lang) throw ('No language was sent as parameter');
-    let langData = languageJson.content.find(x => x.lang == lang);
-    langData.data.filter(x => document.querySelectorAll(`#${x['@type']}`).length > 0)
+    languageJson.content.filter(x =>
+        document.querySelectorAll(`[data-type="${x['@type']}"]`).length > 0
+        || document.querySelectorAll(`#${x['@type']}`).length > 0)
         .forEach(x => {
             if (x.content) {
-                x.content.forEach(y => {
-                    document.querySelector(`#${y['@type']}`).innerHTML = y.message;
-                })
+                let content = x.content[language];
+                switch (x['@contentType']) {
+                    case 'Q&A':
+                        let qNodes = document.querySelectorAll('#content h4,h6');
+                        qNodes.forEach((y, i) => {
+                            // i%2 ? answer : question
+                            y.innerHTML = i % 2 ?
+                                x.content[lang][parseInt(i / 2)].a
+                                : x.content[lang][parseInt(i / 2)].q;
+                        });
+                        break;
+                    case 'Table':
+                        let tNodes = document.querySelectorAll('.bioHeader');
+                        tNodes.forEach((y, i) => {
+                            y.childNodes[0].textContent = x.content[lang][i].name;
+                            y.querySelector('.bioRowValue').innerText = x.content[lang][i].value;
+                        });
+                        break;
+                    default:
+                        throw ('Wrong content type passed in RefactorLanguage function');
+                }
             } else {
-                document.querySelector(`#${x['@type']}`).innerHTML = x.message;
+                document.querySelector(`#${x['@type']}`).innerHTML = x[lang];
             }
         });
-    document.querySelector('title').innerHTML = langData.titles
-        .find(x => x['@type'] == document.querySelector('title').getAttribute('type'))
-        .message;
+    document.querySelector('title').innerHTML = languageJson.titles
+        .find(x => x['@type'] == document.querySelector('title').getAttribute('type'))[language];
 }
 
 class LanguagePreview extends React.Component {
@@ -47,8 +64,7 @@ class LanguagePreview extends React.Component {
                     this.state.minimized = true;
                     this.forceUpdate();
                     let self = document.querySelector('#language_preview');
-                    language = getCookie('lang', true);
-                    language = language ? language : languageJson.default;
+                    language = getCookie('lang', true) || languageJson.default;
                     self.setAttribute('style',
                         `background-image: url(/storage/media/langIcons/${language}.png);` +
                         'background-size:cover;');
@@ -57,15 +73,14 @@ class LanguagePreview extends React.Component {
                 onMouseEnter: () => {
                     this.state.minimized = false;
                     this.forceUpdate();
-                    language = getCookie('lang', true);
-                    language = language ? language : languageJson.default;
+                    language = getCookie('lang', true) || languageJson.default;
                     let self = document.querySelector('#language_preview');
                     self.removeAttribute('style');
                     self.setAttribute('class', 'active');
                 }
             },
             this.state.minimized ? '' : [
-                ...languageJson.content.filter(x => x['@usable']).map(l => {
+                ...languageJson.languages.filter(x => x['@usable']).map(l => {
                     return e(
                         'img',
                         {
@@ -76,16 +91,14 @@ class LanguagePreview extends React.Component {
                                 e.target.setAttribute('src', current.replace('_OFF', ''));
                             },
                             onMouseLeave: (e) => {
-                                let language = getCookie('lang', true);
-                                language = language ? language : languageJson.default;
+                                let language = getCookie('lang', true) || languageJson.default;
                                 if (!e.target.getAttribute('src').includes(`${language}.png`)) {
                                     let current = e.target.getAttribute('src');
                                     e.target.setAttribute('src', current.replace('.png', '_OFF.png'));
                                 }
                             },
                             onClick: (e) => {
-                                let language = getCookie('lang', true);
-                                language = language ? language : languageJson.default;
+                                let language = getCookie('lang', true) || languageJson.default;
                                 let active = [...document.querySelectorAll('.language_option:not([src*="_OFF.png"])')]
                                     .find(x => x.getAttribute('src').includes(`${language}.png`));
                                 if (e.target == active) return;

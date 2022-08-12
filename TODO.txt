@@ -8,6 +8,7 @@ download my cv doc/pdf
 preview my cv (data taken from json so can be updated easily)
 animated svg with inner object shadow
 designer.mocky.io
+rotate 3d the image on hover
 
 load animated svg as frame on each scroll 
 
