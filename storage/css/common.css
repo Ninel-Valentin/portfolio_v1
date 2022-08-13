@@ -1,5 +1,6 @@
 /* #region CookiePopUp */
 #cookiesPopUp {
+    z-index: 5;
     width: 100vw;
     position: fixed;
     left: 0;
@@ -8,6 +9,7 @@
     background-color: white;
     border-radius: 0 22px;
     text-align: center;
+    border:#101222 2px solid;
 }
 
 #cookiesPopUp.fade {

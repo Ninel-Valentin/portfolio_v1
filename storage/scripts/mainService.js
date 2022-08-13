@@ -64,9 +64,9 @@ class Text extends React.Component {
                         }
                     )]
                 case 1: return ContentParser(
-                    languageJson.content
-                        .find(x => x['@type'] == 'bioTable'))
-
+                    languageJson.content.find(x => x['@type'] == 'bioTable'))
+                case 2: return ContentParser(
+                    languageJson.content.find(x => x['@type'] == 'eduList'))
                 default:
                     return [e(
                         'h1',
@@ -80,7 +80,7 @@ class Text extends React.Component {
         }
 
         function ContentParser(contentNode, type = contentNode['@contentType']) {
-            let content = contentNode.content[language];
+            let content = contentNode.content;
             switch (type) {
                 case 'Q&A':
                     let final = [];
@@ -92,7 +92,7 @@ class Text extends React.Component {
                                 className: `question`,
                                 'data-type': 'mainContent'
                             },
-                            x.q
+                            x.q[language]
                         ),
                         e(
                             'h6',
@@ -101,7 +101,7 @@ class Text extends React.Component {
                                 className: `answer`,
                                 'data-type': 'mainContent'
                             },
-                            ...x.a.split('</br>').map((y, i) =>
+                            ...x.a[language].split('</br>').map((y, i) =>
                                 [y, e('br', { key: `brAnswer${i}` })]
                             )
                         )]);
@@ -121,7 +121,11 @@ class Text extends React.Component {
                                     className: 'bioHeader',
                                     key: `bioHeader${index}`
                                 },
-                                [x.name,
+                                [x.name.hasOwnProperty(language) ?
+                                    x.name[language] : (
+                                        x.name.hasOwnProperty('default') ?
+                                            x.name['default'] : x.name
+                                    ),
                                 e(
                                     'div',
                                     {
@@ -152,7 +156,11 @@ class Text extends React.Component {
                                         className: 'bioRowValue',
                                         key: `bioRowVal${index}`
                                     },
-                                        x.value
+                                        x.value.hasOwnProperty(language) ?
+                                            x.value[language] : (
+                                                x.value.hasOwnProperty('default') ?
+                                                    x.value['default'] : x.value
+                                            )
                                     ),
                                     e('div',
                                         {
@@ -164,6 +172,73 @@ class Text extends React.Component {
                             )
                         })
                     )
+                case 'List':
+                    return e(
+                        'div',
+                        {
+                            id: 'directory',
+                            key: 'directory'
+                        },
+                        [
+                            e(
+                                'div',
+                                {
+                                    id: 'directoryHeaders',
+                                    key: 'directoryHeaders'
+                                },
+                                content.map((x, index) => {
+                                    return e(
+                                        'div',
+                                        {
+                                            className: `directoryHeader${index == 0 ? ' active' : ''}`,
+                                            key: `directoryHeader${index}`,
+                                        },
+                                        x.directoryName[language]
+                                    )
+                                })
+                            ),
+                            e(
+                                'div',
+                                {
+                                    id: 'directoryListing',
+                                    key: 'directoryListing'
+                                },
+                                content[0].content.map((x, index) => {
+                                    return e(
+                                        'div',
+                                        {
+                                            className: `directoryLine${index == 0 ? ' active' : ''}`,
+                                            key: `directoryLine${index}`,
+                                        },
+                                        [
+                                            e('span', { key: `directorySpan${index}` },
+                                                x.header[language]),
+                                            e(
+                                                'p',
+                                                {
+                                                    key: `directoryP${index}`,
+                                                    style: {
+                                                        color: x.status
+                                                    }
+                                                },
+                                                x.state[language]
+                                            )
+                                        ]
+                                    )
+                                })
+                            ),
+                            e(
+                                'div',
+                                {
+                                    id: 'directoryContent',
+                                    key: 'directoryContent'
+                                },
+                                ContentParser(content[0].content[0])
+                            )
+                        ]
+                    );
+                case 'DirectoryInfo':
+                    break;
                 default:
                     throw ('Wrong content type passed in the parser!');
             }

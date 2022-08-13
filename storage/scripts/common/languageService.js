@@ -6,7 +6,10 @@ let language = getCookie('lang', true) || languageJson.default;
 //This doesn't update;
 
 const e = React.createElement;
-
+window.addEventListener('load', (e) => {
+    document.querySelector('title').innerHTML = languageJson.titles
+        .find(x => x['@type'] == document.querySelector('title').getAttribute('type'))[language];
+});
 function RefactorLanguage(lang) {
     if (!lang) throw ('No language was sent as parameter');
     languageJson.content.filter(x =>
@@ -14,22 +17,27 @@ function RefactorLanguage(lang) {
         || document.querySelectorAll(`#${x['@type']}`).length > 0)
         .forEach(x => {
             if (x.content) {
-                let content = x.content[language];
                 switch (x['@contentType']) {
                     case 'Q&A':
                         let qNodes = document.querySelectorAll('#content h4,h6');
                         qNodes.forEach((y, i) => {
                             // i%2 ? answer : question
                             y.innerHTML = i % 2 ?
-                                x.content[lang][parseInt(i / 2)].a
-                                : x.content[lang][parseInt(i / 2)].q;
+                                x.content[parseInt(i / 2)].a[lang]
+                                : x.content[parseInt(i / 2)].q[lang];
                         });
                         break;
                     case 'Table':
                         let tNodes = document.querySelectorAll('.bioHeader');
                         tNodes.forEach((y, i) => {
-                            y.childNodes[0].textContent = x.content[lang][i].name;
-                            y.querySelector('.bioRowValue').innerText = x.content[lang][i].value;
+                            let header = x.content[i].name;
+                            header = header.hasOwnProperty(lang) ? header[lang] :
+                                (header.hasOwnProperty('default') ? header['default'] : header);
+                            let value = x.content[i].value;
+                            value = value.hasOwnProperty(lang) ? value[lang] :
+                                (value.hasOwnProperty('default') ? value['default'] : value);
+                            y.childNodes[0].textContent = header;
+                            y.querySelector('.bioRowValue').innerText = value;
                         });
                         break;
                     default:
@@ -40,7 +48,7 @@ function RefactorLanguage(lang) {
             }
         });
     document.querySelector('title').innerHTML = languageJson.titles
-        .find(x => x['@type'] == document.querySelector('title').getAttribute('type'))[language];
+        .find(x => x['@type'] == document.querySelector('title').getAttribute('type'))[lang];
 }
 
 class LanguagePreview extends React.Component {

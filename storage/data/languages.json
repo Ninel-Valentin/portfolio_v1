@@ -76,254 +76,324 @@
         {
             "@type": "mainContent",
             "@contentType": "Q&A",
-            "content": {
-                "EN": [
-                    {
-                        "q": "Who am I?",
-                        "a": "→ My name is Ninel-Valentin L. Bănică."
+            "content": [
+                {
+                    "q": {
+                        "EN": "Who am I?",
+                        "RO": "Cine sunt eu?",
+                        "FR": "Qui suis je?",
+                        "IT": "Chi sono?",
+                        "JP": "私は誰？",
+                        "DE": "Wer bin ich?"
                     },
-                    {
-                        "q": "What is my occupation?",
-                        "a": "→ I am an Electrical Engineering & Computer Science student in Brașov, Romania;</br>I work as an Programmer Analyst - Web Crawler Dev at ChannelSight: eCommerce Intelligence."
+                    "a": {
+                        "EN": "→ My name is Ninel-Valentin L. Bănică.",
+                        "RO": "→ Mă numesc Ninel-Valentin L. Bănică.",
+                        "FR": "→ Je m'appelle Ninel-Valentin L. Bănică.",
+                        "IT": "→ Mi chiamo Ninel-Valentin L. Bănică.",
+                        "JP": "→ 私の名前はNinel-Valentin L. Bănicăです。",
+                        "DE": "→ Mein Name ist Ninel-Valentin L. Bănică."
                     }
-                ],
-                "RO": [
-                    {
-                        "q": "Cine sunt eu?",
-                        "a": "→ Mă numesc Ninel-Valentin L. Bănică."
+                },
+                {
+                    "q": {
+                        "EN": "What is my occupation?",
+                        "RO": "Cu ce mă ocup?",
+                        "FR": "Que fais-je?",
+                        "IT": "Qual è la mia occupazione?",
+                        "JP": "私の職業は何ですか？",
+                        "DE": "Was ist mein Beruf?"
                     },
-                    {
-                        "q": "Cu ce mă ocup?",
-                        "a": "→ Sunt un student în Inginerie Electrică & Știința Calculatoarelor în Brașov, România;</br>Lucrez ca și Programator Analist - Web Crawler Dev la ChannelSight: eCommerce Intelligence."
+                    "a": {
+                        "EN": "→ I am an Electrical Engineering & Computer Science student in Brașov, Romania;</br>I work as an Programmer Analyst - Web Crawler Dev at ChannelSight: eCommerce Intelligence.",
+                        "RO": "→ Sunt un student în Inginerie Electrică & Știința Calculatoarelor în Brașov, România;</br>Lucrez ca și Programator Analist - Web Crawler Dev la ChannelSight: eCommerce Intelligence.",
+                        "FR": "→ Je suis étudiant en génie électrique et en informatique à Brașov, en Roumanie;</br>Je travaille en tant qu'analyste programmeur - Web Crawler Dev chez ChannelSight : eCommerce Intelligence.",
+                        "IT": "→ Sono uno studente di ingegneria elettrica e informatica a Brașov, in Romania;</br>Lavoro come analista programmatore - Web Crawler Dev presso ChannelSight: eCommerce Intelligence.",
+                        "JP": "→ 私はルーマニアのブラショフで電気工学とコンピューター サイエンスの学生です。</br>ChannelSight: eCommerce Intelligence でプログラマー アナリスト (Web クローラー開発者) として働いています。",
+                        "DE": "→ Ich studiere Elektrotechnik und Informatik in Brașov, Rumänien;</br>ich arbeite als Programmieranalytiker - Webcrawler-Entwickler bei ChannelSight: eCommerce Intelligence."
                     }
-                ],
-                "FR": [
-                    {
-                        "q": "Qui suis je?",
-                        "a": "→ Je m'appelle Ninel-Valentin L. Bănică."
-                    },
-                    {
-                        "q": "Que fais-je?",
-                        "a": "→ Je suis étudiant en génie électrique et en informatique à Brașov, en Roumanie;</br>Je travaille en tant qu'analyste programmeur - Web Crawler Dev chez ChannelSight : eCommerce Intelligence."
-                    }
-                ],
-                "IT": [
-                    {
-                        "q": "Chi sono?",
-                        "a": "→ Mi chiamo Ninel-Valentin L. Bănică."
-                    },
-                    {
-                        "q": "Qual è la mia occupazione?",
-                        "a": "→ Sono uno studente di ingegneria elettrica e informatica a Brașov, in Romania;</br>Lavoro come analista programmatore - Web Crawler Dev presso ChannelSight: eCommerce Intelligence."
-                    }
-                ],
-                "JP": [
-                    {
-                        "q": "私は誰？",
-                        "a": "→ 私の名前はNinel-Valentin L. Bănicăです。"
-                    },
-                    {
-                        "q": "私の職業は何ですか？",
-                        "a": "→ 私はルーマニアのブラショフで電気工学とコンピューター サイエンスの学生です。</br>ChannelSight: eCommerce Intelligence でプログラマー アナリスト (Web クローラー開発者) として働いています。"
-                    }
-                ],
-                "DE": [
-                    {
-                        "q": "Wer bin ich?",
-                        "a": "→ Mein Name ist Ninel-Valentin L. Bănică."
-                    },
-                    {
-                        "q": "Was ist mein Beruf?",
-                        "a": "→ Ich studiere Elektrotechnik und Informatik in Brașov, Rumänien;</br>ich arbeite als Programmieranalytiker - Webcrawler-Entwickler bei ChannelSight: eCommerce Intelligence."
-                    }
-                ]
-            }
+                }
+            ]
         },
         {
             "@type": "bioTable",
             "@contentType": "Table",
-            "content": {
-                "EN": [
-                    {
-                        "name": "Date of birth",
-                        "value": "14/02/2003"
+            "content": [
+                {
+                    "name": {
+                        "EN": "Date of birth",
+                        "RO": "Data nașterii",
+                        "FR": "Date de naissance",
+                        "IT": "Data di nascita",
+                        "JP": "生年月日",
+                        "DE": "Geburtsdatum"
                     },
-                    {
-                        "name": "Address",
-                        "value": "374 Iordacheanu, Prahova, Romania"
+                    "value": "14/02/2003"
+                },
+                {
+                    "name": {
+                        "EN": "Address",
+                        "RO": "Adresă",
+                        "FR": "Adresse",
+                        "IT": "Indirizzo",
+                        "JP": "住所",
+                        "DE": "Adresse"
                     },
-                    {
-                        "name": "Phone",
-                        "value": "+40 730 042 104"
+                    "value": "374 Iordăcheanu, Prahova, Romania"
+                },
+                {
+                    "name": {
+                        "EN": "Phone",
+                        "RO": "Telefon",
+                        "FR": "Téléphoner",
+                        "IT": "Telefono",
+                        "JP": "電話",
+                        "DE": "Telefon"
                     },
-                    {
-                        "name": "eMail",
-                        "value": "valentinbanica8@gmail.com"
+                    "value": "+40 730 042 104"
+                },
+                {
+                    "name": "eMail",
+                    "value": "valentinbanica8@gmail.com"
+                },
+                {
+                    "name": "Skype",
+                    "value": "live:valentinbanica8"
+                },
+                {
+                    "name": {
+                        "EN": "Sex",
+                        "RO": "Sex",
+                        "FR": "Sexe",
+                        "IT": "Sesso",
+                        "JP": "セックス",
+                        "DE": "Sex"
                     },
-                    {
-                        "name": "Skype",
-                        "value": "live:valentinbanica8"
-                    },
-                    {
-                        "name": "Sex",
-                        "value": "M"
-                    },
-                    {
-                        "name": "Nationality",
-                        "value": "Romanian"
+                    "value": {
+                        "default": "M",
+                        "JP": "男"
                     }
-                ],
-                "RO": [
-                    {
-                        "name": "Data nașterii",
-                        "value": "14/02/2003"
+                },
+                {
+                    "name": {
+                        "EN": "Nationality",
+                        "RO": "Naționalitate",
+                        "FR": "Nationalité",
+                        "IT": "Nazionalità",
+                        "JP": "国籍",
+                        "DE": "Staatsangehörigkeit"
                     },
-                    {
-                        "name": "Adresă",
-                        "value": "374 Iordăcheanu, Prahova, România"
-                    },
-                    {
-                        "name": "Telefon",
-                        "value": "+40 730 042 104"
-                    },
-                    {
-                        "name": "eMail",
-                        "value": "valentinbanica8@gmail.com"
-                    },
-                    {
-                        "name": "Skype",
-                        "value": "live:valentinbanica8"
-                    },
-                    {
-                        "name": "Sex",
-                        "value": "M"
-                    },
-                    {
-                        "name": "Naționalitate",
-                        "value": "Român"
+                    "value": {
+                        "EN": "Romanian",
+                        "RO": "Român",
+                        "FR": "Roumain",
+                        "IT": "Rumeno",
+                        "JP": "ルーマニア語",
+                        "DE": "Rumänisch"
                     }
-                ],
-                "FR": [
-                    {
-                        "name": "Date de naissance",
-                        "value": "14/02/2003"
+                }
+            ]
+        },
+        {
+            "@type": "eduList",
+            "@contentType": "List",
+            "content": [
+                {
+                    "directoryName": {
+                        "EN": "Education"
                     },
-                    {
-                        "name": "Adresse",
-                        "value": "374 Iordăcheanu, Prahova, Romania"
+                    "content": [
+                        {
+                            "header": {
+                                "EN": "Electrical Engineering and Computer Science (Eng.) - Brașov"
+                            },
+                            "state": {
+                                "EN": "🟢Currently studying"
+                            },
+                            "status": "#50f545",
+                            "@contentType": "DirectoryInfo",
+                            "content": [
+                                {
+                                    "name": {
+                                        "EN": "Name"
+                                    },
+                                    "value": {
+                                        "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Period of studying"
+                                    },
+                                    "value": {
+                                        "EN": "Octomber 2022 - Present"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Title"
+                                    },
+                                    "value": {
+                                        "EN": "Student"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Address"
+                                    },
+                                    "value": {
+                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Contact"
+                                    },
+                                    "value": {
+                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "header": {
+                                "EN": "Electrotechnics - Brașov"
+                            },
+                            "state": {
+                                "EN": "🔴Left for other specialization."
+                            },
+                            "status": "#6b1f1f",
+                            "@contentType": "DirectoryInfo",
+                            "content": [
+                                {
+                                    "name": {
+                                        "EN": "Name"
+                                    },
+                                    "value": {
+                                        "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Period of studying"
+                                    },
+                                    "value": {
+                                        "EN": "Octomber 2022 - Present"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Title"
+                                    },
+                                    "value": {
+                                        "EN": "Student"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Address"
+                                    },
+                                    "value": {
+                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Contact"
+                                    },
+                                    "value": {
+                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "header": {
+                                "EN": "Teoretical Highschool - Prahova"
+                            },
+                            "state": {
+                                "EN": "🔵Graduated"
+                            },
+                            "status": "#038cfc",
+                            "@contentType": "DirectoryInfo",
+                            "content": [
+                                {
+                                    "name": {
+                                        "EN": "Name"
+                                    },
+                                    "value": {
+                                        "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Period of studying"
+                                    },
+                                    "value": {
+                                        "EN": "Octomber 2022 - Present"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Title"
+                                    },
+                                    "value": {
+                                        "EN": "Student"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Address"
+                                    },
+                                    "value": {
+                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Contact"
+                                    },
+                                    "value": {
+                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "directoryName": {
+                        "EN": "Achivements"
                     },
-                    {
-                        "name": "Téléphoner",
-                        "value": "+40 730 042 104"
+                    "content": [
+                        {
+                            "header": {
+                                "EN": "Electrotechnics - Brașov"
+                            },
+                            "state": {
+                                "EN": "Left for other specialization."
+                            },
+                            "status": "#6b1f1f"
+                        }
+                    ]
+                },
+                {
+                    "directoryName": {
+                        "EN": "Educational experience"
                     },
-                    {
-                        "name": "eMail",
-                        "value": "valentinbanica8@gmail.com"
-                    },
-                    {
-                        "name": "Skype",
-                        "value": "live:valentinbanica8"
-                    },
-                    {
-                        "name": "Sexe",
-                        "value": "M"
-                    },
-                    {
-                        "name": "Nationalité",
-                        "value": "Roumain"
-                    }
-                ],
-                "IT": [
-                    {
-                        "name": "Data di nascita",
-                        "value": "14/02/2003"
-                    },
-                    {
-                        "name": "Indirizzo",
-                        "value": "374 Iordacheanu, Prahova, Romania"
-                    },
-                    {
-                        "name": "Telefono",
-                        "value": "+40 730 042 104"
-                    },
-                    {
-                        "name": "eMail",
-                        "value": "valentinbanica8@gmail.com"
-                    },
-                    {
-                        "name": "Skype",
-                        "value": "live:valentinbanica8"
-                    },
-                    {
-                        "name": "Sesso",
-                        "value": "M"
-                    },
-                    {
-                        "name": "Nazionalità",
-                        "value": "Rumeno"
-                    }
-                ],
-                "JP": [
-                    {
-                        "name": "生年月日",
-                        "value": "14/02/2003"
-                    },
-                    {
-                        "name": "住所",
-                        "value": "374 Iordacheanu, Prahova, ルーマニア"
-                    },
-                    {
-                        "name": "電話",
-                        "value": "+40 730 042 104"
-                    },
-                    {
-                        "name": "eMail",
-                        "value": "valentinbanica8@gmail.com"
-                    },
-                    {
-                        "name": "Skype",
-                        "value": "live:valentinbanica8"
-                    },
-                    {
-                        "name": "セックス",
-                        "value": "男"
-                    },
-                    {
-                        "name": "国籍",
-                        "value": "ルーマニア語"
-                    }
-                ],
-                "DE": [
-                    {
-                        "name": "Geburtsdatum",
-                        "value": "14/02/2003"
-                    },
-                    {
-                        "name": "Adresse",
-                        "value": "374 Iordacheanu, Prahova, Rumänien"
-                    },
-                    {
-                        "name": "Telefon",
-                        "value": "+40 730 042 104"
-                    },
-                    {
-                        "name": "eMail",
-                        "value": "valentinbanica8@gmail.com"
-                    },
-                    {
-                        "name": "Skype",
-                        "value": "live:valentinbanica8"
-                    },
-                    {
-                        "name": "Sex",
-                        "value": "M"
-                    },
-                    {
-                        "name": "Staatsangehörigkeit",
-                        "value": "Rumänisch"
-                    }
-                ]
-            }
+                    "content": [
+                        {
+                            "header": {
+                                "EN": "Teoretical Highschool - Prahova"
+                            },
+                            "state": {
+                                "EN": "Graduated"
+                            },
+                            "status": "#0b9e00"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "titles": [
