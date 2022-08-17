@@ -177,7 +177,7 @@
 
 /* #endregion */
 
-/* #region Section 3 */
+/* #region Directory */
 
 #directory {
     width: 90vw;
@@ -247,28 +247,69 @@
     background-color: white;
 }
 
-.directoryLine span{
+.directoryLine span {
     font-size: larger;
     font-weight: bolder;
-    color:#101222;
+    color: #101222;
 }
 
-.directoryLine p{
+.directoryLine p {
     font-size: large;
     font-weight: bold;
-    margin:0;
+    margin: 0;
 }
 
+/* #endregion */
+
+/* #region DirectoryContent */
 #directoryContent {
     background-color: white;
-    height: 70vh;
-    width: 80%;
+    height: 78vh;
+    width: 72vw;
     position: relative;
     top: -85vh;
     left: 20%;
     border: 2px solid #101222;
     border-radius: 0 50px 50px 0;
-    padding-top: 10vh;
+    padding-top: 2vh;
+}
+
+#logo {
+    width: 15vw;
+    height: 20vh;
+    position: relative;
+    left: 2vw;
+    top: 3vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#directoryContent #details {
+    height: 20vh;
+    width: 57vw;
+    position: relative;
+    left: 15vw;
+    top: -20vh;
+}
+
+#directoryContent h4 {
+    color: #101222 !important;
+    font-size: 2em;
+    margin: 0 0 0 4vw;
+}
+
+#directoryContent h6 {
+    color: #101222 !important;
+    font-size: x-large;
+    margin: 0 0 0 5vw;
+}
+
+#directoryContent #info {
+    border-radius: 50px;
+    position: relative;
+    top: -15vh;
+    height:53vh;
 }
 
 /* #endregion */

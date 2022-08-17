@@ -127,7 +127,7 @@ class ScrollBar extends React.Component {
 function scroll(event) {
     // MIGHT BE DISABLED
     if (canScroll) {
-        let active = document.querySelector('.active').getAttribute('value');
+        let active = document.querySelector('.rullerButton.active').getAttribute('value');
         if (event.deltaY) {
             // Scroll Up / Down
             let next = +active + (event.deltaY / Math.abs(event.deltaY));

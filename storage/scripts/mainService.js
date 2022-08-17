@@ -11,7 +11,9 @@ class Text extends React.Component {
         super(props);
         let page = window.location.href.split('page=');
         this.state = {
-            page: page.length > 1 ? page.pop() : 0
+            page: page.length > 1 ? page.pop() : 0,
+            directoryIndex: 0,
+            directoryLine: 0
         }
     }
 
@@ -38,7 +40,19 @@ class Text extends React.Component {
             }
         });
 
-        function GetContent(page) {
+        function LoadDirectoryContent(line, This) {
+            let directoryIndex = [...document.querySelectorAll('.directoryHeader')].indexOf(document.querySelector('.directoryHeader.active'));
+            let content = languageJson.content.find(x => x['@type'] == 'eduList').content[directoryIndex].content[line];
+            This.state.directoryLine.line;
+            // This.setState({
+            //     page: This.state.page,
+            //     directory: directoryIndex,
+            //     directoryLine: line
+            // });
+        }
+
+        function GetContent(This) {
+            let page = This.state.page;
             language = getCookie('lang', true) || languageJson.default;
             switch (+page) {
                 case 0:
@@ -66,7 +80,7 @@ class Text extends React.Component {
                 case 1: return ContentParser(
                     languageJson.content.find(x => x['@type'] == 'bioTable'))
                 case 2: return ContentParser(
-                    languageJson.content.find(x => x['@type'] == 'eduList'))
+                    languageJson.content.find(x => x['@type'] == 'eduList'), undefined, This);
                 default:
                     return [e(
                         'h1',
@@ -79,7 +93,7 @@ class Text extends React.Component {
             }
         }
 
-        function ContentParser(contentNode, type = contentNode['@contentType']) {
+        function ContentParser(contentNode, type = contentNode['@contentType'], This = null) {
             let content = contentNode.content;
             switch (type) {
                 case 'Q&A':
@@ -90,7 +104,7 @@ class Text extends React.Component {
                             {
                                 key: `q${index}`,
                                 className: `question`,
-                                'data-type': 'mainContent'
+                                'data-type': contentNode['@type']
                             },
                             x.q[language]
                         ),
@@ -99,7 +113,7 @@ class Text extends React.Component {
                             {
                                 key: `a${index}`,
                                 className: `answer`,
-                                'data-type': 'mainContent'
+                                'data-type': contentNode['@type']
                             },
                             ...x.a[language].split('</br>').map((y, i) =>
                                 [y, e('br', { key: `brAnswer${i}` })]
@@ -192,6 +206,9 @@ class Text extends React.Component {
                                         {
                                             className: `directoryHeader${index == 0 ? ' active' : ''}`,
                                             key: `directoryHeader${index}`,
+                                            onClick: (e) => {
+                                                alert('hi');
+                                            }
                                         },
                                         x.directoryName[language]
                                     )
@@ -209,6 +226,17 @@ class Text extends React.Component {
                                         {
                                             className: `directoryLine${index == 0 ? ' active' : ''}`,
                                             key: `directoryLine${index}`,
+                                            onClick: (e) => {
+                                                let current = document.querySelector('.directoryLine.active');
+                                                current.className = 'directoryLine';
+                                                let target = e.target;
+                                                target = target.className.includes('directoryLine') ?
+                                                    target : target.parentElement;
+                                                target.className = 'directoryLine active';
+
+                                                let position = [...document.querySelectorAll('.directoryLine')].indexOf(target);
+                                                LoadDirectoryContent(position, This);
+                                            }
                                         },
                                         [
                                             e('span', { key: `directorySpan${index}` },
@@ -233,18 +261,44 @@ class Text extends React.Component {
                                     id: 'directoryContent',
                                     key: 'directoryContent'
                                 },
-                                ContentParser(content[0].content[0])
+                                ContentParser(content[This.state.directoryIndex].content[This.state.directoryLine])
                             )
                         ]
                     );
-                case 'DirectoryInfo':
-                    break;
+                case 'DirectoryContent':
+                    return [e(
+                        'div',
+                        {
+                            id: 'logo',
+                            key: 'logo',
+                            style: {
+                                "backgroundImage": `url(/storage/media/logos/${contentNode.logo})`,
+                                "filter": contentNode.shadow ? `drop-shadow(0 0 .75rem ${contentNode.logoShadow})` : ''
+                            }
+                        }
+                    ),
+                    e(
+                        'div',
+                        {
+                            id: 'details',
+                            key: 'details'
+                        },
+                        ContentParser(contentNode.details)
+                    ),
+                    e(
+                        'div',
+                        {
+                            id: 'info',
+                            key: 'info'
+                        },
+                        ContentParser(contentNode.info)
+                    )];
                 default:
                     throw ('Wrong content type passed in the parser!');
             }
         }
 
-        return GetContent(this.state.page);
+        return GetContent(this);
     }
 }
 

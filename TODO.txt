@@ -1,5 +1,9 @@
 MODIFY README.md https://ninel-valentin.github.io/
 
+IMPORTANT:
+Change state.lang on language set, and remove all translating logic to let react autoupdate based on the state language
+
+OTHERS:
 try instead of fading to scroll from middle to top and from bottom to middle on scroll animate
 
 send me an email function

@@ -211,49 +211,62 @@
                                 "EN": "🟢Currently studying"
                             },
                             "status": "#50f545",
-                            "@contentType": "DirectoryInfo",
-                            "content": [
-                                {
-                                    "name": {
-                                        "EN": "Name"
+                            "logo": "unitbv.svg",
+                            "logoShadow": "black",
+                            "shadow": false,
+                            "@contentType": "DirectoryContent",
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Name"
+                                        },
+                                        "a": {
+                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Period of studying"
+                                    {
+                                        "q": {
+                                            "EN": "Contact"
+                                        },
+                                        "a": {
+                                            "EN": "+40 268 474 718</br>f-iesc@unitbv.ro"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Octomber 2022 - Present"
+                                    {
+                                        "q": {
+                                            "EN": "Address"
+                                        },
+                                        "a": {
+                                            "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                        }
                                     }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Title"
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Period of studying"
+                                        },
+                                        "a": {
+                                            "EN": "Octomber 2022 - Present"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Student"
+                                    {
+                                        "q": {
+                                            "EN": "Title"
+                                        },
+                                        "a": {
+                                            "EN": "Student"
+                                        }
                                     }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Address"
-                                    },
-                                    "value": {
-                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Contact"
-                                    },
-                                    "value": {
-                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
-                                    }
-                                }
-                            ]
+                                ]
+                            }
                         },
                         {
                             "header": {
@@ -263,8 +276,9 @@
                                 "EN": "🔴Left for other specialization."
                             },
                             "status": "#6b1f1f",
-                            "@contentType": "DirectoryInfo",
-                            "content": [
+                            "logo": "unitbv.svg",
+                            "logoShadow": "black",
+                            "details": [
                                 {
                                     "name": {
                                         "EN": "Name"
@@ -273,6 +287,25 @@
                                         "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
                                     }
                                 },
+                                {
+                                    "name": {
+                                        "EN": "Contact"
+                                    },
+                                    "value": {
+                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
+                                    }
+                                },
+                                {
+                                    "name": {
+                                        "EN": "Address"
+                                    },
+                                    "value": {
+                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                    }
+                                }
+                            ],
+                            "@contentType": "DirectoryContent",
+                            "content": [
                                 {
                                     "name": {
                                         "EN": "Period of studying"
@@ -287,22 +320,6 @@
                                     },
                                     "value": {
                                         "EN": "Student"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Address"
-                                    },
-                                    "value": {
-                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Contact"
-                                    },
-                                    "value": {
-                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
                                     }
                                 }
                             ]
@@ -315,7 +332,8 @@
                                 "EN": "🔵Graduated"
                             },
                             "status": "#038cfc",
-                            "@contentType": "DirectoryInfo",
+                            "logo": "brancoveanu.png",
+                            "@contentType": "DirectoryContent",
                             "content": [
                                 {
                                     "name": {
