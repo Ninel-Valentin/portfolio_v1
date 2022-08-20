@@ -66,11 +66,11 @@ const App = (props) => {
             key="languageChanger"
             // This only returns true at the very start, before React creating the element
             style={document.querySelector('#language_preview') ? null : {
-                backgroundImage: `url(/storage/images/langIcons/${lang}.png)`,
+                backgroundImage: `url(/portofolio/public/storage/images/langIcons/${lang}.png)`,
                 backgroundSize: 'cover'
             }}
             onMouseEnter={() => { document.querySelector('#language_preview').removeAttribute('style') }}
-            onMouseLeave={() => { document.querySelector('#language_preview').setAttribute('style', `background-image: url(/storage/images/langIcons/${lang}.png); background-size:cover;`) }}
+            onMouseLeave={() => { document.querySelector('#language_preview').setAttribute('style', `background-image: url(/portofolio/public/storage/images/langIcons/${lang}.png); background-size:cover;`) }}
         >
             {
                 languageJson.languages.filter(x => x['@usable'])
@@ -80,7 +80,7 @@ const App = (props) => {
                                 data-type={x.lang}
                                 key={'language_option' + index}
                                 className="language_option"
-                                src={`/storage/images/langIcons/${x.lang + (x.lang == lang ? '' : '_OFF')}.png`}
+                                src={`/portofolio/public/storage/images/langIcons/${x.lang + (x.lang == lang ? '' : '_OFF')}.png`}
                             >
                             </img>
                         )
