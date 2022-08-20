@@ -1,0 +1,98 @@
+body {
+    background-color: #1f1f1f;
+    overflow: hidden;
+}
+
+* {
+    user-select: none;
+    color:white;
+}
+
+/* #region langService */
+#language_preview {
+    background-color: gainsboro;
+    border-radius: 22px;
+    height: 5vmin;
+    aspect-ratio: 1;
+    position: fixed;
+    right: 1vmin;
+    top: 1vmin;
+    overflow: hidden;
+    transition: height .3s, border-radius .3s;
+    z-index: 5;
+}
+
+#language_preview:hover {
+    height: 20vmin;
+    border-radius: 22px 0 0 22px;
+    transition: height .3s, border-radius .3s;
+    overflow-y: auto;
+}
+
+/* width */
+#language_preview:hover::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+#language_preview:hover::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+#language_preview:hover::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+#language_preview:hover::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#language_preview .language_option {
+    visibility: hidden;
+}
+
+#language_preview:hover .language_option {
+    visibility: visible;
+}
+
+.language_option {
+    height: 4vmin;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-size: cover;
+    margin: .4vmin;
+}
+
+.language_option:hover {
+    cursor: pointer;
+}
+
+/* #endregion */
+
+/* #region Page 1 */
+
+#mainTitle {
+    display: block;
+    margin: 5vmin 0 5vmin 5vmin;
+    font-size: 7vmin;
+}
+
+/* #endregion */
+
+/* #region Q&A */
+
+.question {
+    display: block;
+    margin: 10vmin 0 0 5vmin;
+    font-size: 5vmin;
+}
+
+.answer {
+    display: block;
+    margin: 3vmin 0 0 7vmin;
+    font-size: 4vmin;
+}
+
+/* #endregion */
