@@ -147,7 +147,7 @@ body {
     position: absolute;
     top: 10vmin;
     right: 5vmin;
-    background-image: url(/storage/images/pictures/profile.jpg); 
+    background-image: url('../images/pictures/profile.jpg');
     background-size: 40vmin 60vmin;
     background-repeat: no-repeat;
     background-position: center;
