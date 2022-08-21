@@ -1,0 +1,45 @@
+{
+    "@type": "mainSteps",
+    "content": [
+        {
+            "id": 0,
+            "text": "",
+            "imageSrc": ""
+        },
+        {
+            "id": 1,
+            "text": "",
+            "imageSrc": ""
+        },
+        {
+            "id":2,
+            "text": "",
+            "imageSrc": ""
+        },
+        {
+            "id": 3,
+            "text": "",
+            "imageSrc": ""
+        },
+        {
+            "id": 4,
+            "text": "",
+            "imageSrc": ""
+        },
+        {
+            "id": 5,
+            "text": "",
+            "imageSrc": ""
+        },
+        {
+            "id": 6,
+            "text": "",
+            "imageSrc": ""
+        },
+        {
+            "id": 7,
+            "text": "",
+            "imageSrc": ""
+        }
+    ]
+}

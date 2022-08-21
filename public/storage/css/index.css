@@ -5,7 +5,7 @@ body {
 
 * {
     user-select: none;
-    color:white;
+    color: white;
 }
 
 /* #region langService */
@@ -27,6 +27,7 @@ body {
     border-radius: 22px 0 0 22px;
     transition: height .3s, border-radius .3s;
     overflow-y: auto;
+    background-image:none !important;
 }
 
 /* width */
@@ -71,12 +72,92 @@ body {
 
 /* #endregion */
 
+/* #region Scroll */
+#ruller {
+    width: 3vmin;
+    height: 200vmin;
+    position: fixed;
+    left: 0;
+}
+
+#ruller #up {
+    background-color: rgb(0, 102, 255);
+    width: 8vmin;
+    height: 95vmin;
+    position: relative;
+    border-radius: 0 0 40px 0;
+}
+
+#ruller #down {
+    background-color: rgb(0, 102, 255);
+    width: 8vmin;
+    height: 95vmin;
+    position: relative;
+    border-radius: 0 40px 0 0;
+    top: 5vmin;
+}
+
+#buttons {
+    width: 8vmin;
+    height: 100vmin;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+}
+
+.rullerButton {
+    width: 8vmin;
+    aspect-ratio: 1;
+    font-size: 3vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #101222 !important;
+    z-index: 4;
+}
+
+.rullerButton:hover {
+    cursor: pointer;
+}
+
+.rullerButton.active {
+    color: rgb(0, 102, 255) !important;
+    font-weight: bold;
+}
+
+/* #endregion */
+
 /* #region Page 1 */
 
 #mainTitle {
     display: block;
-    margin: 5vmin 0 5vmin 5vmin;
-    font-size: 7vmin;
+    margin: 10vmin 0 5vmin 15vmin;
+    font-size: 6vmin;
+    width: 135vmin
+}
+
+#imageFrame {
+    height: 60vmin;
+    width: 40vmin;
+    background-color: white;
+    position: absolute;
+    top: 10vmin;
+    right: 5vmin;
+    background-image: url(/storage/images/pictures/profile.jpg); 
+    background-size: 40vmin 60vmin;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0 15vmin;
+    transition: height .3s, width .3s, right .3s, background-position .3s, border-radius .3s;
+}
+
+.question[data-page="0"],
+.answer[data-page="0"] {
+    width: 135vmin
 }
 
 /* #endregion */
@@ -85,14 +166,14 @@ body {
 
 .question {
     display: block;
-    margin: 10vmin 0 0 5vmin;
-    font-size: 5vmin;
+    margin: 10vmin 0 0 15vmin;
+    font-size: 4vmin;
 }
 
 .answer {
     display: block;
-    margin: 3vmin 0 0 7vmin;
-    font-size: 4vmin;
+    margin: 3vmin 0 0 17vmin;
+    font-size: 3vmin;
 }
 
 /* #endregion */
