@@ -6,9 +6,15 @@
 
 ### All the projects that are currently on my GitHub profile
 |Name            |Address                        |
-|----------------|-------------------------------|
+|----------------|:-----------------------------:|
 |Portofolio      |[/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index)|
-|To be continued |                               |
+>To be continues...
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |                              |
 
 >**Note:** I am well versed in multiple technologies and programming other than web development, therefore, I will be adding more pages with info about the ***desktop applications*** I have worked on.
 
