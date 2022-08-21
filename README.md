@@ -6,13 +6,10 @@
 
 ### All the projects that are currently on my GitHub profile
 
-| Tables        | Are                                                                                       |
-| ------------- |:-----------------------------------------------------------------------------------------:|
-| col 3 is      | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
-| col 2 is      | centered                                                                                  |
-| zebra stripes | are neat                                                                                  |
-
->To be continued...
+| Tables          | Are                                                                                       |
+| --------------- |:-----------------------------------------------------------------------------------------:|
+| Portofolio      | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
+| To be continued |                                                                                           |
 
 
 >**Note:** I am well versed in multiple technologies and programming other than web development, therefore, I will be adding more pages with info about the ***desktop applications*** I have worked on.
