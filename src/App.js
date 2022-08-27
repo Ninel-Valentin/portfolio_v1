@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getCookie, setCookie, timeUnits } from './cookieService.js';
 
 const languageJson = require('./storage/data/languages.json');
 const pagesJson = require('./storage/data/pages.json');
@@ -20,20 +21,45 @@ function scroll(event) {
 }
 
 document.onwheel = scroll;
+document.addEventListener('keydown', (e) => {
+    let keys = ['PageUp', 'PageDown'];
+    if (keys.includes(e.key)) {
+        scroll({
+            deltaY: keys.indexOf(e.key) * 2 - 1
+        });
+    }
+})
 
 const App = (props) => {
+    var dir = getCookie('dir', true);
+    if (!dir) {
+        dir = {
+            directory: 0,
+            listItem: 0
+        };
+        setCookie('dir',
+            JSON.stringify(dir), 30, timeUnits.days);
+    } else {
+        dir = JSON.parse(dir);
+    }
 
-    const [lang, setLanguage] = useState(GetUrlParam('lang') || languageJson.default);
-    const [page, setPage] = useState(GetUrlParam('p') || props.page);
-    console.log(lang)
+    const [data, setData] = useState({
+        lang: GetUrlParam('lang') || languageJson.default,
+        page: GetUrlParam('p') || props.page,
+        dir: dir
+    });
 
     const title = document.querySelector('title');
-    title.innerText = languageJson.titles.find(x => x['@type'] == title.getAttribute('data-type'))[lang];
+    title.innerText = languageJson.titles.find(x => x['@type'] == title.getAttribute('data-type'))[data.lang];
 
     const updateLanguage = (e) => {
         let targetLang = e.target.getAttribute('data-type');
-        ModifyUrl(page, { name: "lang", value: targetLang });
-        if (targetLang != lang) setLanguage(targetLang);
+        ModifyUrl(data.page, { name: "lang", value: targetLang });
+        if (targetLang != data.lang)
+            setData({
+                ...data,
+                lang: targetLang
+            });
     }
 
     function GetUrlParam(name) {
@@ -57,56 +83,205 @@ const App = (props) => {
     function ParseBreak(string, key, addOn = null) {
         return string.split('</br>').map((x, index) => {
             return [
-                (addOn ? addOn : '') + x,
+                (addOn ? addOn : ''),
+                ...ParseLinks(x),
                 <br key={`BR_${key}_${index}`}></br>
             ];
         })
     }
 
-    function ContentParser(content) {
+    function ParseLinks(string) {
+        let final = [];
+        let matches = string.match(/{{.*?}}/g);
+        let fillers = string.split(/{{.*?}}/g);
+        if (!matches) return string;
+        matches.forEach((link, index) => {
+            final.push(fillers.shift());
+            link = link.replace(/{|}/g, '');
+            final.push(<a
+                target="_blank"
+                key={`Link${link.split('->')[0]}${index}`}
+                href={link.split('->').pop()}>
+                {link.split('->').shift()}
+            </a>)
+        })
+        return final;
+    }
+
+    function GetLanguageValue(content) {
+        if (content.hasOwnProperty(data.lang)) return content[data.lang];
+        if (content.hasOwnProperty('default')) return content['default'];
+        return content;
+    }
+
+    function ParseContent(content) {
         switch (content['@contentType']) {
             case 'Q&A':
                 return (
                     content.content.map((x, index) => {
                         return [
                             <h4 key={`Q${content['@type']}${index}`}
-                                data-page={page}
+                                data-type={content['@type']}
                                 className="question">
-                                {x.q[lang]}
+                                {x.q[data.lang]}
                             </h4>,
                             <h6 key={`A${content['@type']}${index}`}
-                                data-page={page}
+                                data-type={content['@type']}
                                 className="answer">
-                                {ParseBreak(x.a[lang], `${content['@type']}${index}`, '→')}
+                                {ParseBreak(GetLanguageValue(x.a), `${content['@type']}${index}`, '→')}
                             </h6>
                         ]
                     })
-                )
+                );
+            case 'Table':
+                return (
+                    content.content.map((x, index) => {
+                        return [
+                            <li className="header"
+                                key={`liN${content['@type']}${index}`}>
+                                {GetLanguageValue(x.name)}
+                            </li>,
+                            <li className="body"
+                                key={`liV${content['@type']}${index}`}
+                                onClick={(e) => {
+                                    navigator.clipboard.writeText(GetLanguageValue(x.value));
+                                    e.target.innerText = 'Text copied to the clipboard!';
+
+                                    let animFT = [
+                                        { color: '#101222' },
+                                        { color: 'transparent' }
+                                    ]
+                                    let animProps = {
+                                        duration: 700,
+                                        easing: 'ease-in-out'
+                                    }
+                                    e.target.animate(animFT, animProps);
+
+                                    setTimeout(() => {
+                                        e.target.innerText = GetLanguageValue(x.value);
+                                    }, 685);
+                                }}>
+                                {GetLanguageValue(x.value)}
+                            </li>
+                        ]
+                    })
+                );
+            case 'Directory':
+                return (<div
+                    id="directory"
+                    key="directory">
+                    <div id="directoryHeaders"
+                        key="directoryHeaders">
+                        {
+                            [...content.content].map((x, index) => {
+                                return (<div
+                                    className={`directoryHeader${index == data.dir.directory ? ' active' : ''}`}
+                                    key={`directoryHeader${content['@contentType']}${index}`}
+                                    onClick={(e) => {
+                                        let newDir = {
+                                            directory: index,
+                                            listItem: 0
+                                        };
+                                        setData({
+                                            ...data,
+                                            dir: newDir
+                                        });
+                                        setCookie('dir',
+                                            JSON.stringify(newDir), 30, timeUnits.days);
+                                    }}
+                                >{GetLanguageValue(x.directoryName)}
+                                </div>)
+                            })
+                        }
+                    </div>
+                    <div id="directoryBlock"
+                        key="directoryBlock">
+                        <div id="directoryListing"
+                            key="directoryListing">
+                            <div id="directoryLogoPreview"
+                                key="directoryLogoPreview"
+                                style={{
+                                    "backgroundImage": `url(/portofolio/public/storage/media/logos/${content.content[data.dir.directory].content[data.dir.listItem].logo})`,
+                                    "filter": content.content[data.dir.directory].content[data.dir.listItem].shadow
+                                        ? `drop-shadow(0 0 .75rem ${content.content[data.dir.directory].content[data.dir.listItem].logoShadow})` : ''
+                                }}>
+
+                            </div>
+                            <div>
+                                {
+                                    [...content.content[data.dir.directory].content].map((x, index) => {
+                                        return (<div
+                                            className={`directoryLine${index == data.dir.listItem ? ' active' : ''}`}
+                                            key={`directoryLine${content['@contentType']}${index}`}
+                                            onClick={(e) => {
+                                                let newDir = {
+                                                    directory: data.dir.directory,
+                                                    listItem: index
+                                                };
+                                                setData({
+                                                    ...data,
+                                                    dir: newDir
+                                                });
+                                                setCookie('dir',
+                                                    JSON.stringify(newDir), 30, timeUnits.days);
+                                            }}>
+                                            <span key={`directoryLineSpan${content['@contentType']}${index}`}>
+                                                {GetLanguageValue(x.header)}
+                                            </span>
+                                            <p key={`directoryLineP${content['@contentType']}${index}`}
+                                                style={{
+                                                    color: x.status
+                                                }}>
+                                                {GetLanguageValue(x.state)}
+                                            </p>
+                                        </div>)
+                                    })
+                                }
+                            </div >
+                        </div>
+                        <div id="directoryContent"
+                            key="directoryContent">
+                            {ParseContent(content.content[data.dir.directory].content[data.dir.listItem].details)}
+                            <hr></hr>
+                            {ParseContent(content.content[data.dir.directory].content[data.dir.listItem].info)}
+                        </div>
+                    </div>
+                </div >);
             default:
                 break;
         }
     }
 
     function CreateContent() {
-        switch (+page) {
+        switch (+data.page) {
             case 0:
                 let titleKey = 'mainTitle',
                     contentKey = 'mainContent';
                 return [
                     <h1 key={titleKey}
                         id={titleKey}>
-                        {ParseBreak(languageJson.content.find(x => x['@type'] == titleKey)[lang], titleKey)}
+                        {ParseBreak(GetLanguageValue(languageJson.content.find(x => x['@type'] == titleKey)), titleKey)}
                     </h1>,
-                    ContentParser(languageJson.content.find(x => x['@type'] == contentKey)),
+                    ParseContent(languageJson.content.find(x => x['@type'] == contentKey)),
                     <img id="imageFrame"
                         key="imageFrame"></img>
-                ]
+                ];
+            case 1:
+                let bioKey = 'bioTable';
+                return (
+                    <ul id={bioKey}
+                        key={bioKey}>
+                        {ParseContent(languageJson.content.find(x => x['@type'] == bioKey))}
+                    </ul>
+                );
+            case 2:
+                return ParseContent(languageJson.content.find(x => x['@type'] == 'eduList'));
             default:
                 return (
                     `This was made from Scratch! Hi there world!
-                    page: {page}
-                    language: {lang}`
-                )
+                    page: ${data.page}
+                    language: ${data.lang}`
+                );
         }
     }
 
@@ -127,7 +302,10 @@ const App = (props) => {
 
         ModifyUrl(targetActive, { name: 'p', value: targetActive });
         // Only update if new
-        if (targetActive != page) setPage(targetActive);
+        if (targetActive != data.page) setData({
+            ...data,
+            page: targetActive
+        });
 
         let ruller = document.querySelector('#ruller');
         let rullerStyle = ruller.getAttribute('style');
@@ -168,12 +346,36 @@ const App = (props) => {
         return buttons;
     }
 
+    function CookiePopUpService() {
+        if (!getCookie('c', true)) {
+            return (
+                <div id="cookiesPopUpBg"
+                    key="cookiesPopUpBg">
+                    <div id="cookiesPopUpMessage"
+                        key="cookiessPopUpMessage">
+                        {ParseBreak(languageJson.content.find(x => x['@type'] == 'cookiesText')[data.lang])}
+                        <button id="cookiesAllow"
+                            key="cookiesAllow"
+                            onClick={() => {
+                                setCookie('c', 'true', 30, timeUnits.days);
+                                let self = document.querySelector('#cookiePopUp');
+                                self.className = 'fade';
+                                setTimeout(() => { self.remove() }, 250);
+                            }}>
+                            {languageJson.content.find(x => x['@type'] == 'cookiesAllow')[data.lang]}
+                        </button>
+                    </div>
+                </div>
+            )
+        }
+    }
+
     return [
         <div id="language_preview"
             key="languageChanger"
             // This only returns true at the very start, before React creating the element
             style={{
-                backgroundImage: `url(/portofolio/public/storage/images/langIcons/${lang}.png)`, //deploy
+                backgroundImage: `url(/portofolio/public/storage/images/langIcons/${data.lang}.png)`, //deploy
                 // backgroundImage: `url(/storage/images/langIcons/${lang}.png)`, //dev
                 backgroundSize: 'cover'
             }}
@@ -181,7 +383,7 @@ const App = (props) => {
             onMouseLeave={() => {
                 document.querySelector('#language_preview').setAttribute('style',
                     // `background-image: url(/portofolio/public/storage/images/langIcons/${lang}.png);
-                    `background-image: url(/storage/images/langIcons/${lang}.png);
+                    `background-image: url(/portofolio/public/storage/images/langIcons/${data.lang}.png);
                     background-size:cover;`)
             }}
         >
@@ -193,8 +395,8 @@ const App = (props) => {
                                 data-type={x.lang}
                                 key={'language_option' + index}
                                 className="language_option"
-                                src={`/portofolio/public/storage/images/langIcons/${x.lang + (x.lang == lang ? '' : '_OFF')}.png`} //deploy
-                                // src={`/storage/images/langIcons/${x.lang + (x.lang == lang ? '' : '_OFF')}.png`} //dev
+                                src={`/portofolio/public/storage/images/langIcons/${x.lang + (x.lang == data.lang ? '' : '_OFF')}.png`} //deploy
+                            // src={`/storage/images/langIcons/${x.lang + (x.lang == lang ? '' : '_OFF')}.png`} //dev
                             >
                             </img>
                         )
@@ -205,8 +407,8 @@ const App = (props) => {
             key="content">
             {CreateContent()}
         </div>,
-        <div id="scroll"
-            key="scroll">
+        < div id="scroll"
+            key="scroll" >
             <div id="ruller"
                 key="ruller"
                 style={{
@@ -221,6 +423,11 @@ const App = (props) => {
                 key="buttons">
                 {LoadScrollbar()}
             </div>
+        </div >,
+        <div id="cookiePopUp"
+            key="cookiePopUp"
+            data-type="placeholder">
+            {CookiePopUpService()}
         </div>
     ]
 }

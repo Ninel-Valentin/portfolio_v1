@@ -27,7 +27,7 @@ body {
     border-radius: 22px 0 0 22px;
     transition: height .3s, border-radius .3s;
     overflow-y: auto;
-    background-image:none !important;
+    background-image: none !important;
 }
 
 /* width */
@@ -155,9 +155,14 @@ body {
     transition: height .3s, width .3s, right .3s, background-position .3s, border-radius .3s;
 }
 
-.question[data-page="0"],
-.answer[data-page="0"] {
-    width: 135vmin
+.question[data-type="mainContent"] {
+    margin: 10vmin 0 0 15vmin;
+    width: 135vmin;
+}
+
+.answer[data-type="mainContent"] {
+    margin: 3vmin 0 0 17vmin;
+    width: 135vmin;
 }
 
 /* #endregion */
@@ -166,14 +171,264 @@ body {
 
 .question {
     display: block;
-    margin: 10vmin 0 0 15vmin;
     font-size: 4vmin;
 }
 
 .answer {
     display: block;
-    margin: 3vmin 0 0 17vmin;
     font-size: 3vmin;
+}
+
+.answer a {
+    color:rgb(34, 18, 102);
+    transition:color .5s;
+}
+
+.answer a:hover{
+    color:rgb(16, 0, 90);
+    transition:color .5s;
+}
+
+.answer a:visited{
+    color:rgb(57, 31, 174);
+    transition:color .5s;
+}
+
+.answer a:active{
+    color:#101222;
+    transition:color .5s;
+}
+
+/* #endregion */
+
+/* #region Table */
+
+#bioTable {
+    width: max-content;
+    margin: auto;
+    list-style: none;
+    margin-top: 5vmin;
+}
+
+#bioTable .header {
+    color: #101222;
+    text-align: center;
+    font-size: 2vmin;
+    font-weight: bolder;
+    background-color: white;
+    border-radius: 0 5vmin 0 5vmin;
+    height: 3vmin;
+    width: 20vmin;
+    border: dashed .4vmin #101222;
+    margin-top: 2vmin;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    left: -5vmin;
+}
+
+#bioTable .body {
+    color: #101222;
+    text-align: center;
+    font-size: 3vmin;
+    font-weight: bolder;
+    background-color: white;
+    border-radius: 0 5vmin 0 5vmin;
+    height: 4vmin;
+    width: 100vmin;
+    border: dashed .4vmin #101222;
+    transition: background-color .2s;
+    padding-top: 1vmin;
+}
+
+#bioTable .body:hover {
+    background-color: #acacac;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+#bioTable .body::after {
+    content: '';
+    height: 4vmin;
+    aspect-ratio: 1;
+    background-image: url(../images/others/copy.png);
+    background-size: cover;
+    position: relative;
+    float: right;
+    top: -.25vmin;
+    right: 2vmin;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+#bioTable .body:hover::after {
+    opacity: 1;
+    transition: opacity .2s;
+}
+
+/* #endregion */
+
+/* #region Directory  */
+
+#directory {
+    margin: auto;
+    width: 150vmin;
+    height: 85vmin;
+    margin-top: 5vmin;
+}
+
+#directoryHeaders {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.directoryHeader {
+    background-color: rgb(204, 204, 204);
+    width: 15%;
+    height: 10vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vmin 3vmin 0 0;
+    margin-right: -1vmin;
+    color: #101222;
+    font-size: 2.5vmin;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.directoryHeader:hover {
+    cursor: pointer;
+    background-color: #acacac;
+}
+
+.directoryHeader.active {
+    background-color: #f1f1f1;
+    z-index: 2;
+}
+
+#directoryBlock {
+    background-color: #f1f1f1;
+    height: 80vmin;
+    border-radius: 0 3vmin 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#directoryListing {
+    width: 30%;
+    height: 100%;
+    position: relative;
+}
+
+#directoryListing>div:not([id]) {
+    height: 62.5%;
+}
+
+.directoryLine {
+    width: 100%;
+    height: 15%;
+    background-color: rgb(204, 204, 204);
+    border-bottom: .2vmin solid #101222;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.directoryLine:hover {
+    cursor: pointer;
+    background-color: #acacac;
+}
+
+.directoryLine.active {
+    background-color: #f1f1f1;
+}
+
+.directoryLine span {
+    color: #101222;
+    font-size: 2vmin;
+    font-weight: bolder;
+}
+
+.directoryLine p {
+    font-size: 1.5vmin;
+    font-weight: bold;
+    margin: 0;
+}
+
+#directoryLogoPreview {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px dashed #101222;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#directoryContent {
+    width: 80%;
+    height: 100%;
+    border-radius: 2vmin 0 0 2vmin;
+}
+
+.question[data-type="directoryDetails"],
+.answer[data-type="directoryDetails"],
+.question[data-type="directoryInfo"],
+.answer[data-type="directoryInfo"] {
+    color: #101222 !important;
+    margin: 2vmin 0 0 4vmin;
+}
+
+/* #endregion */
+
+/* #region Cookies */
+
+.fade {
+    opacity: 0;
+    transition: opacity .25s ease-in;
+}
+
+#cookiesPopUpBg {
+    background-color: #101222dc;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+#cookiesPopUpMessage {
+    background-color: white;
+    width: 50vmax;
+    height: 20vmin;
+    margin: auto;
+    position: relative;
+    top: 30vmin;
+    border-radius: 0 5vmin 0 5vmin;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#cookiesAllow {
+    margin-top: 5vmin;
+    width: 15vmin;
+    height: 3vmin;
+    border-radius: 0 2vmin 0 2vmin;
+    color: black;
+}
+
+#cookiesAllow:hover {
+    cursor: pointer;
+    background-color: #acacac;
 }
 
 /* #endregion */

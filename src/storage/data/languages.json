@@ -25,6 +25,10 @@
         {
             "lang": "DE",
             "@usable": true
+        },
+        {
+            "lang": "ES",
+            "@usable": false
         }
     ],
     "content": [
@@ -56,7 +60,7 @@
             "DE": "Ehi! Questo sito utilizza pochi cookie per ottimizzare la tua visita. Spero non ti dispiaccia!</br>Ma a chi non piacciono i biscotti?"
         },
         {
-            "@type": "cookiesAccept",
+            "@type": "cookiesAllow",
             "EN": "Allow",
             "RO": "Permiteți",
             "FR": "Permettre",
@@ -139,7 +143,14 @@
                         "JP": "住所",
                         "DE": "Adresse"
                     },
-                    "value": "374 Iordăcheanu, Prahova, Romania"
+                    "value": {
+                        "EN": "Main Str. 374 Iordacheanu, Prahova, Romania",
+                        "RO": "Principală 374 Iordăcheanu, Prahova, România",
+                        "FR": "Rue principale 374 Iordacheanu, Prahova, Roumanie",
+                        "IT": "Strada principale 374 Iordacheanu, Prahova, Romania",
+                        "JP": "大通り 374 ヨルダチャヌ、プラホヴァ、ルーマニア",
+                        "DE": "Hauptstraße 374 Iordacheanu, Prahova, Rumänien"
+                    }
                 },
                 {
                     "name": {
@@ -196,7 +207,7 @@
         },
         {
             "@type": "eduList",
-            "@contentType": "List",
+            "@contentType": "Directory",
             "content": [
                 {
                     "directoryName": {
@@ -214,7 +225,6 @@
                             "logo": "unitbv.svg",
                             "logoShadow": "black",
                             "shadow": false,
-                            "@contentType": "DirectoryContent",
                             "details": {
                                 "@type": "directoryDetails",
                                 "@contentType": "Q&A",
@@ -224,7 +234,7 @@
                                             "EN": "Name"
                                         },
                                         "a": {
-                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
+                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>Electrical Engineering and Computer Science (Eng.)</br>University of Transilvania Brașov, Romania"
                                         }
                                     },
                                     {
@@ -278,51 +288,59 @@
                             "status": "#6b1f1f",
                             "logo": "unitbv.svg",
                             "logoShadow": "black",
-                            "details": [
-                                {
-                                    "name": {
-                                        "EN": "Name"
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Name"
+                                        },
+                                        "a": {
+                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>Electrotechnics</br>University of Transilvania Brașov, Romania"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Contact"
+                                    {
+                                        "q": {
+                                            "EN": "Contact"
+                                        },
+                                        "a": {
+                                            "EN": "+40 268 474 718</br>f-iesc@unitbv.ro"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
+                                    {
+                                        "q": {
+                                            "EN": "Address"
+                                        },
+                                        "a": {
+                                            "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                        }
                                     }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Address"
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Period of studying"
+                                        },
+                                        "a": {
+                                            "EN": "Octomber 2021 - July 2022"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                    {
+                                        "q": {
+                                            "EN": "Title"
+                                        },
+                                        "a": {
+                                            "EN": "Student"
+                                        }
                                     }
-                                }
-                            ],
-                            "@contentType": "DirectoryContent",
-                            "content": [
-                                {
-                                    "name": {
-                                        "EN": "Period of studying"
-                                    },
-                                    "value": {
-                                        "EN": "Octomber 2022 - Present"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Title"
-                                    },
-                                    "value": {
-                                        "EN": "Student"
-                                    }
-                                }
-                            ]
+                                ]
+                            }
                         },
                         {
                             "header": {
@@ -333,49 +351,60 @@
                             },
                             "status": "#038cfc",
                             "logo": "brancoveanu.png",
-                            "@contentType": "DirectoryContent",
-                            "content": [
-                                {
-                                    "name": {
-                                        "EN": "Name"
+                            "logoShadow": "crimson",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Name"
+                                        },
+                                        "a": {
+                                            "EN": "Teoretical Highschool Brancoveanu Voda</br>Mathematics-Informatics</br>Urlati, Prahova, Romania"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Faculty of Electrical Engineering and Computer Science</br>University of Transilvania Brașov, Romania"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Period of studying"
+                                    {
+                                        "q": {
+                                            "EN": "Contact"
+                                        },
+                                        "a": {
+                                            "EN": "0244 271 316</br>liceulteoreticurlati@yahoo.com"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Octomber 2022 - Present"
+                                    {
+                                        "q": {
+                                            "EN": "Address"
+                                        },
+                                        "a": {
+                                            "EN": "Street 1 Mai no. 30, Prahova Romania"
+                                        }
                                     }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Title"
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Period of studying"
+                                        },
+                                        "a": {
+                                            "EN": "Octomber 2022 - Present"
+                                        }
                                     },
-                                    "value": {
-                                        "EN": "Student"
+                                    {
+                                        "q": {
+                                            "EN": "Title"
+                                        },
+                                        "a": {
+                                            "EN": "Student"
+                                        }
                                     }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Address"
-                                    },
-                                    "value": {
-                                        "EN": "Street Politehnicii no. 1 Brasov Romania"
-                                    }
-                                },
-                                {
-                                    "name": {
-                                        "EN": "Contact"
-                                    },
-                                    "value": {
-                                        "EN": "0268 474 718 | f-iesc@unitbv.ro"
-                                    }
-                                }
-                            ]
+                                ]
+                            }
                         }
                     ]
                 },
@@ -386,28 +415,203 @@
                     "content": [
                         {
                             "header": {
-                                "EN": "Electrotechnics - Brașov"
+                                "EN": "Part of P&G VIA Learning platform pilot"
                             },
                             "state": {
-                                "EN": "Left for other specialization."
+                                "EN": "🔵Finished"
                             },
-                            "status": "#6b1f1f"
-                        }
-                    ]
-                },
-                {
-                    "directoryName": {
-                        "EN": "Educational experience"
-                    },
-                    "content": [
+                            "status": "#038cfc",
+                            "logo": "P&G.png",
+                            "logoShadow": "cyan",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Program name"
+                                        },
+                                        "a": {
+                                            "EN": "P&G VIA Learning platform pilot"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Details"
+                                        },
+                                        "a": {
+                                            "EN": "I was part of the P&G VIA Learning platform pilot.</br>Invited by {{Marco De Luca->https://www.linkedin.com/in/delucam/}}"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Results"
+                                        },
+                                        "a": {
+                                            "EN": "After the 5 weeks of taking part in numerous lessons, I have gained multiple Certificates of Achivement in different fields such as:</br>Problem solving;</br>Data & Digital Skills;</br>Communication Skills;"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Period of participation"
+                                        },
+                                        "a": {
+                                            "EN": "18th of February - 1st of April 2022"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
                         {
                             "header": {
-                                "EN": "Teoretical Highschool - Prahova"
+                                "EN": "Certified in C++ and SQL, technical editing and use of Microsoft Office"
                             },
                             "state": {
-                                "EN": "Graduated"
+                                "EN": "🔵Passed"
                             },
-                            "status": "#0b9e00"
+                            "status": "#038cfc",
+                            "logo": "brancoveanu.png",
+                            "logoShadow": "crimson",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Event description"
+                                        },
+                                        "a": {
+                                            "EN": "Highschool certification based on specialization."
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Grade"
+                                        },
+                                        "a": {
+                                            "EN": "10 / 10"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Taken on"
+                                        },
+                                        "a": {
+                                            "EN": "June 2021"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Participated on BRD's FIRST TECH CHALLENGE Romania"
+                            },
+                            "state": {
+                                "EN": "🟡Experience"
+                            },
+                            "status": "#ffc800",
+                            "logo": "firstTech.png",
+                            "logoShadow": "#038cfc",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Experience description"
+                                        },
+                                        "a": {
+                                            "EN": "Participated with my highschool team twice up to the nationals."
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Event description"
+                                        },
+                                        "a": {
+                                            "EN": "There were tasks given for each team that were to be done by robots constructed by said teams, with few conditions on what to use or not to use in the making of the robot."
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Period of participation"
+                                        },
+                                        "a": {
+                                            "EN": "Edition of 2018-2019</br>Edition of 2019-2020"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Cambridge Assessment English Certificate - B2"
+                            },
+                            "state": {
+                                "EN": "🔵Passed"
+                            },
+                            "status": "#038cfc",
+                            "logo": "cae.png",
+                            "logoShadow": "crimson",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Name"
+                                        },
+                                        "a": {
+                                            "default": "Cambridge English Level 1 Certificate in ESOL International"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Level"
+                                        },
+                                        "a": {
+                                            "EN": "Council of Europe Level B2"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Taken at"
+                                        },
+                                        "a": {
+                                            "EN": "21st & 22nd of May 2019"
+                                        }
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
