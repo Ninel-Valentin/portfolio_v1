@@ -612,8 +612,13 @@
                                     }
                                 ]
                             }
-                        }
+                        }   
                     ]
+                },
+                {
+                    "directoryName":{
+                        "EN":"Work experience"
+                    }
                 }
             ]
         }
