@@ -161,7 +161,7 @@
                         "JP": "電話",
                         "DE": "Telefon"
                     },
-                    "value": "+40 730 042 104"
+                    "value": "(+40) 730 042 104"
                 },
                 {
                     "name": "eMail",
@@ -242,7 +242,7 @@
                                             "EN": "Contact"
                                         },
                                         "a": {
-                                            "EN": "+40 268 474 718</br>f-iesc@unitbv.ro"
+                                            "EN": "(+40) 268 474 718</br>f-iesc@unitbv.ro"
                                         }
                                     },
                                     {
@@ -306,7 +306,7 @@
                                             "EN": "Contact"
                                         },
                                         "a": {
-                                            "EN": "+40 268 474 718</br>f-iesc@unitbv.ro"
+                                            "EN": "(+40) 268 474 718</br>f-iesc@unitbv.ro"
                                         }
                                     },
                                     {
@@ -612,15 +612,197 @@
                                     }
                                 ]
                             }
-                        }   
+                        }
                     ]
                 },
                 {
-                    "directoryName":{
-                        "EN":"Work experience"
-                    }
+                    "directoryName": {
+                        "EN": "Work experience"
+                    },
+                    "content": [
+                        {
+                            "header": {
+                                "EN": "Web Crawler Developer (Remote)</br>ChannelSight: eCommerce Inteligence"
+                            },
+                            "state": {
+                                "EN": "🟢Currently working here"
+                            },
+                            "status": "#50f545",
+                            "logo": "CS.png",
+                            "logoShadow": "black",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "HQ location"
+                                        },
+                                        "a": {
+                                            "EN": "Newcourt House, Strandville Avenue East, Clontarf,</br>Dublin 3, Ireland, D03 F2K5"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Contact"
+                                        },
+                                        "a": {
+                                            "EN": "Phone: (01) 902 2822</br>Email: info@channelsight.com"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Working period"
+                                        },
+                                        "a": {
+                                            "EN": "1st of March 2022 - Present"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Job responsabilities"
+                                        },
+                                        "a": {
+                                            "EN": "Analyzing websites' structure and creating crawlers for them.</br>Understanding, refactoring and updating written code.</br>Analyzing the data extracted by the crawlers.</br>Working with databases using SQL.</br>Both teamwork and solo projects."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Cashier - PREMIER RESTAURANTS ROMANIA S.R.L."
+                            },
+                            "state": {
+                                "EN": "🟡Experience"
+                            },
+                            "status": "#ffc800",
+                            "logo": "Mc.png",
+                            "logoShadow": "green",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Workplace location"
+                                        },
+                                        "a": {
+                                            "EN": "Calea Bucuresti 108, Brasov 500418, Romania"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Contact"
+                                        },
+                                        "a": {
+                                            "EN": "Phone: (+40) 723 801 142"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Working period"
+                                        },
+                                        "a": {
+                                            "EN": "November 2021 - March 2022"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Job responsabilities"
+                                        },
+                                        "a": {
+                                            "EN": "Working with people.</br>Working in a team.</br>Working with money.</br>Taking orders and giving info."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Cashier - S.C. PROFI ROM FOOD S.R.L."
+                            },
+                            "state": {
+                                "EN": "🟡Experience"
+                            },
+                            "status": "#ffc800",
+                            "logo": "firstTech.png",
+                            "logoShadow": "crimson",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Workplace location"
+                                        },
+                                        "a": {
+                                            "EN": "Street 1 May 68, Urlati, Prahova 106300, Romania"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Contact"
+                                        },
+                                        "a": {
+                                            "EN": "Phone: (+40) 731 792 805"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Working period"
+                                        },
+                                        "a": {
+                                            "EN": "July 2021 - Octomber 2021"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Job responsabilities"
+                                        },
+                                        "a": {
+                                            "EN": "Working with people.</br>Working in a team.</br>Working with money.</br>Taking orders and giving info.</br>Cashing bills.</br>Receiving and paying for deliveries of goods."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "@type": "CVpreview",
+            "@contentType": "FileSystem",
+            "content": {
+                "files": [
+                    {
+                        "displayedName":"",
+                        "name": ""
+                    }
+                ]
+            }
         }
     ],
     "titles": [

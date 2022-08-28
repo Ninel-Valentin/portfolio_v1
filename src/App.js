@@ -226,7 +226,7 @@ const App = (props) => {
                                                     JSON.stringify(newDir), 30, timeUnits.days);
                                             }}>
                                             <span key={`directoryLineSpan${content['@contentType']}${index}`}>
-                                                {GetLanguageValue(x.header)}
+                                                {ParseBreak(GetLanguageValue(x.header))}
                                             </span>
                                             <p key={`directoryLineP${content['@contentType']}${index}`}
                                                 style={{
@@ -247,6 +247,14 @@ const App = (props) => {
                         </div>
                     </div>
                 </div >);
+            case 'FileSystem':
+                return (<div>
+                    {/* <iframe src=
+                        "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
+                        width="800"
+                        height="500">
+                    </iframe> */}
+                </div>);
             default:
                 break;
         }
@@ -276,6 +284,8 @@ const App = (props) => {
                 );
             case 2:
                 return ParseContent(languageJson.content.find(x => x['@type'] == 'eduList'));
+            case 3:
+                return ParseContent(languageJson.content.find(x => x['@type'] == 'CVpreview'));
             default:
                 return (
                     `This was made from Scratch! Hi there world!
