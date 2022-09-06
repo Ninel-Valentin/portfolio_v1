@@ -272,13 +272,13 @@ const App = (props) => {
                                         let current = document.querySelector('.FileLine.active');
                                         current.className = 'FileLine';
                                         target.className = 'FileLine active';
-                                        document.querySelector('#FilePreview iframe').setAttribute('src', `/storage/files/${content.content.files[index].name}`)
+                                        document.querySelector('#FilePreview iframe').setAttribute('src', `/portofolio/public/storage/files/${content.content.files[index].name}`)
                                         setCookie('file', index, 1, timeUnits.days);
                                     }}>
                                     <div
                                         className="FileIcon"
                                         style={{
-                                            backgroundImage: `url(/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
+                                            backgroundImage: `url(/portofolio/public/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
                                         }}
                                         key={`FileIcon${content['@contentType']}${index}`}></div>
                                     {x.displayedName || x.name.split('.').shift()}
