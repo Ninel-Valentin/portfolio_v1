@@ -684,7 +684,7 @@
                                 "EN": "🟡Experience"
                             },
                             "status": "#ffc800",
-                            "logo": "Mc.png",
+                            "logo": "Mc.jpg",
                             "logoShadow": "green",
                             "shadow": false,
                             "details": {
@@ -740,7 +740,7 @@
                                 "EN": "🟡Experience"
                             },
                             "status": "#ffc800",
-                            "logo": "firstTech.png",
+                            "logo": "profi.png",
                             "logoShadow": "crimson",
                             "shadow": true,
                             "details": {
@@ -796,13 +796,84 @@
             "@type": "CVpreview",
             "@contentType": "FileSystem",
             "content": {
+                "notice": {
+                    "EN": "The above documents only come in few language formats, which are all displayed. For other details don't hesitate to contact me via eMail on the next tab."
+                },
                 "files": [
                     {
-                        "displayedName":"",
-                        "name": ""
+                        "displayedName": "Curriculum Vitae - RO ",
+                        "name": "CV.pdf"
                     }
                 ]
             }
+        },
+        {
+            "@type": "email",
+            "content": {
+                "head": {
+                    "from": {
+                        "EN": "From"
+                    },
+                    "to": {
+                        "EN": "To"
+                    },
+                    "subject": {
+                        "EN": "Summary"
+                    }
+                },
+                "placeholder": {
+                    "EN": "Type here..."
+                },
+                "send": {
+                    "EN": "Send"
+                },
+                "clear": {
+                    "EN": "Clear fields"
+                },
+                "errors": [
+                    {
+                        "field": "from",
+                        "content": {
+                            "EN": "Please complete the \"From\" field with your email."
+                        }
+                    },
+                    {
+                        "field":"subject",
+                        "content":{
+                            "EN":"It would be nice of you to add a \"Subject\" to the email."
+                        }
+                    },
+                    {
+                        "field":"body",
+                        "content":{
+                            "EN":"Why would you send an email without any message in the \"Body\" anyway?"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "interests",
+            "@usable":false,
+            "@contentType": "Table",
+            "content": [
+                {
+                    "name": {
+                        "EN": "Job type"
+                    },
+                    "value": {
+                        "EN": "Part-time"
+                    }
+                },
+                {
+                    "name": {
+                        "EN": "Prefered fields of work"
+                    },
+                    "value": {
+                        "EN": "Science and Technology"
+                    }
+                }
+            ]
         }
     ],
     "titles": [

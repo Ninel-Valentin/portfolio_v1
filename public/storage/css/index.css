@@ -6,12 +6,13 @@ body {
 * {
     user-select: none;
     color: white;
+    font-family: "Times New Roman", Times, serif;
 }
 
 /* #region langService */
 #language_preview {
     background-color: gainsboro;
-    border-radius: 22px;
+    border-radius: 5vmin;
     height: 5vmin;
     aspect-ratio: 1;
     position: fixed;
@@ -24,7 +25,7 @@ body {
 
 #language_preview:hover {
     height: 20vmin;
-    border-radius: 22px 0 0 22px;
+    border-radius: 5vmin 0 0 5vmin;
     transition: height .3s, border-radius .3s;
     overflow-y: auto;
     background-image: none !important;
@@ -180,37 +181,37 @@ body {
 }
 
 .answer a {
-    color:rgb(34, 18, 102);
-    transition:color .5s;
+    color: rgb(34, 18, 102);
+    transition: color .5s;
 }
 
-.answer a:hover{
-    color:rgb(16, 0, 90);
-    transition:color .5s;
+.answer a:hover {
+    color: rgb(16, 0, 90);
+    transition: color .5s;
 }
 
-.answer a:visited{
-    color:rgb(57, 31, 174);
-    transition:color .5s;
+.answer a:visited {
+    color: rgb(57, 31, 174);
+    transition: color .5s;
 }
 
-.answer a:active{
-    color:#101222;
-    transition:color .5s;
+.answer a:active {
+    color: #101222;
+    transition: color .5s;
 }
 
 /* #endregion */
 
 /* #region Table */
 
-#bioTable {
+[data-type="table"] {
     width: max-content;
     margin: auto;
     list-style: none;
     margin-top: 5vmin;
 }
 
-#bioTable .header {
+[data-type="table"] .header {
     color: #101222;
     text-align: center;
     font-size: 2vmin;
@@ -228,7 +229,7 @@ body {
     left: -5vmin;
 }
 
-#bioTable .body {
+[data-type="table"] .body {
     color: #101222;
     text-align: center;
     font-size: 3vmin;
@@ -242,13 +243,13 @@ body {
     padding-top: 1vmin;
 }
 
-#bioTable .body:hover {
+[data-type="table"] .body:hover {
     background-color: #acacac;
     cursor: pointer;
     transition: background-color .2s;
 }
 
-#bioTable .body::after {
+[data-type="table"] .body::after {
     content: '';
     height: 4vmin;
     aspect-ratio: 1;
@@ -262,7 +263,7 @@ body {
     transition: opacity .2s;
 }
 
-#bioTable .body:hover::after {
+[data-type="table"] .body:hover::after {
     opacity: 1;
     transition: opacity .2s;
 }
@@ -430,5 +431,152 @@ body {
     cursor: pointer;
     background-color: #acacac;
 }
+
+/* #endregion */
+
+/* #region FileSystem */
+
+#FileSystem {
+    margin: auto;
+    width: 150vmin;
+    height: 85vmin;
+    margin-top: 5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#FileListing {
+    height: 100%;
+    width: 25%;
+    padding: 0;
+    background-color: #acacac;
+    list-style: none;
+}
+
+#FilePreview {
+    height: 100%;
+    width: 75%;
+    background-color: #555;
+}
+
+.FileLine {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 0 2px #acacac inset;
+    background-color: #555;
+    transition: box-shadow .5s, background-color .5s;
+}
+
+.FileLine:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px #555 inset;
+    background-color: #acacac;
+    transition: box-shadow .5s, background-color .5s;
+}
+
+.FileLine.active {
+    box-shadow: 0 0 0 2px #555 inset;
+    background-color: white;
+    color: black;
+    transition: box-shadow .5s, color .5s, background-color .5s;
+}
+
+.FileIcon {
+    height: 70%;
+    aspect-ratio: 1;
+    margin-right: 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#FilePreviewNotice {
+    margin: auto;
+    width: 150vmin;
+    margin-top: .5vmin;
+    font-size: 2vmin;
+    text-align: center;
+}
+
+/* #endregion */
+
+/* #region EmailSender */
+
+#EmailSender {
+    margin: auto;
+    width: 150vmin;
+    height: 85vmin;
+    margin-top: 5vmin;
+    background-color: black;
+    /* border-radius: 10vmin 0 10vmin 0; */
+}
+
+#EmailSender td,
+th {
+    background-color: white;
+    color: black;
+    font-size: 2.5vmin;
+}
+
+#EmailSender thead th {
+    text-align: right;
+    width: 10%;
+    height: 4vmin;
+}
+
+#EmailSender thead td i {
+    color: #555
+}
+
+[id^="input_"] {
+    height: 85%;
+}
+
+[placeholder] {
+    width: 99.7%;
+    border: none;
+    color: black;
+    font-size: 2.5vmin;
+}
+
+[id^="input_"]:focus {
+    border: none;
+}
+
+input::placeholder,
+#EmailSender textarea::placeholder {
+    font-style: italic;
+}
+
+#EmailSender textarea {
+    vertical-align: top;
+    height: 100%;
+    resize: none;
+}
+
+[email-data="footer"] {
+    height: 5%;
+    background-image: linear-gradient(white, #888);
+    text-align: center;
+}
+
+[email-data="footer"] button {
+    height: 3vmin;
+    width: 30vmin;
+    margin: 0 10vmin;
+    color: black;
+}
+
+[email-data="footer"] button:hover {
+    cursor:pointer;
+}
+
+/* #endregion */
+
+/* #region name */
 
 /* #endregion */

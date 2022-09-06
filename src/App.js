@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { getCookie, setCookie, timeUnits } from './cookieService.js';
+import { ClearFields } from "./storage/scripts/emailService.js";
 
 const languageJson = require('./storage/data/languages.json');
 const pagesJson = require('./storage/data/pages.json');
+// const emailService = require('./storage/scripts/emailService.js');
 var canScroll = true;
 
 function scroll(event) {
@@ -115,6 +117,9 @@ const App = (props) => {
     }
 
     function ParseContent(content) {
+        if(content.hasOwnProperty('@usable') && !content['@usable']){
+            return;
+        }
         switch (content['@contentType']) {
             case 'Q&A':
                 return (
@@ -201,7 +206,7 @@ const App = (props) => {
                             <div id="directoryLogoPreview"
                                 key="directoryLogoPreview"
                                 style={{
-                                    "backgroundImage": `url(/portofolio/public/storage/media/logos/${content.content[data.dir.directory].content[data.dir.listItem].logo})`,
+                                    "backgroundImage": `url(/portofolio/public/storage/images/logos/${content.content[data.dir.directory].content[data.dir.listItem].logo})`,
                                     "filter": content.content[data.dir.directory].content[data.dir.listItem].shadow
                                         ? `drop-shadow(0 0 .75rem ${content.content[data.dir.directory].content[data.dir.listItem].logoShadow})` : ''
                                 }}>
@@ -248,13 +253,59 @@ const App = (props) => {
                     </div>
                 </div >);
             case 'FileSystem':
-                return (<div>
-                    {/* <iframe src=
-                        "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
-                        width="800"
-                        height="500">
-                    </iframe> */}
-                </div>);
+                return [
+                    <div id="FileSystem"
+                        key="FileSystem">
+                        <ul id="FileListing"
+                            key="FileListing">
+                            {
+                            [() => {
+                            },
+                            content.content.files.map((x, index) => {
+                                return (<li
+                                    className={`FileLine${index == (+getCookie('file', true) || 0) ? ' active' : ''}`}
+                                    key={`FileLine${content['@contentType']}${index}`}
+                                    onClick={(e) => {
+                                        let target = e.target.className.includes('Icon') ?
+                                            e.target.parentElement : e.target;
+                                        if (target.className.includes('active')) return;
+                                        let current = document.querySelector('.FileLine.active');
+                                        current.className = 'FileLine';
+                                        target.className = 'FileLine active';
+                                        document.querySelector('#FilePreview iframe').setAttribute('src', `/storage/files/${content.content.files[index].name}`)
+                                        setCookie('file', index, 1, timeUnits.days);
+                                    }}>
+                                    <div
+                                        className="FileIcon"
+                                        style={{
+                                            backgroundImage: `url(/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
+                                        }}
+                                        key={`FileIcon${content['@contentType']}${index}`}></div>
+                                    {x.displayedName || x.name.split('.').shift()}
+                                </li>);
+                            })]}
+                        </ul>
+                        <div id="FilePreview"
+                            key="FilePreview">
+                            {
+                                // content.content.files.find
+                                <iframe
+                                    key="FileIFrame"
+                                    src=
+                                    // "/portofolio/public/storage/images/logos/"
+                                    {`/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
+                                    width="100%"
+                                    height="100%">
+                                </iframe>
+                            }
+                        </div>
+                    </div >,
+                    <div
+                        id="FilePreviewNotice"
+                        key="FilePreviewNotice">
+                        {GetLanguageValue(content.content.notice)}
+                    </div>
+                ];
             default:
                 break;
         }
@@ -278,7 +329,8 @@ const App = (props) => {
                 let bioKey = 'bioTable';
                 return (
                     <ul id={bioKey}
-                        key={bioKey}>
+                        key={bioKey}
+                        data-type="table">
                         {ParseContent(languageJson.content.find(x => x['@type'] == bioKey))}
                     </ul>
                 );
@@ -286,6 +338,67 @@ const App = (props) => {
                 return ParseContent(languageJson.content.find(x => x['@type'] == 'eduList'));
             case 3:
                 return ParseContent(languageJson.content.find(x => x['@type'] == 'CVpreview'));
+            case 4:
+                return (<table
+                    key="EmailSender"
+                    id="EmailSender">
+                    <thead>
+                        {
+                            Object.keys(languageJson.content.find(x => x['@type'] == 'email').content.head).map((x, index) => {
+                                return (
+                                    <tr key={`${x}${index}row`}
+                                        email-data={x}>
+                                        <th key={`${x}${index}header`}>
+                                            {GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.head[x])}:
+                                        </th>
+                                        <td key={`${x}${index}input`}>
+                                            {
+                                                x == 'to' ? <i>valentinbanica8@gmail.com</i> : (
+                                                    <input type="text"
+                                                        input-type={x}
+                                                        placeholder={GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
+                                                        id={`input_${x}`}
+                                                        key={`${x}${index}input_${x}`}>
+
+                                                    </input>
+                                                )
+                                            }
+                                        </td>
+                                    </tr>);
+                            })
+                        }
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colSpan="2"
+                                email-data="body">
+                                <textarea
+                                    placeholder={GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
+                                ></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td email-data="footer"
+                                colSpan="2">
+                                <button onClick={ClearFields}>
+                                    {GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.clear)}
+                                </button>
+                                <button>
+                                    {GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.send)}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table >);
+            case 5:
+                let interestsKey = 'interests';
+                return (
+                    <ul id={interestsKey}
+                        key={interestsKey}
+                        data-type="table">
+                        {ParseContent(languageJson.content.find(x => x['@type'] == interestsKey))}
+                    </ul>
+                );
             default:
                 return (
                     `This was made from Scratch! Hi there world!
