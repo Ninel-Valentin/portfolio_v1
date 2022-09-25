@@ -1,0 +1,26 @@
+{
+    "@type":"Social media",
+    "content":[
+        {
+            "@type":"instagram",
+            "imageType":".png",
+            "text":"valentin_ninel",
+            "link":"https://www.instagram.com/valentin_ninel/",
+            "color":"pink"
+        },
+        {
+            "@type":"linkedin",
+            "imageType":".png",
+            "text":"ninel-valentin-bănică",
+            "background":"white",
+            "link":"https://www.linkedin.com/in/ninel-valentin-b%C4%83nic%C4%83/",
+            "color":"cyan"
+        },
+        {
+            "@type":"gmail",
+            "imageType":".png",
+            "text":"valentinbanica8@gmail.com",
+            "color":"crimson"
+        }
+    ]
+}

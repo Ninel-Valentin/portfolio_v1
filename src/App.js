@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { getCookie, setCookie, timeUnits } from './cookieService.js';
-import { ClearFields } from "./storage/scripts/emailService.js";
 
 const languageJson = require('./storage/data/languages.json');
 const pagesJson = require('./storage/data/pages.json');
@@ -117,7 +116,7 @@ const App = (props) => {
     }
 
     function ParseContent(content) {
-        if(content.hasOwnProperty('@usable') && !content['@usable']){
+        if (content.hasOwnProperty('@usable') && !content['@usable']) {
             return;
         }
         switch (content['@contentType']) {
@@ -259,31 +258,29 @@ const App = (props) => {
                         <ul id="FileListing"
                             key="FileListing">
                             {
-                            [() => {
-                            },
-                            content.content.files.map((x, index) => {
-                                return (<li
-                                    className={`FileLine${index == (+getCookie('file', true) || 0) ? ' active' : ''}`}
-                                    key={`FileLine${content['@contentType']}${index}`}
-                                    onClick={(e) => {
-                                        let target = e.target.className.includes('Icon') ?
-                                            e.target.parentElement : e.target;
-                                        if (target.className.includes('active')) return;
-                                        let current = document.querySelector('.FileLine.active');
-                                        current.className = 'FileLine';
-                                        target.className = 'FileLine active';
-                                        document.querySelector('#FilePreview iframe').setAttribute('src', `/portofolio/public/storage/files/${content.content.files[index].name}`)
-                                        setCookie('file', index, 1, timeUnits.days);
-                                    }}>
-                                    <div
-                                        className="FileIcon"
-                                        style={{
-                                            backgroundImage: `url(/portofolio/public/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
-                                        }}
-                                        key={`FileIcon${content['@contentType']}${index}`}></div>
-                                    {x.displayedName || x.name.split('.').shift()}
-                                </li>);
-                            })]}
+                                [...content.content.files.map((x, index) => {
+                                    return (<li
+                                        className={`FileLine${index == (+getCookie('file', true) || 0) ? ' active' : ''}`}
+                                        key={`FileLine${content['@contentType']}${index}`}
+                                        onClick={(e) => {
+                                            let target = e.target.className.includes('Icon') ?
+                                                e.target.parentElement : e.target;
+                                            if (target.className.includes('active')) return;
+                                            let current = document.querySelector('.FileLine.active');
+                                            current.className = 'FileLine';
+                                            target.className = 'FileLine active';
+                                            document.querySelector('#FilePreview iframe').setAttribute('src', `/portofolio/public/storage/files/${content.content.files[index].name}`)
+                                            setCookie('file', index, 1, timeUnits.days);
+                                        }}>
+                                        <div
+                                            className="FileIcon"
+                                            style={{
+                                                backgroundImage: `url(/portofolio/public/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
+                                            }}
+                                            key={`FileIcon${content['@contentType']}${index}`}></div>
+                                        {x.displayedName || x.name.split('.').shift()}
+                                    </li>);
+                                })]}
                         </ul>
                         <div id="FilePreview"
                             key="FilePreview">
@@ -338,7 +335,8 @@ const App = (props) => {
                 return ParseContent(languageJson.content.find(x => x['@type'] == 'eduList'));
             case 3:
                 return ParseContent(languageJson.content.find(x => x['@type'] == 'CVpreview'));
-            case 4:
+            case 'email':
+                /* region email
                 return (<table
                     key="EmailSender"
                     id="EmailSender">
@@ -359,7 +357,7 @@ const App = (props) => {
                                                         placeholder={GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
                                                         id={`input_${x}`}
                                                         key={`${x}${index}input_${x}`}>
-
+    
                                                     </input>
                                                 )
                                             }
@@ -380,7 +378,7 @@ const App = (props) => {
                         <tr>
                             <td email-data="footer"
                                 colSpan="2">
-                                <button onClick={ClearFields}>
+                                <button>
                                     {GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.clear)}
                                 </button>
                                 <button>
@@ -390,20 +388,94 @@ const App = (props) => {
                         </tr>
                     </tbody>
                 </table >);
-            case 5:
-                let interestsKey = 'interests';
+                */
+                break;
+            case 4:
+                let smJson = require('./storage/data/sm.json');
+                let data = [...smJson.content.map((smEntry, smIndex) => {
+                    return (<div
+                        key={`div${smIndex}`}>
+                        <div
+                            key={`key${smIndex}`}
+                            className="rope">
+                        </div>
+                        <div
+                            key={`faceWrapper${smIndex}`}
+                            className="faceWrapper"
+                            datatype={`${smEntry['@type']}`}
+                            onClick={(e) => {
+                                if (!smEntry.link) return;
+                                window.open(smEntry.link);
+                            }}
+                            onMouseEnter={(e) => {
+                                const target = document.querySelector(`[datatype=${smEntry['@type']}] .contentBox`);
+                                let child = document.querySelector(`[datatype=${smEntry['@type']}] .contentBox p`);
+                                if (!child.getAttribute('style')) {
+                                    return;
+                                }
+                                let animFT = [
+                                    { transform: 'rotateY(0deg)' },
+                                    { transform: 'rotateY(180deg)' }
+                                ]
+                                let animProps = {
+                                    duration: 500,
+                                    easing: 'ease-in-out',
+                                    fill: 'forwards'
+                                }
+                                target.animate(animFT, animProps);
+
+                                setTimeout(() => {
+                                    child.removeAttribute('style');
+                                }, 250);
+                            }}
+                            onMouseLeave={(e) => {
+                                const target = document.querySelector(`[datatype=${smEntry['@type']}] .contentBox`);
+                                let child = document.querySelector(`[datatype=${smEntry['@type']}] .contentBox p`);
+                                let animFT = [
+                                    { transform: 'rotateY(180deg)' },
+                                    { transform: 'rotateY(0deg)' }
+                                ]
+                                let animProps = {
+                                    duration: 500,
+                                    easing: 'ease-in-out',
+                                    fill: 'forwards'
+                                }
+                                target.animate(animFT, animProps);
+
+                                setTimeout(() => {
+                                    child.setAttribute('style', 'display:none;');
+                                }, 250);
+                            }}>
+                            <div
+                                style={{
+                                    backgroundImage: `url(./storage/images/social/${smEntry['@type']}${smEntry.imageType})`,
+                                    backgroundColor: smEntry.background || '',
+                                    filter: `drop-shadow(${smEntry.color} 0 0 5px)`
+                                }}
+                                key={`contentBox${smIndex}`}
+                                className="contentBox">
+                                <p
+                                    key={`contentP${smIndex}`}
+                                    style={{
+                                        display: 'none'
+                                    }}>
+                                    {smEntry.text}</p>
+                            </div>
+                        </div>
+                    </div>);
+                })];
                 return (
-                    <ul id={interestsKey}
-                        key={interestsKey}
-                        data-type="table">
-                        {ParseContent(languageJson.content.find(x => x['@type'] == interestsKey))}
-                    </ul>
-                );
+                    <div
+                        key="screen"
+                        id="screen">
+                        {data}
+                    </div>);
             default:
+                console.log(data);
                 return (
                     `This was made from Scratch! Hi there world!
-                    page: ${data.page}
-                    language: ${data.lang}`
+                    page: ${data?.page || GetUrlParam('p')}
+                    language: ${data?.lang || GetUrlParam('lang') || languageJson.default}`
                 );
         }
     }
