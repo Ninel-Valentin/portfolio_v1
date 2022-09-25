@@ -582,6 +582,8 @@ input::placeholder,
 #screen {
     width: 92%;
     height: 100vmin;
+    position: relative;
+    top:-5vmin;
     margin: auto;
     display: flex;
     justify-content: space-around;

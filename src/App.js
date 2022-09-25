@@ -21,6 +21,16 @@ function scroll(event) {
     canScroll = false;
 }
 
+window.onload = () => {
+    let url = window.location.href;
+    if (!url.includes('p=')) return;
+    let param = window.location.search.match(/(?<=p=)-?\d+/g)?.shift() || 0;
+
+    if (param < 0 || param >= pagesJson.content.length) {
+        param = param <= 0 ? 0 : pagesJson.content.pop().id;
+        window.location.href = window.location.href.replace(/p=-?\d+/g, `p=${param}`);
+    }
+};
 document.onwheel = scroll;
 document.addEventListener('keydown', (e) => {
     let keys = ['PageUp', 'PageDown'];
