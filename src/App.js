@@ -308,7 +308,7 @@ const App = (props) => {
                                 <iframe
                                     key="FileIFrame"
                                     src=
-                                    {`/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
+                                    {`/portofolio/public/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
                                     width="100%"
                                     height="100%">
                                 </iframe>
