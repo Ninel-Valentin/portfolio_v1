@@ -300,7 +300,7 @@ const App = (props) => {
                                     key="FileIFrame"
                                     src=
                                     // "/portofolio/public/storage/images/logos/"
-                                    {`/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
+                                    {`/portofolio/public/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
                                     width="100%"
                                     height="100%">
                                 </iframe>
@@ -498,6 +498,28 @@ const App = (props) => {
         return height;
     }
 
+    function ContentFade(isScrollingUp, isFadingIn) {
+        let content = document.querySelector('div#content');
+
+        let animKeys = [
+            {
+                top: isFadingIn ? (isScrollingUp ? '25vmin' : '-25vmin') : 0,
+                opacity: isFadingIn ? 0 : 1
+            },
+            {
+                top: isFadingIn ? 0 : (isScrollingUp ? '-25vmin' : '25vmin'),
+                opacity: isFadingIn ? 1 : 0
+            }
+        ];
+
+        let animOptions = {
+            duration: 200,
+            easing: isFadingIn ? 'ease-out' : 'ease-in',
+            fill: 'forwards'
+        }
+        content.animate(animKeys, animOptions);
+    }
+
     const scrollPage = (e) => {
         let currentActive = GetUrlParam('p') || 0;
         let currentNode = document.querySelector(`.rullerButton[value="${currentActive}"]`);
@@ -507,10 +529,16 @@ const App = (props) => {
 
         ModifyUrl(targetActive, { name: 'p', value: targetActive });
         // Only update if new
-        if (targetActive != data.page) setData({
-            ...data,
-            page: targetActive
-        });
+        if (targetActive != data.page) {
+            // o sa fiu || sunt
+            let isScrollingUp = targetActive > data.page;
+            ContentFade(isScrollingUp, false);
+            setData({
+                ...data,
+                page: targetActive
+            });
+            ContentFade(isScrollingUp, true);
+        }
 
         let ruller = document.querySelector('#ruller');
         let rullerStyle = ruller.getAttribute('style');
@@ -520,7 +548,7 @@ const App = (props) => {
             { top: `${rullerHeight}vmin` },
             { top: `${CalculateHeight(targetActive)}vmin` }
         ]
-        let duration = Math.abs(targetActive - currentActive) * 100;
+        let duration = Math.abs(targetActive - currentActive) * 200;
         let animProps = {
             duration: duration,
             easing: 'ease-in-out',

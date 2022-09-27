@@ -211,15 +211,30 @@
             "content": [
                 {
                     "directoryName": {
-                        "EN": "Education"
+                        "EN": "Education",
+                        "RO": "Educatie",
+                        "FR": "Éducation",
+                        "IT": "Formazione scolastica",
+                        "JP": "教育",
+                        "DE": "Ausbildung"
                     },
                     "content": [
                         {
                             "header": {
-                                "EN": "Electrical Engineering and Computer Science (Eng.) - Brașov"
+                                "EN": "Electrical Engineering and Computer Science (Eng.) - Brasov",
+                                "RO": "Inginerie Electrică și Știința Calculatoarelor (Eng.) - Brașov",
+                                "FR": "Génie électrique et informatique (Eng.) - Brasov",
+                                "IT": "Ingegneria Elettrica e Informatica (Ing.) - Brasov",
+                                "JP": "電気工学およびコンピューター サイエンス (Eng.) - ブラショフ",
+                                "DE": "Elektrotechnik und Informatik (Eng.) - Brasov"
                             },
                             "state": {
-                                "EN": "🟢Currently studying"
+                                "EN": "🟢Currently studying",
+                                "RO": "🟢Studiez în prezent",
+                                "FR": "🟢En train d'étudier",
+                                "IT": "🟢Attualmente studio",
+                                "JP": "🟢現在勉強",
+                                "DE": "🟢Studiert derzeit"
                             },
                             "status": "#50f545",
                             "logo": "unitbv.svg",
@@ -231,26 +246,48 @@
                                 "content": [
                                     {
                                         "q": {
-                                            "EN": "Name"
+                                            "default": "Name",
+                                            "RO": "Nume",
+                                            "FR": "Nom",
+                                            "IT": "Nome",
+                                            "JP": "名前"
                                         },
                                         "a": {
-                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>Electrical Engineering and Computer Science (Eng.)</br>University of Transilvania Brașov, Romania"
+                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>Electrical Engineering and Computer Science (Eng.)</br>University of Transilvania Brasov, Romania",
+                                            "RO": "Facultatea de Inginerie Electrică și Știința Calculatoarelor</br>Inginerie Electrică și Știința Calculatoarelor (Eng.)</br>Universitatea Transilvania Brașov, România",
+                                            "FR": "Faculté de génie électrique et d'informatique</br>Génie électrique et informatique (Eng.)</br>Université de Transilvania Brasov, Roumanie",
+                                            "IT": "Facoltà di Ingegneria Elettrica e Informatica</br>Ingegneria Elettrica e Informatica (Ing.)</br>Università della Transilvania Brasov, Romania",
+                                            "JP": "電気工学およびコンピュータ サイエンス学部</br>電気工学およびコンピュータ サイエンス（工学）</br>ルーマニア、ブラショフのトランシルバニア大学",
+                                            "DE": "Fakultät für Elektrotechnik und Informatik</br>Elektrotechnik und Informatik (Eng.)</br>Transilvania University Brasov, Rumänien"
                                         }
                                     },
                                     {
                                         "q": {
-                                            "EN": "Contact"
+                                            "default": "Contact",
+                                            "IT": "Contatto",
+                                            "JP": "コンタクト",
+                                            "DE": "Kontakt"
                                         },
                                         "a": {
-                                            "EN": "(+40) 268 474 718</br>f-iesc@unitbv.ro"
+                                            "default": "(+40) 268 474 718</br>f-iesc@unitbv.ro"
                                         }
                                     },
                                     {
                                         "q": {
-                                            "EN": "Address"
+                                            "EN": "Address",
+                                            "RO": "Adresa",
+                                            "FR": "Adresse",
+                                            "IT": "Indirizzo",
+                                            "JP": "住所",
+                                            "DE": "Adresse"
                                         },
                                         "a": {
-                                            "EN": "Street Politehnicii no. 1 Brasov Romania"
+                                            "EN": "Street Politehnicii no. 1 Brasov Romania",
+                                            "RO": "Strada Politehnicii nr. 1 Brașov România",
+                                            "FR": "Rue Politehnicii no. 1 Brasov Roumanie",
+                                            "IT": "Via Politehnicii n. 1 Brasov Romania",
+                                            "JP": "ストリート ポリテニチー no. 1 ブラショフ ルーマニア",
+                                            "DE": "Straße Politehnicii Nr. 1 Brasov Rumänien"
                                         }
                                     }
                                 ]
@@ -261,18 +298,36 @@
                                 "content": [
                                     {
                                         "q": {
-                                            "EN": "Period of studying"
+                                            "EN": "Period of studying",
+                                            "RO": "Perioada de studiu",
+                                            "FR": "Période d'études",
+                                            "IT": "Periodo di studio",
+                                            "JP": "在学期間",
+                                            "DE": "Zeitraum des Studiums"
                                         },
                                         "a": {
-                                            "EN": "Octomber 2022 - Present"
+                                            "EN": "Octomber 2022 - Present",
+                                            "RO": "Octombrie 2022 - Prezent",
+                                            "FR": "Octobre 2022 - Présent",
+                                            "IT": "Ottobre 2022 - Presente",
+                                            "JP": "2022年10月～現在",
+                                            "DE": "Oktober 2022 - Gegenwart"
                                         }
                                     },
                                     {
                                         "q": {
-                                            "EN": "Title"
+                                            "EN": "Title",
+                                            "RO": "Titlu",
+                                            "FR": "Titre",
+                                            "IT": "Titolo",
+                                            "JP": "題名",
+                                            "DE": "Titel"
                                         },
                                         "a": {
-                                            "EN": "Student"
+                                            "default": "Student",
+                                            "FR": "Étudiant",
+                                            "IT": "Alunno",
+                                            "JP": "学生"
                                         }
                                     }
                                 ]
@@ -280,7 +335,12 @@
                         },
                         {
                             "header": {
-                                "EN": "Electrotechnics - Brașov"
+                                "EN": "Electrotechnics - Brașov",
+                                "RO": "",
+                                "FR": "",
+                                "IT": "",
+                                "JP": "",
+                                "DE": ""
                             },
                             "state": {
                                 "EN": "🔴Left for other specialization."
@@ -809,7 +869,7 @@
         },
         {
             "@type": "email",
-            "@usable":false,
+            "@usable": false,
             "content": {
                 "head": {
                     "from": {
@@ -839,15 +899,15 @@
                         }
                     },
                     {
-                        "field":"subject",
-                        "content":{
-                            "EN":"It would be nice of you to add a \"Subject\" to the email."
+                        "field": "subject",
+                        "content": {
+                            "EN": "It would be nice of you to add a \"Subject\" to the email."
                         }
                     },
                     {
-                        "field":"body",
-                        "content":{
-                            "EN":"Why would you send an email without any message in the \"Body\" anyway?"
+                        "field": "body",
+                        "content": {
+                            "EN": "Why would you send an email without any message in the \"Body\" anyway?"
                         }
                     }
                 ]
@@ -855,7 +915,7 @@
         },
         {
             "@type": "interests",
-            "@usable":false,
+            "@usable": false,
             "@contentType": "Table",
             "content": [
                 {

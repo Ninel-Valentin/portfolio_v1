@@ -9,6 +9,10 @@ body {
     font-family: "Times New Roman", Times, serif;
 }
 
+#content{
+    position: relative;
+}
+
 /* #region langService */
 #language_preview {
     background-color: gainsboro;
@@ -583,14 +587,14 @@ input::placeholder,
     width: 92%;
     height: 100vmin;
     position: relative;
-    top:-5vmin;
+    top:-55vmin;
     margin: auto;
     display: flex;
     justify-content: space-around;
 }
 .rope {
     width: 1vmin;
-    height: 50vmin;
+    height: 100vmin;
     background-color: white;
     margin: auto;
 }
