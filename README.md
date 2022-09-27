@@ -6,7 +6,7 @@
 
 ### All the projects that are currently on my GitHub profile
 
-| Tables          | Are                                                                                       |
+| Name            | Path                                                                                      |
 | --------------- |:-----------------------------------------------------------------------------------------:|
 | Portofolio      | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
 | To be continued |                                                                                           |
