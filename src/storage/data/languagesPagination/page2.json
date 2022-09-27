@@ -69,6 +69,21 @@
                 "IT": "Titolo",
                 "JP": "題名",
                 "DE": "Titel"
+            },
+            "level": {
+                "default": "Level",
+                "FR": "Niveau",
+                "IT": "Livello",
+                "JP": "レベル",
+                "DE": "Eben"
+            },
+            "takenAt": {
+                "EN": "Taken on",
+                "RO": "Susținut la",
+                "FR": "Pris sur",
+                "IT": "Assunto",
+                "JP": "引き受けた",
+                "DE": "Angenommen"
             }
         },
         "a": {
@@ -88,21 +103,6 @@
             },
             "uniContact": {
                 "default": "(+40) 268 474 718</br>f-iesc@unitbv.ro"
-            },
-            "level": {
-                "default": "Level",
-                "FR": "Niveau",
-                "IT": "Livello",
-                "JP": "レベル",
-                "DE": "Eben"
-            },
-            "takenAt": {
-                "EN": "Taken on",
-                "RO": "Susținut la",
-                "FR": "Pris sur",
-                "IT": "Assunto",
-                "JP": "引き受けた",
-                "DE": "Angenommen"
             }
         },
         "state": {

@@ -146,7 +146,7 @@ const App = (props) => {
                             <h4 key={`Q${content['@type']}${index}`}
                                 data-type={content['@type']}
                                 className="question">
-                                {x.q[data.lang]}
+                                {GetLanguageValue(x.q)}
                             </h4>,
                             <h6 key={`A${content['@type']}${index}`}
                                 data-type={content['@type']}
@@ -288,7 +288,7 @@ const App = (props) => {
                                             let current = document.querySelector('.FileLine.active');
                                             current.className = 'FileLine';
                                             target.className = 'FileLine active';
-                                            document.querySelector('#FilePreview iframe').setAttribute('src', `/storage/files/${content.content.files[index].name}`)
+                                            document.querySelector('#FilePreview iframe').setAttribute('src', `/portofolio/public/storage/files/${content.content.files[index].name}`)
                                             setCookie('file', index, 1, timeUnits.days);
                                         }}>
                                         <div
