@@ -633,7 +633,7 @@ const App = (props) => {
                                 data-type={x.lang}
                                 key={'language_option' + index}
                                 className="language_option"
-                                src={`/storage/images/langIcons/${x.lang + (x.lang == data.lang ? '' : '_OFF')}.png`}
+                                src={`/portofolio/public/storage/images/langIcons/${x.lang + (x.lang == data.lang ? '' : '_OFF')}.png`}
                             >
                             </img>
                         )
