@@ -1,0 +1,144 @@
+{
+    "@type": "languageContent",
+    "default": "EN",
+    "languages": [
+        {
+            "lang": "EN",
+            "@usable": true
+        },
+        {
+            "lang": "RO",
+            "@usable": true
+        },
+        {
+            "lang": "FR",
+            "@usable": true
+        },
+        {
+            "lang": "IT",
+            "@usable": true
+        },
+        {
+            "lang": "JP",
+            "@usable": true
+        },
+        {
+            "lang": "DE",
+            "@usable": true
+        },
+        {
+            "lang": "ES",
+            "@usable": false
+        }
+    ],
+    "content": [
+        {
+            "@type": "cookiesText",
+            "EN": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!</br>But who doesn't like cookies?",
+            "RO": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?",
+            "FR": "Hé! Ce site utilise peu de cookies pour optimiser votre visite. J'espère que cela ne vous dérange pas!</br>Mais qui n'aime pas les cookies?",
+            "IT": "Hey! Diese Seite verwendet wenige Cookies, um Ihren Besuch zu optimieren. Ich hoffe, Sie haben nichts dagegen!</br>Aber wer mag keine Kekse?",
+            "JP": "おい！このサイトでは、訪問を最適化するためにいくつかの Cookie を使用しています。気にしないでください!</br>しかし、クッキーが嫌いな人はいますか?",
+            "DE": "Ehi! Questo sito utilizza pochi cookie per ottimizzare la tua visita. Spero non ti dispiaccia!</br>Ma a chi non piacciono i biscotti?"
+        },
+        {
+            "@type": "cookiesAllow",
+            "EN": "Allow",
+            "RO": "Permiteți",
+            "FR": "Permettre",
+            "IT": "Permettere",
+            "JP": "許可する",
+            "DE": "Erlauben"
+        },
+        {
+            "@type": "bioTable",
+            "@contentType": "Table",
+            "content": [
+                {
+                    "name": {
+                        "EN": "Date of birth",
+                        "RO": "Data nașterii",
+                        "FR": "Date de naissance",
+                        "IT": "Data di nascita",
+                        "JP": "生年月日",
+                        "DE": "Geburtsdatum"
+                    },
+                    "value": "14/02/2003"
+                },
+                {
+                    "name": {
+                        "EN": "Address",
+                        "RO": "Adresă",
+                        "FR": "Adresse",
+                        "IT": "Indirizzo",
+                        "JP": "住所",
+                        "DE": "Adresse"
+                    },
+                    "value": {
+                        "EN": "Main Str. 374 Iordacheanu, Prahova, Romania",
+                        "RO": "Principală 374 Iordăcheanu, Prahova, România",
+                        "FR": "Rue principale 374 Iordacheanu, Prahova, Roumanie",
+                        "IT": "Strada principale 374 Iordacheanu, Prahova, Romania",
+                        "JP": "大通り 374 ヨルダチャヌ、プラホヴァ、ルーマニア",
+                        "DE": "Hauptstraße 374 Iordacheanu, Prahova, Rumänien"
+                    }
+                },
+                {
+                    "name": {
+                        "EN": "Phone",
+                        "RO": "Telefon",
+                        "FR": "Téléphoner",
+                        "IT": "Telefono",
+                        "JP": "電話",
+                        "DE": "Telefon"
+                    },
+                    "value": "(+40) 730 042 104"
+                },
+                {
+                    "name": "eMail",
+                    "value": "valentinbanica8@gmail.com"
+                },
+                {
+                    "name": "Skype",
+                    "value": "live:valentinbanica8"
+                },
+                {
+                    "name": {
+                        "EN": "Sex",
+                        "RO": "Sex",
+                        "FR": "Sexe",
+                        "IT": "Sesso",
+                        "JP": "セックス",
+                        "DE": "Sex"
+                    },
+                    "value": {
+                        "default": "M",
+                        "JP": "男"
+                    }
+                },
+                {
+                    "name": {
+                        "EN": "Nationality",
+                        "RO": "Naționalitate",
+                        "FR": "Nationalité",
+                        "IT": "Nazionalità",
+                        "JP": "国籍",
+                        "DE": "Staatsangehörigkeit"
+                    },
+                    "value": {
+                        "EN": "Romanian",
+                        "RO": "Român",
+                        "FR": "Roumain",
+                        "IT": "Rumeno",
+                        "JP": "ルーマニア語",
+                        "DE": "Rumänisch"
+                    }
+                }
+            ]
+        }
+    ],
+    "title": {
+        "default": "Bio ~ Bănică Ninel-Valentin",
+        "JP": "バイオ ~ Bănică Ninel-Valentin"
+    }
+}

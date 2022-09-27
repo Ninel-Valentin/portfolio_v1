@@ -1,0 +1,80 @@
+{
+    "@type": "languageContent",
+    "default": "EN",
+    "languages": [
+        {
+            "lang": "EN",
+            "@usable": true
+        },
+        {
+            "lang": "RO",
+            "@usable": true
+        },
+        {
+            "lang": "FR",
+            "@usable": true
+        },
+        {
+            "lang": "IT",
+            "@usable": true
+        },
+        {
+            "lang": "JP",
+            "@usable": true
+        },
+        {
+            "lang": "DE",
+            "@usable": true
+        },
+        {
+            "lang": "ES",
+            "@usable": false
+        }
+    ],
+    "content": [
+        {
+            "@type": "workInProgress",
+            "EN": "Hi there! Apologies but we are working on this for now. Come back later!",
+            "RO": "Salutare! Scuze dar lucrăm la partea asta momentan. Vino mai târziu!",
+            "FR": "Salut! Désolé mais nous y travaillons pour le moment. Revenez plus tard!",
+            "IT": "Ciao! Ci scusiamo ma per ora ci stiamo lavorando. Torna più tardi!",
+            "JP": "やあ！申し訳ありませんが、私たちは今のところこれに取り組んでいます。後で戻ってきます！",
+            "DE": "Hi! Entschuldigung, aber wir arbeiten gerade daran. Komme später wieder!"
+        },
+        {
+            "@type": "returnHome",
+            "EN": "← Return to home page!",
+            "RO": "← Înapoi la pagina principală!",
+            "FR": "← Retour à la page d'accueil!",
+            "IT": "← Torna alla home page!",
+            "JP": "← ホームページに戻る！",
+            "DE": "← Zur Startseite zurückkehren!"
+        },
+        {
+            "@type": "cookiesText",
+            "EN": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!</br>But who doesn't like cookies?",
+            "RO": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?",
+            "FR": "Hé! Ce site utilise peu de cookies pour optimiser votre visite. J'espère que cela ne vous dérange pas!</br>Mais qui n'aime pas les cookies?",
+            "IT": "Hey! Diese Seite verwendet wenige Cookies, um Ihren Besuch zu optimieren. Ich hoffe, Sie haben nichts dagegen!</br>Aber wer mag keine Kekse?",
+            "JP": "おい！このサイトでは、訪問を最適化するためにいくつかの Cookie を使用しています。気にしないでください!</br>しかし、クッキーが嫌いな人はいますか?",
+            "DE": "Ehi! Questo sito utilizza pochi cookie per ottimizzare la tua visita. Spero non ti dispiaccia!</br>Ma a chi non piacciono i biscotti?"
+        },
+        {
+            "@type": "cookiesAllow",
+            "EN": "Allow",
+            "RO": "Permiteți",
+            "FR": "Permettre",
+            "IT": "Permettere",
+            "JP": "許可する",
+            "DE": "Erlauben"
+        }
+    ],
+    "title": {
+        "EN": "Still working here...",
+        "RO": "Încă lucrez la asta...",
+        "FR": "Je travail encore dessus...",
+        "IT": "Lavoro ancora qui...",
+        "JP": "まだここで働いている...",
+        "DE": "Hier wird noch gearbeitet..."
+    }
+}

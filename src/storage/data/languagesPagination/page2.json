@@ -1,0 +1,885 @@
+{
+    "@type": "languageContent",
+    "default": "EN",
+    "languages": [
+        {
+            "lang": "EN",
+            "@usable": true
+        },
+        {
+            "lang": "RO",
+            "@usable": true
+        },
+        {
+            "lang": "FR",
+            "@usable": true
+        },
+        {
+            "lang": "IT",
+            "@usable": true
+        },
+        {
+            "lang": "JP",
+            "@usable": true
+        },
+        {
+            "lang": "DE",
+            "@usable": true
+        },
+        {
+            "lang": "ES",
+            "@usable": false
+        }
+    ],
+    "contentProperties": {
+        "q": {
+            "name": {
+                "default": "Name",
+                "RO": "Nume",
+                "FR": "Nom",
+                "IT": "Nome",
+                "JP": "名前"
+            },
+            "contact": {
+                "default": "Contact",
+                "IT": "Contatto",
+                "JP": "コンタクト",
+                "DE": "Kontakt"
+            },
+            "address": {
+                "EN": "Address",
+                "RO": "Adresa",
+                "FR": "Adresse",
+                "IT": "Indirizzo",
+                "JP": "住所",
+                "DE": "Adresse"
+            },
+            "studyPeriod": {
+                "EN": "Period of studying",
+                "RO": "Perioada de studiu",
+                "FR": "Période d'études",
+                "IT": "Periodo di studio",
+                "JP": "在学期間",
+                "DE": "Zeitraum des Studiums"
+            },
+            "title": {
+                "EN": "Title",
+                "RO": "Titlu",
+                "FR": "Titre",
+                "IT": "Titolo",
+                "JP": "題名",
+                "DE": "Titel"
+            }
+        },
+        "a": {
+            "student": {
+                "default": "Student",
+                "FR": "Étudiant",
+                "IT": "Alunno",
+                "JP": "学生"
+            },
+            "uniAddress": {
+                "EN": "Street Politehnicii no. 1 Brasov Romania",
+                "RO": "Strada Politehnicii nr. 1 Brașov România",
+                "FR": "Rue Politehnicii no. 1 Brasov Roumanie",
+                "IT": "Via Politehnicii n. 1 Brasov Romania",
+                "JP": "ストリート ポリテニチー no. 1 ブラショフ ルーマニア",
+                "DE": "Straße Politehnicii Nr. 1 Brasov Rumänien"
+            },
+            "uniContact": {
+                "default": "(+40) 268 474 718</br>f-iesc@unitbv.ro"
+            },
+            "level": {
+                "default": "Level",
+                "FR": "Niveau",
+                "IT": "Livello",
+                "JP": "レベル",
+                "DE": "Eben"
+            },
+            "takenAt": {
+                "EN": "Taken on",
+                "RO": "Susținut la",
+                "FR": "Pris sur",
+                "IT": "Assunto",
+                "JP": "引き受けた",
+                "DE": "Angenommen"
+            }
+        },
+        "state": {
+            "graduated": {
+                "EN": "🔵Graduated",
+                "RO": "🔵Absolvit",
+                "FR": "🔵Diplômé",
+                "IT": "🔵Laureato",
+                "JP": "🔵卒業",
+                "DE": "🔵Abgeschlossen"
+            },
+            "experience": {
+                "EN": "🟡Experience",
+                "RO": "🟡Experiență",
+                "FR": "🟡Expérience",
+                "IT": "🟡Esperienza",
+                "JP": "🟡体験",
+                "DE": "🟡Erfahrung"
+            }
+        },
+        "main": {
+            "viaName": {
+                "EN": "Part of P&G VIA Learning platform pilot",
+                "RO": "Parte din platforma de învățare pilot P&G Via",
+                "FR": "Fait partie du pilote de la plateforme d'apprentissage P&G VIA",
+                "IT": "Parte del pilota della piattaforma P&G VIA Learning",
+                "JP": "P&G VIA ラーニング プラットフォーム パイロットの一部",
+                "DE": "Teil des Pilotprojekts der P&G VIA Learning-Plattform"
+            }
+        },
+        "work": {
+            "period": {
+                "EN": "Working period",
+                "RO": "Perioadă de lucru",
+                "FR": "Période de travail",
+                "IT": "Periodo lavorativo",
+                "JP": "作業期間",
+                "DE": "Arbeitsperiode"
+            },
+            "responsibilities": {
+                "EN": "Job responsibilities",
+                "RO": "Responsabilitățile postului",
+                "FR": "Responsabilités du poste",
+                "IT": "Responsabilità di lavoro",
+                "JP": "仕事の責任",
+                "DE": "Berufliche Verantwortlichkeiten"
+            },
+            "cashierResponsibilities": {
+                "EN": "Working with people.</br>Working in a team.</br>Working with money.</br>Taking orders and giving info.",
+                "RO": "Lucrul cu oameni.</br>Lucrul în echipă.</br>Lucrarea cu bani.</br>Preluarea comenzilor și oferirea de informații.",
+                "FR": "Travailler avec les gens.</br>Travailler en équipe.</br>Travailler avec de l'argent.</br>Prendre des commandes et donner des informations.",
+                "IT": "Lavorare con le persone.</br>Lavorare in una squadra.</br>Lavorare con i soldi.</br>Prendere ordini e dare informazioni.",
+                "JP": "人と協力する。</br>チームで働く。</br>お金を扱う。</br>命令を受け、情報を提供する。",
+                "DE": "Mit Menschen arbeiten.</br>In einem Team arbeiten.</br>Mit Geld arbeiten.</br>Befehle entgegennehmen und Informationen geben."
+            },
+            "workingLocation": {
+                "EN": "Workplace location",
+                "RO": "Locația locului de muncă",
+                "FR": "Lieu de travail",
+                "IT": "Posizione sul posto di lavoro",
+                "JP": "職場の場所",
+                "DE": "Standort des Arbeitsplatzes"
+            }
+        }
+    },
+    "content": [
+        {
+            "@type": "cookiesText",
+            "EN": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!</br>But who doesn't like cookies?",
+            "RO": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?",
+            "FR": "Hé! Ce site utilise peu de cookies pour optimiser votre visite. J'espère que cela ne vous dérange pas!</br>Mais qui n'aime pas les cookies?",
+            "IT": "Hey! Diese Seite verwendet wenige Cookies, um Ihren Besuch zu optimieren. Ich hoffe, Sie haben nichts dagegen!</br>Aber wer mag keine Kekse?",
+            "JP": "おい！このサイトでは、訪問を最適化するためにいくつかの Cookie を使用しています。気にしないでください!</br>しかし、クッキーが嫌いな人はいますか?",
+            "DE": "Ehi! Questo sito utilizza pochi cookie per ottimizzare la tua visita. Spero non ti dispiaccia!</br>Ma a chi non piacciono i biscotti?"
+        },
+        {
+            "@type": "cookiesAllow",
+            "EN": "Allow",
+            "RO": "Permiteți",
+            "FR": "Permettre",
+            "IT": "Permettere",
+            "JP": "許可する",
+            "DE": "Erlauben"
+        },
+        {
+            "@type": "eduList",
+            "@contentType": "Directory",
+            "content": [
+                {
+                    "directoryName": {
+                        "EN": "Education",
+                        "RO": "Educatie",
+                        "FR": "Éducation",
+                        "IT": "Formazione scolastica",
+                        "JP": "教育",
+                        "DE": "Ausbildung"
+                    },
+                    "content": [
+                        {
+                            "header": {
+                                "EN": "Electrical Engineering and Computer Science (Eng.) - Brasov",
+                                "RO": "Inginerie Electrică și Știința Calculatoarelor (Eng.) - Brașov",
+                                "FR": "Génie électrique et informatique (Eng.) - Brasov",
+                                "IT": "Ingegneria Elettrica e Informatica (Ing.) - Brasov",
+                                "JP": "電気工学およびコンピューター サイエンス (Eng.) - ブラショフ",
+                                "DE": "Elektrotechnik und Informatik (Eng.) - Brasov"
+                            },
+                            "state": {
+                                "EN": "🟢Currently studying",
+                                "RO": "🟢Studiez în prezent",
+                                "FR": "🟢En train d'étudier",
+                                "IT": "🟢Attualmente studio",
+                                "JP": "🟢現在勉強",
+                                "DE": "🟢Studiert derzeit"
+                            },
+                            "status": "#50f545",
+                            "logo": "unitbv.svg",
+                            "logoShadow": "black",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|name",
+                                        "a": {
+                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>Electrical Engineering and Computer Science (Eng.)</br>University of Transilvania Brasov, Romania",
+                                            "RO": "Facultatea de Inginerie Electrică și Știința Calculatoarelor</br>Inginerie Electrică și Știința Calculatoarelor (Eng.)</br>Universitatea Transilvania Brașov, România",
+                                            "FR": "Faculté de génie électrique et d'informatique</br>Génie électrique et informatique (Eng.)</br>Université de Transilvania Brasov, Roumanie",
+                                            "IT": "Facoltà di Ingegneria Elettrica e Informatica</br>Ingegneria Elettrica e Informatica (Ing.)</br>Università della Transilvania Brasov, Romania",
+                                            "JP": "電気工学およびコンピュータ サイエンス学部</br>電気工学およびコンピュータ サイエンス（工学）</br>ルーマニア、ブラショフのトランシルバニア大学",
+                                            "DE": "Fakultät für Elektrotechnik und Informatik</br>Elektrotechnik und Informatik (Eng.)</br>Transilvania University Brasov, Rumänien"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|contact",
+                                        "a": "PROPERTY_a|uniContact"
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|address",
+                                        "a": "PROPERTY_a|uniAddress"
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|studyPeriod",
+                                        "a": {
+                                            "EN": "Octomber 2022 - Present",
+                                            "RO": "Octombrie 2022 - Prezent",
+                                            "FR": "Octobre 2022 - Présent",
+                                            "IT": "Ottobre 2022 - Presente",
+                                            "JP": "2022年10月～現在",
+                                            "DE": "Oktober 2022 - Gegenwart"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|title",
+                                        "a": "PROPERTY_a|student"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Electrotechnics - Brasov",
+                                "RO": "Electrotehnică - Brașov",
+                                "FR": "Électrotechnique - Brasov",
+                                "IT": "Elettrotecnica - Brasov",
+                                "JP": "エレクトロテクニクス - ブラショフ",
+                                "DE": "Elektrotechnik - Brasov"
+                            },
+                            "state": {
+                                "EN": "🔴Stopped for other specialization.",
+                                "RO": "🔴Încheiat pentru altă specializare.",
+                                "FR": "🔴Arrêté pour autre spécialisation.",
+                                "IT": "🔴Fermato per altra specializzazione.",
+                                "JP": "🔴他の専門のために停止しました。",
+                                "DE": "🔴Gestoppt für andere Spezialisierung."
+                            },
+                            "status": "#6b1f1f",
+                            "logo": "unitbv.svg",
+                            "logoShadow": "black",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|name",
+                                        "a": {
+                                            "EN": "Faculty of Electrical Engineering and Computer Science</br>Electrotechnics</br>University of Transilvania Brașov, Romania",
+                                            "RO": "Facultatea de Inginerie Electrică și Știința Calculatoarelor</br>Electrotehnică</br>Universitatea Transilvania Brașov, România",
+                                            "FR": "Faculté de génie électrique et d'informatique</br>Électrotechnique</br>Université de Transylvanie Brașov, Roumanie",
+                                            "IT": "Facoltà di Ingegneria Elettrica e Informatica</br>Elettrotecnica</br>Università della Transilvania Brașov, Romania",
+                                            "JP": "電気工学およびコンピュータ サイエンス学部</br>電気工学</br>トランシルバニア大学、ブラショフ、ルーマニア",
+                                            "DE": "Fakultät für Elektrotechnik und Informatik</br>Elektrotechnik</br>Transilvania University Brașov, Rumänien"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|contact",
+                                        "a": "PROPERTY_a|uniContact"
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|address",
+                                        "a": "PROPERTY_a|uniAddress"
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|studyPeriod",
+                                        "a": {
+                                            "EN": "Octomber 2021 - July 2022",
+                                            "RO": "Octombrie 2021 - Iulie 2022",
+                                            "FR": "Octobre 2021 - Juillet 2022",
+                                            "IT": "Ottobre 2021 - luglio 2022",
+                                            "JP": "2021年10月～2022年7月",
+                                            "DE": "Oktober 2021 - Juli 2022"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|title",
+                                        "a": "PROPERTY_a|student"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Theoretical High school - Prahova",
+                                "RO": "Liceu Teoretic - Prahova",
+                                "FR": "Lycée Théorique - Prahova",
+                                "IT": "Liceo Teoretico - Prahova",
+                                "JP": "理論高校 - プラホヴァ",
+                                "DE": "Theoretisches Gymnasium - Prahova"
+                            },
+                            "state": "PROPERTY_state|graduated",
+                            "status": "#038cfc",
+                            "logo": "brancoveanu.png",
+                            "logoShadow": "crimson",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|name",
+                                        "a": {
+                                            "EN": "Theoretical High school Brâncoveanu-Vodă</br>Mathematics-Informatics</br>Urlati, Prahova, Romania",
+                                            "RO": "Liceul Teoretic Brâncoveanu-Vodă</br>Matematică-Informatică</br>Urlați, Prahova, România",
+                                            "FR": "Lycée Théorique Brâncoveanu-Vodă</br>Mathématiques-Informatique</br>Urlati, Prahova, Roumanie",
+                                            "IT": "Liceo Teoretico Brâncoveanu-Vodă</br>Matematica-Liceo TeoricoInformatica</br>Urlati, Prahova, Romania",
+                                            "JP": "高校理論 Brâncoveanu-Vodă</br>数学-情報学</br> ウルラツィプラホヴァ、ルーマニア",
+                                            "DE": "Theoretisches Gymnasium Brâncoveanu-Vodă</br>Mathematik-Informatik</br>Urlati, Prahova, Rumänien"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|contact",
+                                        "a": {
+                                            "default": "0244 271 316</br>liceulteoreticurlati@yahoo.com"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|address",
+                                        "a": {
+                                            "EN": "Street 1 Mai no. 30, Prahova Romania",
+                                            "RO": "Strada 1 Mai nr. 30, Prahova România",
+                                            "FR": "Rue 1 Mai no. 30, Prahova Roumanie",
+                                            "IT": "Via 1 Mai n. 30, Prahova Romania",
+                                            "JP": "通り 1 舞の。 30、プラホヴァ ルーマニア",
+                                            "DE": "Straße 1 Mai-Nr. 30, Prahova Rumänien"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|studyPeriod",
+                                        "a": {
+                                            "EN": "September 2017 - June 2021",
+                                            "RO": "Septembrie 2017 - Iunie 2021",
+                                            "FR": "Septembre 2017 - Juin 2021",
+                                            "IT": "Settembre 2017 - Iunie 2021",
+                                            "JP": "2017年9月～2021年イウニエ",
+                                            "DE": "September 2017 - Juni 2021"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|title",
+                                        "a": "PROPERTY_a|student"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "directoryName": {
+                        "EN": "Achivements",
+                        "RO": "Realizări",
+                        "FR": "Réalisations",
+                        "IT": "Risultati",
+                        "JP": "実績",
+                        "DE": "Erfolge"
+                    },
+                    "content": [
+                        {
+                            "header": "PROPERTY_main|viaName",
+                            "state": "PROPERTY_state|graduated",
+                            "status": "#038cfc",
+                            "logo": "P&G.png",
+                            "logoShadow": "cyan",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|name",
+                                        "a": "PROPERTY_main|viaName"
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Details",
+                                            "RO": "Detalii",
+                                            "FR": "Détails",
+                                            "IT": "Particolari",
+                                            "JP": "詳細",
+                                            "DE": "Einzelheiten"
+                                        },
+                                        "a": {
+                                            "EN": "I was part of the P&G VIA Learning platform pilot.</br>Invited by {{Marco De Luca->https://www.linkedin.com/in/delucam/}}",
+                                            "RO": "Am făcut parte din platforma de învățare pilot P&G Via.</br> Invitat de {{Marco De Luca->https://www.linkedin.com/in/delucam/}}",
+                                            "FR": "J'ai fait partie du pilote de la plateforme d'apprentissage P&G VIA.</br>Invité par {{Marco De Luca->https://www.linkedin.com/in/delucam/}}",
+                                            "IT": "Ho fatto parte del progetto pilota della piattaforma P&G VIA Learning.</br>Invitato da {{Marco De Luca->https://www.linkedin.com/in/delucam/}}",
+                                            "JP": "P&G VIA ラーニング プラットフォームのパイロットに参加しました。</br>招待者 {{Marco De Luca->https://www.linkedin.com/in/delucam/}}",
+                                            "DE": "Ich war Teil des Pilotprojekts der P&G VIA Learning-Plattform.</br>Eingeladen von {{Marco De Luca->https://www.linkedin.com/in/delucam/}}"
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Results",
+                                            "RO": "Rezultate",
+                                            "FR": "Résultats",
+                                            "IT": "Risultati",
+                                            "JP": "結果",
+                                            "DE": "Ergebnisse"
+                                        },
+                                        "a": {
+                                            "EN": "After the 5 weeks of taking part in numerous lessons, I have gained multiple Certificates of Achivement in different fields such as:</br>Problem solving;</br>Data & Digital Skills;</br>Communication Skills;",
+                                            "RO": "După cele 5 săptămâni în care am participat în nenumărate lecții, am obținut multiple Certificări în diferite domenii precum:</br>Rezolvarea problemelor;</br>Abilități digitale și procesarea datelor;</br>Abilități de comunicare;",
+                                            "FR": "Après les 5 semaines de participation à de nombreuses leçons, j'ai obtenu plusieurs certificats de réussite dans différents domaines tels que :</br>Résolution de problèmes ;</br>Compétences en matière de données et numériques ;</br>Compétences en communication;",
+                                            "IT": "Dopo 5 settimane di partecipazione a numerose lezioni, ho ottenuto più Certificati di conseguimento in diversi campi come:</br>Problem solving;</br>Dati e competenze digitali;</br>Competenze di comunicazione;",
+                                            "JP": "5 週間にわたって多数のレッスンに参加した後、次のようなさまざまな分野で複数の達成証明書を取得しました。</br>問題解決、</br>データとデジタル スキル、</br>コミュニケーション スキル。",
+                                            "DE": "Nach den 5 Wochen, in denen ich an zahlreichen Lektionen teilgenommen habe, habe ich mehrere Leistungszertifikate in verschiedenen Bereichen erhalten, wie zum Beispiel:</br>Problemlösung;</br>Daten- und digitale Fähigkeiten;</br>Kommunikationsfähigkeiten;"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|studyPeriod",
+                                        "a": {
+                                            "EN": "18th of February - 1st of April 2022",
+                                            "RO": "18 Februarie - 1 Aprilie 2022",
+                                            "FR": "18 février - 1er avril 2022",
+                                            "IT": "18 febbraio - 1 aprile 2022",
+                                            "JP": "2022 年 2 月 18 日～4 月 1 日",
+                                            "DE": "18. Februar - 1. April 2022"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Certified in C++ and SQL, technical editing and use of Microsoft Office",
+                                "RO": "Certificat în C++ și SQL, tehnoredactare și utilizarea pachetului Microsoft Office",
+                                "FR": "Certifié en C++ et SQL, édition technique et utilisation de Microsoft Office",
+                                "IT": "Certificazione in C++ e SQL, editing tecnico e utilizzo di Microsoft Office",
+                                "JP": "C++ と SQL の認定資格、技術的な編集と Microsoft Office の使用",
+                                "DE": "Zertifiziert in C++ und SQL, technische Redaktion und Nutzung von Microsoft Office"
+                            },
+                            "state": "PROPERTY_state|graduated",
+                            "status": "#038cfc",
+                            "logo": "brancoveanu.png",
+                            "logoShadow": "crimson",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|name",
+                                        "a": {
+                                            "EN": "High school certification based on specialization.",
+                                            "RO": "Certificare bazată pe specializarea din liceu.",
+                                            "FR": "Diplôme d'études secondaires basé sur la spécialisation.",
+                                            "IT": "Certificazione di scuola media superiore in base alla specializzazione.",
+                                            "JP": "専門性に基づく高等学校認定。",
+                                            "DE": "Fachhochschulreife nach Fachrichtung."
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|level",
+                                        "a": {
+                                            "default": "10 / 10"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|takenAt",
+                                        "a": {
+                                            "EN": "June 2021",
+                                            "RO": "Iunie 2021",
+                                            "FR": "Juin 2021",
+                                            "IT": "Giugno 2021",
+                                            "JP": "2021年6月",
+                                            "DE": "Juni 2021"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Participated on BRD's FIRST TECH CHALLENGE Romania",
+                                "RO": "Am participat la BRD's FIRST TECH CHALLENGE Romania",
+                                "FR": "Participation au FIRST TECH CHALLENGE de la BRD Roumanie",
+                                "IT": "Ha partecipato alla FIRST TECH CHALLENGE di BRD Romania",
+                                "JP": "BRDのFIRST TECH CHALLENGEルーマニアに参加",
+                                "DE": "Teilnahme an BRDs FIRST TECH CHALLENGE Rumänien"
+                            },
+                            "state": "PROPERTY_state|experience",
+                            "status": "#ffc800",
+                            "logo": "firstTech.png",
+                            "logoShadow": "#038cfc",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Experience description",
+                                            "RO": "Descrierea experienței",
+                                            "FR": "Descriptif de l'expérience",
+                                            "IT": "Descrizione dell'esperienza",
+                                            "JP": "体験の説明",
+                                            "DE": "Erlebnisbeschreibung"
+                                        },
+                                        "a": {
+                                            "EN": "Participated with my high school team twice up to the nationals.",
+                                            "RO": "Am participat cu echipa liceului meu de 2 ori până la naționale.",
+                                            "FR": "J'ai participé avec l'équipe de mon lycée à deux reprises aux championnats nationaux.",
+                                            "IT": "Ho partecipato con la mia squadra del liceo due volte fino alle nazionali.",
+                                            "JP": "高校時代は全国大会まで2回出場。",
+                                            "DE": "Nahm mit meiner Highschool-Mannschaft zweimal bis zu den Nationals teil."
+                                        }
+                                    },
+                                    {
+                                        "q": {
+                                            "EN": "Event description",
+                                            "RO": "Descrierea evenimentului",
+                                            "FR": "Description de l'évenement",
+                                            "IT": "Descrizione dell'evento",
+                                            "JP": "イベントの説明",
+                                            "DE": "Eventbeschreibung"
+                                        },
+                                        "a": {
+                                            "EN": "There were tasks given for each team that were to be done by robots constructed by said teams, with few conditions on what to use or not to use in the making of the robot.",
+                                            "RO": "Fiecare echipă primea sarcini ce trebuiau îndeplinite de roboții construiți de către echipe, cu câteva condiții în a ce se putea folosi sau nu în construirea acestuia.",
+                                            "FR": "Il y avait des tâches données à chaque équipe qui devaient être effectuées par des robots construits par lesdites équipes, avec peu de conditions sur ce qu'il fallait utiliser ou ne pas utiliser dans la fabrication du robot.",
+                                            "IT": "C'erano compiti assegnati a ciascuna squadra che dovevano essere svolti da robot costruiti da dette squadre, con poche condizioni su cosa usare o non usare nella realizzazione del robot.",
+                                            "JP": "各チームが作成したロボットによって実行されるタスクがチームごとに与えられ、ロボットの作成に何を使用するか、使用しないかについての条件はほとんどありませんでした。",
+                                            "DE": "Jedem Team wurden Aufgaben gegeben, die von Robotern ausgeführt werden sollten, die von diesen Teams konstruiert wurden, mit wenigen Bedingungen, was bei der Herstellung des Roboters verwendet oder nicht verwendet werden sollte."
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "Period of participation",
+                                            "RO": "Perioada de participare",
+                                            "FR": "Période de participation",
+                                            "IT": "Periodo di partecipazione",
+                                            "JP": "参加期間",
+                                            "DE": "Zeitraum der Teilnahme"
+                                        },
+                                        "a": {
+                                            "EN": "Edition of 2018-2019</br>Edition of 2019-2020",
+                                            "RO": "Ediția 2018-2019</br>Ediția 2019-2020",
+                                            "FR": "Édition de 2018-2019</br>Édition de 2019-2020",
+                                            "IT": "Edizione 2018-2019</br>Edizione 2019-2020",
+                                            "JP": "2018-2019年版</br>2019-2020年版",
+                                            "DE": "Ausgabe 2018-2019</br>Ausgabe 2019-2020"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "default": "Cambridge Assessment English Certificate - B2"
+                            },
+                            "state": "PROPERTY_state|graduated",
+                            "status": "#038cfc",
+                            "logo": "cae.png",
+                            "logoShadow": "crimson",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|name",
+                                        "a": {
+                                            "default": "Cambridge English Level 1 Certificate in ESOL International"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|level",
+                                        "a": {
+                                            "default": "Council of Europe Level B2"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_q|takenAt",
+                                        "a": {
+                                            "EN": "21st & 22nd of May 2019",
+                                            "RO": "21 și 22 Mai 2019",
+                                            "FR": "21 & 22 mai 2019",
+                                            "IT": "21 e 22 maggio 2019",
+                                            "JP": "2019年5月21日・22日",
+                                            "DE": "21. & 22. Mai 2019"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "directoryName": {
+                        "EN": "Work experience",
+                        "RO": "Experiență de muncă",
+                        "FR": "L'expérience professionnelle",
+                        "IT": "Esperienza lavorativa",
+                        "JP": "実務経験",
+                        "DE": "Berufserfahrung"
+                    },
+                    "content": [
+                        {
+                            "header": {
+                                "default": "Web Crawler Developer (Remote)</br>ChannelSight: eCommerce Inteligence"
+                            },
+                            "state": {
+                                "EN": "🟢Currently working here",
+                                "RO": "🟢Lucrând în prezent aici",
+                                "FR": "🟢Travaille actuellement ici",
+                                "IT": "🟢Attualmente lavoro qui",
+                                "JP": "🟢現在こちらで勤務中",
+                                "DE": "🟢Arbeite derzeit hier"
+                            },
+                            "status": "#50f545",
+                            "logo": "CS.png",
+                            "logoShadow": "black",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": {
+                                            "EN": "HQ location",
+                                            "RO": "Locația sediului central",
+                                            "FR": "Emplacement du QG",
+                                            "IT": "Posizione del quartier generale",
+                                            "JP": "本社所在地",
+                                            "DE": "HQ-Standort"
+                                        },
+                                        "a": {
+                                            "default": "Newcourt House, Strandville Avenue East, Clontarf,</br>Dublin 3, Ireland, D03 F2K5"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|contact",
+                                        "a": {
+                                            "default": "(01) 902 2822</br>info@channelsight.com"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_work|period",
+                                        "a": {
+                                            "EN": "1st of March 2022 - Present",
+                                            "RO": "1 Martie 2022 - Present",
+                                            "FR": "1er mars 2022 - Présent",
+                                            "IT": "1 marzo 2022 - Presente",
+                                            "JP": "2022 年 3 月 1 日 - 現在",
+                                            "DE": "1. März 2022 - Gegenwart"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_work|responsibilities",
+                                        "a": {
+                                            "EN": "Analyzing websites' structure and creating crawlers for them.</br>Understanding, refactoring and updating written code.</br>Analyzing the data extracted by the crawlers.</br>Working with databases using SQL.</br>Both teamwork and solo projects.",
+                                            "RO": "Analizarea structurii siteurilor web și crearea roboților crawler pentru acestea.</br> Înțelegerea, curățarea și îmbunătățirea codului scris.</br>Analizarea de date extrase de crawleri.</br>Lucrul cu baze de date folosing SQL.</br>Atât muncă în echipă cât și în proiecte solitare.",
+                                            "FR": "Analyser la structure des sites Web et créer des crawlers pour eux.</br>Comprendre, refactoriser et mettre à jour le code écrit.</br>Analyser les données extraites par les crawlers.</br>Travailler avec des bases de données en utilisant SQL.</br>Les deux travaillent en équipe et des projets solo.",
+                                            "IT": "Analisi della struttura dei siti Web e creazione di crawler per loro.</br>Comprensione, refactoring e aggiornamento del codice scritto.</br>Analisi dei dati estratti dai crawler.</br>Lavorare con i database utilizzando SQL.</br>Entrambi lavorano in team e progetti solisti.",
+                                            "JP": "ウェブサイトの構造を分析し、クローラーを作成する。</br>記述されたコードを理解し、リファクタリングし、更新する。</br>クローラーによって抽出されたデータを分析する。</br>SQL を使用してデータベースを操作する。</br>両方のチームワークそしてソロプロジェクト。",
+                                            "DE": "Analysieren der Struktur von Websites und Erstellen von Crawlern für sie.</br>Verstehen, Refactoring und Aktualisieren von geschriebenem Code.</br>Analyse der von den Crawlern extrahierten Daten.</br>Arbeiten mit Datenbanken unter Verwendung von SQL.</br>Beide Teamarbeit und Soloprojekte."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Cashier - PREMIER RESTAURANTS ROMANIA S.R.L.",
+                                "RO": "Casier - PREMIER RESTAURANTS ROMANIA S.R.L.",
+                                "FR": "Caissière - PREMIER RESTAURANTS ROMANIA S.R.L.",
+                                "IT": "Cassiere - PREMIER RESTAURANTS ROMANIA S.R.L.",
+                                "JP": "レジ - PREMIER RESTAURANTS ROMANIA S.R.L.",
+                                "DE": "Kassierer - PREMIER RESTAURANTS ROMANIA S.R.L."
+                            },
+                            "state": "PROPERTY_state|experience",
+                            "status": "#ffc800",
+                            "logo": "Mc.jpg",
+                            "logoShadow": "green",
+                            "shadow": false,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_work|workingLocation",
+                                        "a": {
+                                            "default": "Calea Bucuresti 108, Brasov 500418, Romania",
+                                            "FR": "Calea Bucuresti 108, Brasov 500418, Roumanie",
+                                            "JP": "Calea Bucuresti 108、ブラショフ 500418、ルーマニア",
+                                            "DE": "Calea Bucuresti 108, Brasov 500418, Rumänien"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|contact",
+                                        "a": {
+                                            "default": "(+40) 723 801 142"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_work|period",
+                                        "a": {
+                                            "EN": "November 2021 - March 2022",
+                                            "RO": "Noiembrie 2021 - Martie 2021",
+                                            "FR": "Novembre 2021 - Mars 2022",
+                                            "IT": "Novembre 2021 - Marzo 2022",
+                                            "JP": "2021年11月～2022年3月",
+                                            "DE": "November 2021 - März 2022"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_work|responsibilities",
+                                        "a": "PROPERTY_work|cashierResponsibilities"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "header": {
+                                "EN": "Cashier - S.C. PROFI ROM FOOD S.R.L.",
+                                "RO": "Casier - S.C. PROFI ROM FOOD S.R.L.",
+                                "FR": "Caissière - S.C. PROFI ROM FOOD S.R.L.",
+                                "IT": "Cassiere - S.C. PROFI ROM FOOD S.R.L.",
+                                "JP": "レジ - S.C. PROFI ROM FOOD S.R.L.",
+                                "DE": "Kassierer - S.C. PROFI ROM FOOD S.R.L."
+                            },
+                            "state": "PROPERTY_state|experience",
+                            "status": "#ffc800",
+                            "logo": "profi.png",
+                            "logoShadow": "crimson",
+                            "shadow": true,
+                            "details": {
+                                "@type": "directoryDetails",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_work|workingLocation",
+                                        "a": {
+                                            "EN": "Street 1 May 68, Urlati, Prahova 106300, Romania",
+                                            "RO": "Strada 1 Mai nr 68, Urlați, Prahova 106300, România",
+                                            "FR": "Rue 1 mai 68, Urlati, Prahova 106300, Roumanie",
+                                            "IT": "Via 1 maggio 68, Urlati, Prahova 106300, Romania",
+                                            "JP": "ストリート 1 5 月、いいえ。 68, Urlati, Prahova 106300, ルーマニア",
+                                            "DE": "Straße 1 Mai 68, Urlati, Prahova 106300, Rumänien"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_q|contact",
+                                        "a": {
+                                            "default": "(+40) 731 792 805"
+                                        }
+                                    }
+                                ]
+                            },
+                            "info": {
+                                "@type": "directoryInfo",
+                                "@contentType": "Q&A",
+                                "content": [
+                                    {
+                                        "q": "PROPERTY_work|period",
+                                        "a": {
+                                            "EN": "July 2021 - Octomber 2021",
+                                            "RO": "Iulie 2021 - Octombrie 2021",
+                                            "FR": "Juillet 2021 - Octobre 2021",
+                                            "IT": "Iuglio 2021 - Ottobre 2021",
+                                            "JP": "2021年7月～2021年10月",
+                                            "DE": "Juli 2021 - Oktober 2021"
+                                        }
+                                    },
+                                    {
+                                        "q": "PROPERTY_work|responsibilities",
+                                        "a": "PROPERTY_work|cashierResponsibilities"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "title": {
+        "EN": "Experience ~ Bănică Ninel-Valentin",
+        "RO": "Experiență ~ Bănică Ninel-Valentin",
+        "FR": "Vivre ~ Bănică Ninel-Valentin",
+        "IT": "Esperienza ~ Bănică Ninel-Valentin",
+        "JP": "経験 ~ Bănică Ninel-Valentin",
+        "DE": "Erfahrung ~ Bănică Ninel-Valentin"
+    }
+}

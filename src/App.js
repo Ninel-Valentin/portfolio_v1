@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { getCookie, setCookie, timeUnits } from './cookieService.js';
 
-const languageJson = require('./storage/data/languages.json');
 const pagesJson = require('./storage/data/pages.json');
 // const emailService = require('./storage/scripts/emailService.js');
 var canScroll = true;
@@ -54,6 +53,8 @@ const App = (props) => {
         dir = JSON.parse(dir);
     }
 
+    let languageJson = require(`./storage/data//languagesPagination/page${GetUrlParam('p') || props.page}.json`);
+
     const [data, setData] = useState({
         lang: GetUrlParam('lang') || languageJson.default,
         page: GetUrlParam('p') || props.page,
@@ -61,7 +62,7 @@ const App = (props) => {
     });
 
     const title = document.querySelector('title');
-    title.innerText = languageJson.titles.find(x => x['@type'] == title.getAttribute('data-type'))[data.lang];
+    title.innerText = GetLanguageValue(languageJson.title);
 
     const updateLanguage = (e) => {
         let targetLang = e.target.getAttribute('data-type');
@@ -122,6 +123,14 @@ const App = (props) => {
     function GetLanguageValue(content) {
         if (content.hasOwnProperty(data.lang)) return content[data.lang];
         if (content.hasOwnProperty('default')) return content['default'];
+        if (content.match(/PROPERTY_.+\|.+/g)) {
+            let keywords = content.split('_').pop().split('|');
+            let category = keywords.shift();
+            let key = keywords.pop();
+
+            let value = languageJson.contentProperties[category][key];
+            return GetLanguageValue(value);
+        }
         return content;
     }
 
@@ -279,7 +288,7 @@ const App = (props) => {
                                             let current = document.querySelector('.FileLine.active');
                                             current.className = 'FileLine';
                                             target.className = 'FileLine active';
-                                            document.querySelector('#FilePreview iframe').setAttribute('src', `/portofolio/public/storage/files/${content.content.files[index].name}`)
+                                            document.querySelector('#FilePreview iframe').setAttribute('src', `/storage/files/${content.content.files[index].name}`)
                                             setCookie('file', index, 1, timeUnits.days);
                                         }}>
                                         <div
@@ -299,8 +308,7 @@ const App = (props) => {
                                 <iframe
                                     key="FileIFrame"
                                     src=
-                                    // "/portofolio/public/storage/images/logos/"
-                                    {`/portofolio/public/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
+                                    {`/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
                                     width="100%"
                                     height="100%">
                                 </iframe>
@@ -401,8 +409,7 @@ const App = (props) => {
                 */
                 break;
             case 4:
-                let smJson = require('./storage/data/sm.json');
-                let data = [...smJson.content.map((smEntry, smIndex) => {
+                let data = [...languageJson.content.find(x => x['@type'] == 'socialMedia').content.map((smEntry, smIndex) => {
                     return (<div
                         key={`div${smIndex}`}>
                         <div
@@ -458,7 +465,7 @@ const App = (props) => {
                             }}>
                             <div
                                 style={{
-                                    backgroundImage: `url(./storage/images/social/${smEntry['@type']}${smEntry.imageType})`,
+                                    backgroundImage: `url(/portofolio/public/storage/images/social/${smEntry['@type']}${smEntry.imageType})`,
                                     backgroundColor: smEntry.background || '',
                                     filter: `drop-shadow(${smEntry.color} 0 0 5px)`
                                 }}
@@ -608,14 +615,12 @@ const App = (props) => {
             key="languageChanger"
             // This only returns true at the very start, before React creating the element
             style={{
-                backgroundImage: `url(/portofolio/public/storage/images/langIcons/${data.lang}.png)`, //deploy
-                // backgroundImage: `url(/storage/images/langIcons/${lang}.png)`, //dev
+                backgroundImage: `url(/portofolio/public/storage/images/langIcons/${data.lang}.png)`,
                 backgroundSize: 'cover'
             }}
             onMouseEnter={() => { document.querySelector('#language_preview').removeAttribute('style') }}
             onMouseLeave={() => {
                 document.querySelector('#language_preview').setAttribute('style',
-                    // `background-image: url(/portofolio/public/storage/images/langIcons/${lang}.png);
                     `background-image: url(/portofolio/public/storage/images/langIcons/${data.lang}.png);
                     background-size:cover;`)
             }}
@@ -628,8 +633,7 @@ const App = (props) => {
                                 data-type={x.lang}
                                 key={'language_option' + index}
                                 className="language_option"
-                                src={`/portofolio/public/storage/images/langIcons/${x.lang + (x.lang == data.lang ? '' : '_OFF')}.png`} //deploy
-                            // src={`/storage/images/langIcons/${x.lang + (x.lang == lang ? '' : '_OFF')}.png`} //dev
+                                src={`/storage/images/langIcons/${x.lang + (x.lang == data.lang ? '' : '_OFF')}.png`}
                             >
                             </img>
                         )
