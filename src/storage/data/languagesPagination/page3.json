@@ -1,0 +1,82 @@
+{
+    "@type": "languageContent",
+    "default": "EN",
+    "languages": [
+        {
+            "lang": "EN",
+            "@usable": true
+        },
+        {
+            "lang": "RO",
+            "@usable": true
+        },
+        {
+            "lang": "FR",
+            "@usable": true
+        },
+        {
+            "lang": "IT",
+            "@usable": true
+        },
+        {
+            "lang": "JP",
+            "@usable": true
+        },
+        {
+            "lang": "DE",
+            "@usable": true
+        },
+        {
+            "lang": "ES",
+            "@usable": false
+        }
+    ],
+    "content": [
+        {
+            "@type": "cookiesText",
+            "EN": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!</br>But who doesn't like cookies?",
+            "RO": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?",
+            "FR": "Hé! Ce site utilise peu de cookies pour optimiser votre visite. J'espère que cela ne vous dérange pas!</br>Mais qui n'aime pas les cookies?",
+            "IT": "Hey! Diese Seite verwendet wenige Cookies, um Ihren Besuch zu optimieren. Ich hoffe, Sie haben nichts dagegen!</br>Aber wer mag keine Kekse?",
+            "JP": "おい！このサイトでは、訪問を最適化するためにいくつかの Cookie を使用しています。気にしないでください!</br>しかし、クッキーが嫌いな人はいますか?",
+            "DE": "Ehi! Questo sito utilizza pochi cookie per ottimizzare la tua visita. Spero non ti dispiaccia!</br>Ma a chi non piacciono i biscotti?"
+        },
+        {
+            "@type": "cookiesAllow",
+            "EN": "Allow",
+            "RO": "Permiteți",
+            "FR": "Permettre",
+            "IT": "Permettere",
+            "JP": "許可する",
+            "DE": "Erlauben"
+        },
+        {
+            "@type": "CVpreview",
+            "@contentType": "FileSystem",
+            "content": {
+                "notice": {
+                    "EN": "The above documents only come in few language formats, which are all displayed. For other details don't hesitate to contact me via eMail on the next tab.",
+                    "RO": "Documentele de mai sus vin doar în câteva limbi, ce sunt afișate mai sus. Pentru alte detalii nu ezitați să mă contactați prin e-mail în pagina următoare.",
+                    "FR": "Les documents ci-dessus ne sont disponibles que dans quelques formats linguistiques, qui sont tous affichés. Pour d'autres détails n'hésitez pas à me contacter par eMail sur l'onglet suivant.",
+                    "IT": "I documenti di cui sopra sono disponibili solo in pochi formati linguistici, che sono tutti visualizzati. Per altri dettagli non esitate a contattarmi via eMail nella scheda successiva.",
+                    "JP": "上記のドキュメントはいくつかの言語形式でのみ提供され、すべて表示されます。その他の詳細については、次のタブの電子メールでお気軽にお問い合わせください。",
+                    "DE": "Die oben genannten Dokumente liegen nur in wenigen Sprachformaten vor, die alle angezeigt werden. Für weitere Details zögern Sie nicht, mich per eMail auf der nächsten Registerkarte zu kontaktieren."
+                },
+                "files": [
+                    {
+                        "displayedName": "Curriculum Vitae - RO ",
+                        "name": "CV.pdf"
+                    }
+                ]
+            }
+        }
+    ],
+    "title": {
+        "EN": "Document preview ~ Bănică Ninel-Valentin",
+        "RO": "Vizualizare documente ~ Bănică Ninel-Valentin",
+        "FR": "Aperçu des documents ~ Bănică Ninel-Valentin",
+        "IT": "Anteprima del documento ~ Bănică Ninel-Valentin",
+        "JP": "ドキュメントのプレビュー ~ Bănică Ninel-Valentin",
+        "DE": "Dokumentvorschau ~ Bănică Ninel-Valentin"
+    }
+}

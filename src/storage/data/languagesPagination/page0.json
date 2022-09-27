@@ -1,0 +1,113 @@
+{
+    "@type": "languageContent",
+    "default": "EN",
+    "languages": [
+        {
+            "lang": "EN",
+            "@usable": true
+        },
+        {
+            "lang": "RO",
+            "@usable": true
+        },
+        {
+            "lang": "FR",
+            "@usable": true
+        },
+        {
+            "lang": "IT",
+            "@usable": true
+        },
+        {
+            "lang": "JP",
+            "@usable": true
+        },
+        {
+            "lang": "DE",
+            "@usable": true
+        },
+        {
+            "lang": "ES",
+            "@usable": false
+        }
+    ],
+    "content": [
+        {
+            "@type": "cookiesText",
+            "EN": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!</br>But who doesn't like cookies?",
+            "RO": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?",
+            "FR": "Hé! Ce site utilise peu de cookies pour optimiser votre visite. J'espère que cela ne vous dérange pas!</br>Mais qui n'aime pas les cookies?",
+            "IT": "Hey! Diese Seite verwendet wenige Cookies, um Ihren Besuch zu optimieren. Ich hoffe, Sie haben nichts dagegen!</br>Aber wer mag keine Kekse?",
+            "JP": "おい！このサイトでは、訪問を最適化するためにいくつかの Cookie を使用しています。気にしないでください!</br>しかし、クッキーが嫌いな人はいますか?",
+            "DE": "Ehi! Questo sito utilizza pochi cookie per ottimizzare la tua visita. Spero non ti dispiaccia!</br>Ma a chi non piacciono i biscotti?"
+        },
+        {
+            "@type": "cookiesAllow",
+            "EN": "Allow",
+            "RO": "Permiteți",
+            "FR": "Permettre",
+            "IT": "Permettere",
+            "JP": "許可する",
+            "DE": "Erlauben"
+        },
+        {
+            "@type": "mainTitle",
+            "EN": "Hello, and welcome to my web portofolio!</br>Let's start with the basics!",
+            "RO": "Salutări, și bine ați venit pe portofoliul meu web!</br>Să începem cu începutul!",
+            "FR": "Bonjour et bienvenue sur mon site portfolio!</br>Tout d'abord!",
+            "IT": "Ciao e benvenuto nel mio portafoglio web!</br>Iniziamo dalle basi!",
+            "JP": "こんにちは、私のウェブ ポートフォリオへようこそ!</br>まずは基本から始めましょう!",
+            "DE": "Hallo und willkommen zu meinem Web-Portfolio!</br>Fangen wir mit den Grundlagen an!"
+        },
+        {
+            "@type": "mainContent",
+            "@contentType": "Q&A",
+            "content": [
+                {
+                    "q": {
+                        "EN": "Who am I?",
+                        "RO": "Cine sunt eu?",
+                        "FR": "Qui suis je?",
+                        "IT": "Chi sono?",
+                        "JP": "私は誰？",
+                        "DE": "Wer bin ich?"
+                    },
+                    "a": {
+                        "EN": "My name is Ninel-Valentin L. Bănică.",
+                        "RO": "Mă numesc Ninel-Valentin L. Bănică.",
+                        "FR": "Je m'appelle Ninel-Valentin L. Bănică.",
+                        "IT": "Mi chiamo Ninel-Valentin L. Bănică.",
+                        "JP": "私の名前はNinel-Valentin L. Bănicăです。",
+                        "DE": "Mein Name ist Ninel-Valentin L. Bănică."
+                    }
+                },
+                {
+                    "q": {
+                        "EN": "What is my occupation?",
+                        "RO": "Cu ce mă ocup?",
+                        "FR": "Que fais-je?",
+                        "IT": "Qual è la mia occupazione?",
+                        "JP": "私の職業は何ですか？",
+                        "DE": "Was ist mein Beruf?"
+                    },
+                    "a": {
+                        "EN": "I am an Electrical Engineering & Computer Science student in Brașov, Romania;</br>I work as an Programmer Analyst - Web Crawler Dev at ChannelSight: eCommerce Intelligence.",
+                        "RO": "Sunt un student în Inginerie Electrică & Știința Calculatoarelor în Brașov, România;</br>Lucrez ca și Programator Analist - Web Crawler Dev la ChannelSight: eCommerce Intelligence.",
+                        "FR": "Je suis étudiant en génie électrique et en informatique à Brașov, en Roumanie;</br>Je travaille en tant qu'analyste programmeur - Web Crawler Dev chez ChannelSight : eCommerce Intelligence.",
+                        "IT": "Sono uno studente di ingegneria elettrica e informatica a Brașov, in Romania;</br>Lavoro come analista programmatore - Web Crawler Dev presso ChannelSight: eCommerce Intelligence.",
+                        "JP": "私はルーマニアのブラショフで電気工学とコンピューター サイエンスの学生です。</br>ChannelSight: eCommerce Intelligence でプログラマー アナリスト (Web クローラー開発者) として働いています。",
+                        "DE": "Ich studiere Elektrotechnik und Informatik in Brașov, Rumänien;</br>ich arbeite als Programmieranalytiker - Webcrawler-Entwickler bei ChannelSight: eCommerce Intelligence."
+                    }
+                }
+            ]
+        }
+    ],
+    "title": {
+        "EN": "Home ~ Bănică Ninel-Valentin",
+        "RO": "Acasă ~ Bănică Ninel-Valentin",
+        "FR": "Page d'accueil ~ Bănică Ninel-Valentin",
+        "IT": "Pagina iniziale ~ Bănică Ninel-Valentin",
+        "JP": "ホーム ~ Bănică Ninel-Valentin",
+        "DE": "Startseite ~ Bănică Ninel-Valentin"
+    }
+}
