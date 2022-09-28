@@ -53,7 +53,8 @@ const App = (props) => {
         dir = JSON.parse(dir);
     }
 
-    let languageJson = require(`./storage/data//languagesPagination/page${GetUrlParam('p') || props.page}.json`);
+    let currentPageJson = require(`./storage/data//languagesPagination/page${GetUrlParam('p') || props.page}.json`);
+    let languageJson = require('./storage/data/languagesPagination/languages.json');
 
     const [data, setData] = useState({
         lang: GetUrlParam('lang') || languageJson.default,
@@ -62,7 +63,7 @@ const App = (props) => {
     });
 
     const title = document.querySelector('title');
-    title.innerText = GetLanguageValue(languageJson.title);
+    title.innerText = GetLanguageValue(currentPageJson.title);
 
     const updateLanguage = (e) => {
         let targetLang = e.target.getAttribute('data-type');
@@ -72,6 +73,7 @@ const App = (props) => {
                 ...data,
                 lang: targetLang
             });
+        document.querySelector('#languagePreview p').innerText = languageJson.languages.find(x => x.lang == targetLang).translation[targetLang];
     }
 
     function GetUrlParam(name) {
@@ -128,7 +130,7 @@ const App = (props) => {
             let category = keywords.shift();
             let key = keywords.pop();
 
-            let value = languageJson.contentProperties[category][key];
+            let value = currentPageJson.contentProperties[category][key];
             return GetLanguageValue(value);
         }
         return content;
@@ -334,9 +336,9 @@ const App = (props) => {
                 return [
                     <h1 key={titleKey}
                         id={titleKey}>
-                        {ParseBreak(GetLanguageValue(languageJson.content.find(x => x['@type'] == titleKey)), titleKey)}
+                        {ParseBreak(GetLanguageValue(currentPageJson.content.find(x => x['@type'] == titleKey)), titleKey)}
                     </h1>,
-                    ParseContent(languageJson.content.find(x => x['@type'] == contentKey)),
+                    ParseContent(currentPageJson.content.find(x => x['@type'] == contentKey)),
                     <img id="imageFrame"
                         key="imageFrame"></img>
                 ];
@@ -346,13 +348,13 @@ const App = (props) => {
                     <ul id={bioKey}
                         key={bioKey}
                         data-type="table">
-                        {ParseContent(languageJson.content.find(x => x['@type'] == bioKey))}
+                        {ParseContent(currentPageJson.content.find(x => x['@type'] == bioKey))}
                     </ul>
                 );
             case 2:
-                return ParseContent(languageJson.content.find(x => x['@type'] == 'eduList'));
+                return ParseContent(currentPageJson.content.find(x => x['@type'] == 'eduList'));
             case 3:
-                return ParseContent(languageJson.content.find(x => x['@type'] == 'CVpreview'));
+                return ParseContent(currentPageJson.content.find(x => x['@type'] == 'CVpreview'));
             case 'email':
                 /* region email
                 return (<table
@@ -360,19 +362,19 @@ const App = (props) => {
                     id="EmailSender">
                     <thead>
                         {
-                            Object.keys(languageJson.content.find(x => x['@type'] == 'email').content.head).map((x, index) => {
+                            Object.keys(currentPageJson.content.find(x => x['@type'] == 'email').content.head).map((x, index) => {
                                 return (
                                     <tr key={`${x}${index}row`}
                                         email-data={x}>
                                         <th key={`${x}${index}header`}>
-                                            {GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.head[x])}:
+                                            {GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.head[x])}:
                                         </th>
                                         <td key={`${x}${index}input`}>
                                             {
                                                 x == 'to' ? <i>valentinbanica8@gmail.com</i> : (
                                                     <input type="text"
                                                         input-type={x}
-                                                        placeholder={GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
+                                                        placeholder={GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
                                                         id={`input_${x}`}
                                                         key={`${x}${index}input_${x}`}>
     
@@ -389,7 +391,7 @@ const App = (props) => {
                             <td colSpan="2"
                                 email-data="body">
                                 <textarea
-                                    placeholder={GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
+                                    placeholder={GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
                                 ></textarea>
                             </td>
                         </tr>
@@ -397,10 +399,10 @@ const App = (props) => {
                             <td email-data="footer"
                                 colSpan="2">
                                 <button>
-                                    {GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.clear)}
+                                    {GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.clear)}
                                 </button>
                                 <button>
-                                    {GetLanguageValue(languageJson.content.find(x => x['@type'] == 'email').content.send)}
+                                    {GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.send)}
                                 </button>
                             </td>
                         </tr>
@@ -409,7 +411,7 @@ const App = (props) => {
                 */
                 break;
             case 4:
-                let data = [...languageJson.content.find(x => x['@type'] == 'socialMedia').content.map((smEntry, smIndex) => {
+                let data = [...currentPageJson.content.find(x => x['@type'] == 'socialMedia').content.map((smEntry, smIndex) => {
                     return (<div
                         key={`div${smIndex}`}>
                         <div
@@ -588,12 +590,13 @@ const App = (props) => {
 
     function CookiePopUpService() {
         if (!getCookie('c', true)) {
+            let cookieJson = require('./storage/data/cookieContent.json');
             return (
                 <div id="cookiesPopUpBg"
                     key="cookiesPopUpBg">
                     <div id="cookiesPopUpMessage"
                         key="cookiessPopUpMessage">
-                        {ParseBreak(languageJson.content.find(x => x['@type'] == 'cookiesText')[data.lang])}
+                        {ParseBreak(cookieJson.content.find(x => x['@type'] == 'cookiesText')[data.lang])}
                         <button id="cookiesAllow"
                             key="cookiesAllow"
                             onClick={() => {
@@ -602,7 +605,7 @@ const App = (props) => {
                                 self.className = 'fade';
                                 setTimeout(() => { self.remove() }, 250);
                             }}>
-                            {languageJson.content.find(x => x['@type'] == 'cookiesAllow')[data.lang]}
+                            {cookieJson.content.find(x => x['@type'] == 'cookiesAllow')[data.lang]}
                         </button>
                     </div>
                 </div>
@@ -611,18 +614,36 @@ const App = (props) => {
     }
 
     return [
-        <div id="language_preview"
+        <div id="languageChanger"
             key="languageChanger"
             // This only returns true at the very start, before React creating the element
             style={{
                 backgroundImage: `url(/portofolio/public/storage/images/langIcons/${data.lang}.png)`,
                 backgroundSize: 'cover'
             }}
-            onMouseEnter={() => { document.querySelector('#language_preview').removeAttribute('style') }}
+            onMouseEnter={() => { document.querySelector('#languageChanger').removeAttribute('style') }}
             onMouseLeave={() => {
-                document.querySelector('#language_preview').setAttribute('style',
+                document.querySelector('#languageChanger').setAttribute('style',
                     `background-image: url(/portofolio/public/storage/images/langIcons/${data.lang}.png);
-                    background-size:cover;`)
+                    background-size:cover;`);
+                
+                // Fade out for languagePreview
+                let animKeys = [
+                    { opacity: 1 },
+                    { opacity: 0 }
+                ]
+                let animProps = {
+                    duration: 700,
+                    easing: 'ease-in',
+                    fill:'forwards'
+                }
+
+                let langPreview = document.querySelector('#languagePreview');
+                langPreview.animate(animKeys, animProps);
+
+                setTimeout(() => {
+                    langPreview.parentElement.removeChild(langPreview);
+                }, 700);
             }}
         >
             {
@@ -630,6 +651,32 @@ const App = (props) => {
                     .map((x, index) => {
                         return (
                             <img onClick={updateLanguage}
+                                onMouseEnter={(e) => {
+                                    let previewer = document.querySelector('#languagePreview') || document.createElement('div');
+                                    previewer.id = 'languagePreview';
+                                    let previewedLanguage = e.target.getAttribute('data-type');
+                                    let dataSet = languageJson.languages.find(x => x.lang == previewedLanguage);
+
+                                    let styleData = `background-image: url(/portofolio/public/storage/images/langIcons/${previewedLanguage}.png);`
+
+                                    let langText = dataSet.translation[data.lang];
+                                    let langTextNode = document.createElement('p');
+                                    langTextNode.innerText = langText;
+                                    langTextNode.style.color = dataSet.color;
+
+                                    previewer.innerHTML = '';
+                                    if (dataSet?.uniqueCover) {
+                                        let cover = document.createElement('div');
+                                        cover.setAttribute('style', `background-image: url(/portofolio/public/storage/images/langFlags/${previewedLanguage}.png);border-image: url(/portofolio/public/storage/images/langFlags/${previewedLanguage}.png) 1 stretch;`)
+                                        cover.appendChild(langTextNode);
+                                        previewer.appendChild(cover);
+                                    } else {
+                                        styleData = `${styleData}background-size: ${dataSet.fillMode};background-color: ${dataSet.bgColor};`;
+                                        previewer.appendChild(langTextNode);
+                                    }
+                                    previewer.setAttribute('style', styleData);
+                                    document.body.appendChild(previewer);
+                                }}
                                 data-type={x.lang}
                                 key={'language_option' + index}
                                 className="language_option"

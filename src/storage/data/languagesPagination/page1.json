@@ -1,55 +1,6 @@
 {
     "@type": "languageContent",
-    "default": "EN",
-    "languages": [
-        {
-            "lang": "EN",
-            "@usable": true
-        },
-        {
-            "lang": "RO",
-            "@usable": true
-        },
-        {
-            "lang": "FR",
-            "@usable": true
-        },
-        {
-            "lang": "IT",
-            "@usable": true
-        },
-        {
-            "lang": "JP",
-            "@usable": true
-        },
-        {
-            "lang": "DE",
-            "@usable": true
-        },
-        {
-            "lang": "ES",
-            "@usable": false
-        }
-    ],
     "content": [
-        {
-            "@type": "cookiesText",
-            "EN": "Hey! This site uses few cookies to optimise your visit. Hope you don't mind!</br>But who doesn't like cookies?",
-            "RO": "Hei! Acest site foloseste câteva cookieuri pentru a vă optimiza vizita.Sper să nu vă deranjeze!</br>Dar cui nu îi plac biscuiții?",
-            "FR": "Hé! Ce site utilise peu de cookies pour optimiser votre visite. J'espère que cela ne vous dérange pas!</br>Mais qui n'aime pas les cookies?",
-            "IT": "Hey! Diese Seite verwendet wenige Cookies, um Ihren Besuch zu optimieren. Ich hoffe, Sie haben nichts dagegen!</br>Aber wer mag keine Kekse?",
-            "JP": "おい！このサイトでは、訪問を最適化するためにいくつかの Cookie を使用しています。気にしないでください!</br>しかし、クッキーが嫌いな人はいますか?",
-            "DE": "Ehi! Questo sito utilizza pochi cookie per ottimizzare la tua visita. Spero non ti dispiaccia!</br>Ma a chi non piacciono i biscotti?"
-        },
-        {
-            "@type": "cookiesAllow",
-            "EN": "Allow",
-            "RO": "Permiteți",
-            "FR": "Permettre",
-            "IT": "Permettere",
-            "JP": "許可する",
-            "DE": "Erlauben"
-        },
         {
             "@type": "bioTable",
             "@contentType": "Table",

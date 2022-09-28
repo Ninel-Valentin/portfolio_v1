@@ -1,0 +1,105 @@
+{
+    "@type": "languageContent",
+    "default": "EN",
+    "languages": [
+        {
+            "lang": "EN",
+            "@usable": true,
+            "translation": {
+                "EN": "English",
+                "RO": "Engleză",
+                "FR": "Anglais",
+                "IT": "Inglese",
+                "JP": "英語",
+                "DE": "Englisch"
+            },
+            "fillMode":"contain",
+            "uniqueCover": true,
+            "color":"black"
+        },
+        {
+            "lang": "RO",
+            "@usable": true,
+            "translation": {
+                "EN": "Romanian",
+                "RO": "Română",
+                "FR": "Roumain",
+                "IT": "Rumeno",
+                "JP": "ルーマニア人",
+                "DE": "Rumänisch"
+            },
+            "fillMode":"cover",
+            "color":"black"
+        },
+        {
+            "lang": "FR",
+            "@usable": true,
+            "translation": {
+                "EN": "French",
+                "RO": "Franceză",
+                "FR": "Français",
+                "IT": "Francese",
+                "JP": "フランス語",
+                "DE": "Französisch"
+            },
+            "fillMode":"cover",
+            "color":"black"
+        },
+        {
+            "lang": "IT",
+            "@usable": true,
+            "translation": {
+                "EN": "Italian",
+                "RO": "Italiană",
+                "FR": "Italien",
+                "IT": "Italiano",
+                "JP": "イタリアの",
+                "DE": "Italienisch"
+            },
+            "fillMode":"cover",
+            "color":"black"
+        },
+        {
+            "lang": "JP",
+            "@usable": true,
+            "translation": {
+                "EN": "Japanese",
+                "RO": "Japoneză",
+                "FR": "Japonais",
+                "IT": "Giapponese",
+                "JP": "日本",
+                "DE": "Japanisch"
+            },
+            "fillMode":"contain",
+            "bgColor" : "#f0f0f0",
+            "color":"black"
+        },
+        {
+            "lang": "DE",
+            "@usable": true,
+            "translation": {
+                "EN": "German",
+                "RO": "Germană",
+                "FR": "Allemand",
+                "IT": "Tedesco",
+                "JP": "ドイツ人",
+                "DE": "Deutsch"
+            },
+            "fillMode":"contain",
+            "uniqueCover": true,
+            "color":"white"
+        },
+        {
+            "lang": "ES",
+            "@usable": false,
+            "translation": {
+                "EN": "",
+                "RO": "",
+                "FR": "",
+                "IT": "",
+                "JP": "",
+                "DE": ""
+            }
+        }
+    ]
+}
