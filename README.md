@@ -1,5 +1,5 @@
 # Hello and welcome!
-- My name is *Ninel-Valentin L. Bănică*, and I am an  student in the field of **Electical Engineering and Computer Science** in Romania, Brașov, studying at **University Transylvania of Brașov**.
+- My name is *Ninel-Valentin L. Bănică*, and I am a student in the field of **Electical Engineering and Computer Science** in Romania, Brașov, studying at **University Transylvania of Brașov**.
 ## Repos details
 - This is my GitHub profile which contains repos with few of my projects. For more info about me, regarding ***Who I am?*** ***What I can do?*** ***What experience I posses?*** please refer to my [portofolio web page](https://ninel-valentin.github.io/portofolio/public/index).
 
