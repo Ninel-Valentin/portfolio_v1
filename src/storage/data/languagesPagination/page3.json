@@ -15,8 +15,12 @@
                 },
                 "files": [
                     {
-                        "displayedName": "Curriculum Vitae - RO ",
-                        "name": "CV.pdf"
+                        "displayedName": "Curriculum Vitae - RO",
+                        "name": "CV_RO.pdf"
+                    },
+                    {
+                        "displayedName": "Curriculum Vitae - EN",
+                        "name": "CV_EN.pdf"
                     }
                 ]
             }
