@@ -9,6 +9,7 @@
 | Name            | Path                                                                                      |
 | --------------- |:-----------------------------------------------------------------------------------------:|
 | Portofolio      | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
+| TicTacToe       | [/TicTacToe/index.html](https://ninel-valentin.github.io/TicTacToe)                       |
 | To be continued |                                                                                           |
 
 
