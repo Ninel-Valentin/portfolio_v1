@@ -339,7 +339,14 @@ const App = (props) => {
                         {ParseBreak(GetLanguageValue(currentPageJson.content.find(x => x['@type'] == titleKey)), titleKey)}
                     </h1>,
                     ParseContent(currentPageJson.content.find(x => x['@type'] == contentKey)),
-                    <img id="imageFrame"
+                    <img data-type="left"
+                        className="imageFrame"
+                        key="imageFrame"></img>,
+                    <img data-type="center"
+                        className="imageFrame"
+                        key="imageFrame"></img>,
+                    <img data-type="right"
+                        className="imageFrame"
                         key="imageFrame"></img>
                 ];
             case 1:
@@ -626,7 +633,7 @@ const App = (props) => {
                 document.querySelector('#languageChanger').setAttribute('style',
                     `background-image: url(/portofolio/public/storage/images/langIcons/${data.lang}.png);
                     background-size:cover;`);
-                
+
                 // Fade out for languagePreview
                 let animKeys = [
                     { opacity: 1 },
@@ -635,7 +642,7 @@ const App = (props) => {
                 let animProps = {
                     duration: 700,
                     easing: 'ease-in',
-                    fill:'forwards'
+                    fill: 'forwards'
                 }
 
                 let langPreview = document.querySelector('#languagePreview');
@@ -659,10 +666,10 @@ const App = (props) => {
 
                                     let styleData = `background-image: url(/portofolio/public/storage/images/langIcons/${previewedLanguage}.png);`
 
-                                    let langText = dataSet.translation[data.lang];
+                                    let langText = `${dataSet.translation[previewedLanguage]} - ${dataSet.translation[data.lang]}`  ;
                                     let langTextNode = document.createElement('p');
                                     langTextNode.innerText = langText;
-                                    langTextNode.style.color = dataSet.color;
+                                    langTextNode.style = `color: ${dataSet.color}; width:max-content;`;
 
                                     previewer.innerHTML = '';
                                     if (dataSet?.uniqueCover) {

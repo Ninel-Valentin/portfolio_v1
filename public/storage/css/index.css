@@ -1,3 +1,7 @@
+:root {
+    --QnAsize: 125vmin;
+}
+
 body {
     background-color: #1f1f1f;
     overflow: hidden;
@@ -40,7 +44,7 @@ body {
     margin: auto;
 }
 
-#languagePreview p{
+#languagePreview p {
     margin: auto;
     font-weight: bold;
     font-size: 4vmin;
@@ -175,32 +179,58 @@ body {
     display: block;
     margin: 10vmin 0 5vmin 15vmin;
     font-size: 6vmin;
-    width: 135vmin
+    width: var(--QnAsize);
 }
 
-#imageFrame {
+.imageFrame {
     height: 60vmin;
     width: 40vmin;
-    background-color: white;
+    background-color: transparent;
     position: absolute;
-    top: 10vmin;
-    right: 5vmin;
-    background-image: url('../images/pictures/profile.jpg');
-    background-size: 40vmin 60vmin;
+    /* background-image: url('../images/pictures/profile.jpg'); */
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 0 15vmin;
-    transition: height .3s, width .3s, right .3s, background-position .3s, border-radius .3s;
+    border-radius: 15vmin;
+    transition: right .3s,
+        top .5s,
+        transform .5s;
+}
+
+.imageFrame[data-type="left"] {
+    top: 5vmin;
+    right: 40vmin;
+    transform: rotateZ(-35deg);
+    background-image: url('../images/pictures/BGprofile.jpg');
+}
+
+.imageFrame[data-type="center"] {
+    right: 25vmin;
+    top: 7.5vmin;
+    background-image: url('../images/pictures/CASprofileCropped.jpg');
+}
+
+.imageFrame[data-type="right"] {
+    right: 10vmin;
+    top: 15vmin;
+    transform: rotateZ(35deg);
+    background-image: url('../images/pictures/profile.jpg');
+}
+
+.imageFrame:hover {
+    transform: scale(1.1) !important;
+    z-index: 1;
+    transition: transform .5s;
 }
 
 .question[data-type="mainContent"] {
     margin: 10vmin 0 0 15vmin;
-    width: 135vmin;
+    width: var(--QnAsize);
 }
 
 .answer[data-type="mainContent"] {
     margin: 3vmin 0 0 17vmin;
-    width: 135vmin;
+    width: var(--QnAsize);
 }
 
 /* #endregion */
