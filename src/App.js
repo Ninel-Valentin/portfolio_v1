@@ -669,7 +669,7 @@ const App = (props) => {
                                     let langText = `${dataSet.translation[previewedLanguage]} - ${dataSet.translation[data.lang]}`  ;
                                     let langTextNode = document.createElement('p');
                                     langTextNode.innerText = langText;
-                                    langTextNode.style = `color: ${dataSet.color}; width:max-content;`;
+                                    langTextNode.style = `color: ${dataSet.color}; position:absolute; left:25%; width:50%;`;
 
                                     previewer.innerHTML = '';
                                     if (dataSet?.uniqueCover) {
