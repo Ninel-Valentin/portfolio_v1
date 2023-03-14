@@ -1,7 +1,3 @@
-:root {
-    --QnAsize: 125vmin;
-}
-
 body {
     background-color: #1f1f1f;
     overflow: hidden;
@@ -116,8 +112,8 @@ body {
 
 /* #region Scroll */
 #ruller {
-    width: 3vmin;
-    height: 200vmin;
+    width: 3vh;
+    height: 200vh;
     position: fixed;
     left: 0;
 }
@@ -125,7 +121,7 @@ body {
 #ruller #up {
     background-color: rgb(0, 102, 255);
     width: 8vmin;
-    height: 95vmin;
+    height: 100vh;
     position: relative;
     border-radius: 0 0 40px 0;
 }
@@ -133,15 +129,15 @@ body {
 #ruller #down {
     background-color: rgb(0, 102, 255);
     width: 8vmin;
-    height: 95vmin;
+    height: 100vh;
     position: relative;
     border-radius: 0 40px 0 0;
-    top: 5vmin;
+    top: 5vh;
 }
 
 #buttons {
     width: 8vmin;
-    height: 100vmin;
+    height: 100vh;
     position: fixed;
     display: flex;
     justify-content: space-around;
@@ -152,7 +148,7 @@ body {
 }
 
 .rullerButton {
-    width: 8vmin;
+    width: 100%;
     aspect-ratio: 1;
     font-size: 3vmin;
     display: flex;
@@ -179,7 +175,7 @@ body {
     display: block;
     margin: 10vmin 0 5vmin 15vmin;
     font-size: 6vmin;
-    width: var(--QnAsize);
+    width: 125vmin;
 }
 
 .imageFrame {
@@ -198,21 +194,21 @@ body {
 }
 
 .imageFrame[data-type="left"] {
-    top: 5vmin;
+    top: 5vh;
     right: 40vmin;
     transform: rotateZ(-35deg);
     background-image: url('../images/pictures/BGprofile.jpg');
 }
 
 .imageFrame[data-type="center"] {
+    top: 7.5vh;
     right: 25vmin;
-    top: 7.5vmin;
     background-image: url('../images/pictures/CASprofileCropped.jpg');
 }
 
 .imageFrame[data-type="right"] {
+    top: 15vh;
     right: 10vmin;
-    top: 15vmin;
     transform: rotateZ(35deg);
     background-image: url('../images/pictures/profile.jpg');
 }
@@ -225,12 +221,12 @@ body {
 
 .question[data-type="mainContent"] {
     margin: 10vmin 0 0 15vmin;
-    width: var(--QnAsize);
+    width: 125vmin;
 }
 
 .answer[data-type="mainContent"] {
     margin: 3vmin 0 0 17vmin;
-    width: var(--QnAsize);
+    width: 125vmin;
 }
 
 /* #endregion */
@@ -379,7 +375,7 @@ body {
 
 #directoryBlock {
     background-color: #f1f1f1;
-    height: 80vmin;
+    height: calc(100% - 10vmin);
     border-radius: 0 3vmin 0 0;
     display: flex;
     justify-content: center;
@@ -658,14 +654,25 @@ input::placeholder,
 
 .rope {
     width: 1vmin;
-    height: 100vmin;
     background-color: white;
     margin: auto;
 }
 
+div:has(>.rope):nth-child(1) .rope {
+    height: 93vmin;
+}
+
+div:has(>.rope):nth-child(2) .rope {
+    height: 108vmin;
+}
+
+div:has(>.rope):nth-child(3) .rope {
+    height: 99vmin;
+}
+
 .faceWrapper {
     width: 25vmin;
-    height: 25vmin;
+    aspect-ratio: 1;
     position: relative;
     top: -5vmin;
 }
@@ -708,6 +715,169 @@ input::placeholder,
 
 /* #endregion */
 
-/* #region name */
+/* #region responsiveness */
+
+@media only screen and (max-width:768px) {
+
+    #root {
+        overflow: hidden;
+        height: 95vh;
+        width: 95vw;
+        position: absolute;
+        top: 0;
+    }
+
+    /* LangService */
+
+    #languagePreview {
+        display: none;
+    }
+
+    #languageChanger {
+        height: 10vmin;
+    }
+
+    #languageChanger:hover {
+        height: 50vmin;
+    }
+
+    .language_option {
+        height: 10vmin;
+    }
+
+    /* Scroll */
+
+    #ruller {
+        width: 10vw;
+    }
+
+    /* Page 1 */
+
+    .imageFrame[data-type="left"] {
+        top: 40vh;
+    }
+
+    .imageFrame[data-type="center"] {
+        top: 42.5vh;
+    }
+
+    .imageFrame[data-type="right"] {
+        top: 50vh;
+    }
+
+    #mainTitle {
+        margin: 0;
+        margin: 5vmin 0 5vmin 15vmin;
+        font-size: 5vmin;
+        width: 75vw;
+    }
+
+    .question[data-type="mainContent"] {
+        margin: 5vmin 0 0 15vmin;
+        width: 75vw;
+    }
+
+    .answer[data-type="mainContent"] {
+        margin: 2vmin 0 0 17vmin;
+        width: 75vw;
+    }
+
+    .question {
+        font-size: 3.5vmin;
+    }
+
+    .answer {
+        font-size: 3vmin;
+    }
+
+    /* Table */
+    [data-type="table"] {
+        margin-top: 15vh;
+    }
+
+    [data-type="table"] .header {
+        font-size: 4vmin;
+        height: 5vmin;
+        width: 35vw;
+    }
+
+    [data-type="table"] .body {
+        font-size: 3vmin;
+        height: 5vmin;
+        width: 75vw;
+    }
+
+    /* Directory */
+
+    #directory {
+        width: 75vw;
+        height: 90vh;
+    }
+
+    #directoryBlock {
+        flex-direction: column;
+    }
+
+    .directoryHeader {
+        width: 30%;
+    }
+
+    #directoryListing {
+        height: 20vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #directoryLogoPreview {
+        width: 20vw;
+        display: inline-block;
+    }
+
+    #directoryListing>div:not([id]) {
+        display: inline-block;
+        height: 100%;
+        width: 50vw;
+    }
+
+    .directoryLine {
+        height: 4vh;
+    }
+
+    /* FileSystem */
+
+    .imageFrame {
+        display: block;
+    }
+
+    #FilePreviewNotice {
+        width: 75vw;
+        font-size: 4vmin;
+    }
+
+    /* SM */
+    #screen {
+        width: 80%;
+    }
+
+    div:has(>.rope):nth-child(1) .rope {
+        height: 70vh;
+    }
+
+    div:has(>.rope):nth-child(2) .rope {
+        height: 82vh;
+    }
+
+    div:has(>.rope):nth-child(3) .rope {
+        height: 75vh;
+    }
+
+    .faceWrapper {
+        width: 20vw;
+    }
+
+
+}
 
 /* #endregion */

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { getCookie, setCookie, timeUnits } from './cookieService.js';
+import utils from "./utils/utils.js";
 
-const pagesJson = require('./storage/data/pages.json');
+const pagesJson = require('./storage/pages.json');
 // const emailService = require('./storage/scripts/emailService.js');
+const envCorection = window.location.href.includes('github') ? '/portofolio/public' : '';
 var canScroll = true;
 
 function scroll(event) {
@@ -53,12 +55,12 @@ const App = (props) => {
         dir = JSON.parse(dir);
     }
 
-    let currentPageJson = require(`./storage/data//languagesPagination/page${GetUrlParam('p') || props.page}.json`);
-    let languageJson = require('./storage/data/languagesPagination/languages.json');
+    let currentPageJson = require(`./storage//languagesPagination/page${utils.GetUrlParam('p') || props.page}.json`);
+    let languageJson = require('./storage/languagesPagination/languages.json');
 
     const [data, setData] = useState({
-        lang: GetUrlParam('lang') || languageJson.default,
-        page: GetUrlParam('p') || props.page,
+        lang: utils.GetUrlParam('lang') || languageJson.default,
+        page: utils.GetUrlParam('p') || props.page,
         dir: dir
     });
 
@@ -67,59 +69,13 @@ const App = (props) => {
 
     const updateLanguage = (e) => {
         let targetLang = e.target.getAttribute('data-type');
-        ModifyUrl(data.page, { name: "lang", value: targetLang });
+        utils.ModifyUrl(data.page, { name: "lang", value: targetLang });
         if (targetLang != data.lang)
             setData({
                 ...data,
                 lang: targetLang
             });
         document.querySelector('#languagePreview p').innerText = languageJson.languages.find(x => x.lang == targetLang).translation[targetLang];
-    }
-
-    function GetUrlParam(name) {
-        let search = window.location.search;
-        let params = new URLSearchParams(search);
-
-        return params.get(name);
-    }
-
-    function ModifyUrl(senderId, param) {
-        let search = window.location.search;
-        let params = new URLSearchParams(search);
-        params.set(param.name, param.value);
-
-        history.replaceState({
-            id: senderId,
-            source: 'web'
-        }, '', window.location.href.split('?').shift() + '?' + params);
-    }
-
-    function ParseBreak(string, key, addOn = null) {
-        return string.split('</br>').map((x, index) => {
-            return [
-                (addOn ? addOn : ''),
-                ...ParseLinks(x),
-                <br key={`BR_${key}_${index}`}></br>
-            ];
-        })
-    }
-
-    function ParseLinks(string) {
-        let final = [];
-        let matches = string.match(/{{.*?}}/g);
-        let fillers = string.split(/{{.*?}}/g);
-        if (!matches) return string;
-        matches.forEach((link, index) => {
-            final.push(fillers.shift());
-            link = link.replace(/{|}/g, '');
-            final.push(<a
-                target="_blank"
-                key={`Link${link.split('->')[0]}${index}`}
-                href={link.split('->').pop()}>
-                {link.split('->').shift()}
-            </a>)
-        })
-        return final;
     }
 
     function GetLanguageValue(content) {
@@ -153,7 +109,7 @@ const App = (props) => {
                             <h6 key={`A${content['@type']}${index}`}
                                 data-type={content['@type']}
                                 className="answer">
-                                {ParseBreak(GetLanguageValue(x.a), `${content['@type']}${index}`, '→')}
+                                {utils.ParseBreak(GetLanguageValue(x.a), `${content['@type']}${index}`, '→')}
                             </h6>
                         ]
                     })
@@ -226,7 +182,7 @@ const App = (props) => {
                             <div id="directoryLogoPreview"
                                 key="directoryLogoPreview"
                                 style={{
-                                    "backgroundImage": `url(/portofolio/public/storage/images/logos/${content.content[data.dir.directory].content[data.dir.listItem].logo})`,
+                                    "backgroundImage": `url(${envCorection}/storage/images/logos/${content.content[data.dir.directory].content[data.dir.listItem].logo})`,
                                     "filter": content.content[data.dir.directory].content[data.dir.listItem].shadow
                                         ? `drop-shadow(0 0 .75rem ${content.content[data.dir.directory].content[data.dir.listItem].logoShadow})` : ''
                                 }}>
@@ -251,7 +207,7 @@ const App = (props) => {
                                                     JSON.stringify(newDir), 30, timeUnits.days);
                                             }}>
                                             <span key={`directoryLineSpan${content['@contentType']}${index}`}>
-                                                {ParseBreak(GetLanguageValue(x.header))}
+                                                {utils.ParseBreak(GetLanguageValue(x.header))}
                                             </span>
                                             <p key={`directoryLineP${content['@contentType']}${index}`}
                                                 style={{
@@ -290,13 +246,13 @@ const App = (props) => {
                                             let current = document.querySelector('.FileLine.active');
                                             current.className = 'FileLine';
                                             target.className = 'FileLine active';
-                                            document.querySelector('#FilePreview iframe').setAttribute('src', `/portofolio/public/storage/files/${content.content.files[index].name}`)
+                                            document.querySelector('#FilePreview iframe').setAttribute('src', `${envCorection}/storage/files/${content.content.files[index].name}`)
                                             setCookie('file', index, 1, timeUnits.days);
                                         }}>
                                         <div
                                             className="FileIcon"
                                             style={{
-                                                backgroundImage: `url(/portofolio/public/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
+                                                backgroundImage: `url(${envCorection}/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
                                             }}
                                             key={`FileIcon${content['@contentType']}${index}`}></div>
                                         {x.displayedName || x.name.split('.').shift()}
@@ -310,7 +266,7 @@ const App = (props) => {
                                 <iframe
                                     key="FileIFrame"
                                     src=
-                                    {`/portofolio/public/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
+                                    {`${envCorection}/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
                                     width="100%"
                                     height="100%">
                                 </iframe>
@@ -336,18 +292,18 @@ const App = (props) => {
                 return [
                     <h1 key={titleKey}
                         id={titleKey}>
-                        {ParseBreak(GetLanguageValue(currentPageJson.content.find(x => x['@type'] == titleKey)), titleKey)}
+                        {utils.ParseBreak(GetLanguageValue(currentPageJson.content.find(x => x['@type'] == titleKey)), titleKey)}
                     </h1>,
                     ParseContent(currentPageJson.content.find(x => x['@type'] == contentKey)),
                     <img data-type="left"
                         className="imageFrame"
-                        key="imageFrame"></img>,
+                        key="imageFrameL"></img>,
                     <img data-type="center"
                         className="imageFrame"
-                        key="imageFrame"></img>,
+                        key="imageFrameC"></img>,
                     <img data-type="right"
                         className="imageFrame"
-                        key="imageFrame"></img>
+                        key="imageFrameR"></img>
                 ];
             case 1:
                 let bioKey = 'bioTable';
@@ -474,7 +430,7 @@ const App = (props) => {
                             }}>
                             <div
                                 style={{
-                                    backgroundImage: `url(/portofolio/public/storage/images/social/${smEntry['@type']}${smEntry.imageType})`,
+                                    backgroundImage: `url(${envCorection}/storage/images/social/${smEntry['@type']}${smEntry.imageType})`,
                                     backgroundColor: smEntry.background || '',
                                     filter: `drop-shadow(${smEntry.color} 0 0 5px)`
                                 }}
@@ -500,60 +456,30 @@ const App = (props) => {
                 console.log(data);
                 return (
                     `This was made from Scratch! Hi there world!
-                    page: ${data?.page || GetUrlParam('p')}
-                    language: ${data?.lang || GetUrlParam('lang') || languageJson.default}`
+                    page: ${data?.page || utils.GetUrlParam('p')}
+                    language: ${data?.lang || utils.GetUrlParam('lang') || languageJson.default}`
                 );
         }
     }
 
-    function CalculateHeight(index) {
-        // calculate for #down
-        //100 vh / number of steps - 5vh (selected space) / 2
-        let pSize = (100 / pagesJson.content.length - 5) / 2;
-        let height = -100 + index * (2 * pSize + 5) + pSize + 5;
-        return height;
-    }
-
-    function ContentFade(isScrollingUp, isFadingIn) {
-        let content = document.querySelector('div#content');
-
-        let animKeys = [
-            {
-                top: isFadingIn ? (isScrollingUp ? '25vmin' : '-25vmin') : 0,
-                opacity: isFadingIn ? 0 : 1
-            },
-            {
-                top: isFadingIn ? 0 : (isScrollingUp ? '-25vmin' : '25vmin'),
-                opacity: isFadingIn ? 1 : 0
-            }
-        ];
-
-        let animOptions = {
-            duration: 200,
-            easing: isFadingIn ? 'ease-out' : 'ease-in',
-            fill: 'forwards'
-        }
-        content.animate(animKeys, animOptions);
-    }
-
     const scrollPage = (e) => {
-        let currentActive = GetUrlParam('p') || 0;
+        let currentActive = utils.GetUrlParam('p') || 0;
         let currentNode = document.querySelector(`.rullerButton[value="${currentActive}"]`);
         let targetActive = e.target.getAttribute('value');
         currentNode.className = 'rullerButton';
         e.target.className = 'rullerButton active';
 
-        ModifyUrl(targetActive, { name: 'p', value: targetActive });
+        utils.ModifyUrl(targetActive, { name: 'p', value: targetActive });
         // Only update if new
         if (targetActive != data.page) {
             // o sa fiu || sunt
             let isScrollingUp = targetActive > data.page;
-            ContentFade(isScrollingUp, false);
+            utils.ContentFade(isScrollingUp, false);
             setData({
                 ...data,
                 page: targetActive
             });
-            ContentFade(isScrollingUp, true);
+            utils.ContentFade(isScrollingUp, true);
         }
 
         let ruller = document.querySelector('#ruller');
@@ -561,8 +487,8 @@ const App = (props) => {
         let rullerHeight = rullerStyle.match(/-?\d+(\.\d+)?/g)[0];
 
         let animFT = [
-            { top: `${rullerHeight}vmin` },
-            { top: `${CalculateHeight(targetActive)}vmin` }
+            { top: `${rullerHeight}vh` },
+            { top: `${utils.CalculateHeight(targetActive, pagesJson.content.length)}vh` }
         ]
         let duration = Math.abs(targetActive - currentActive) * 200;
         let animProps = {
@@ -571,7 +497,7 @@ const App = (props) => {
             fill: 'forwards'
         }
         ruller.animate(animFT, animProps);
-        ruller.setAttribute('style', rullerStyle.replace(rullerHeight, CalculateHeight(targetActive)));
+        ruller.setAttribute('style', rullerStyle.replace(rullerHeight, utils.CalculateHeight(targetActive, pagesJson.content.length)));
 
         setTimeout(() => {
             canScroll = true;
@@ -597,13 +523,13 @@ const App = (props) => {
 
     function CookiePopUpService() {
         if (!getCookie('c', true)) {
-            let cookieJson = require('./storage/data/cookieContent.json');
+            let cookieJson = require('./storage/cookieContent.json');
             return (
                 <div id="cookiesPopUpBg"
                     key="cookiesPopUpBg">
                     <div id="cookiesPopUpMessage"
                         key="cookiessPopUpMessage">
-                        {ParseBreak(cookieJson.content.find(x => x['@type'] == 'cookiesText')[data.lang])}
+                        {utils.ParseBreak(cookieJson.content.find(x => x['@type'] == 'cookiesText')[data.lang])}
                         <button id="cookiesAllow"
                             key="cookiesAllow"
                             onClick={() => {
@@ -625,13 +551,13 @@ const App = (props) => {
             key="languageChanger"
             // This only returns true at the very start, before React creating the element
             style={{
-                backgroundImage: `url(/portofolio/public/storage/images/langIcons/${data.lang}.png)`,
+                backgroundImage: `url(${envCorection}/storage/images/langIcons/${data.lang}.png)`,
                 backgroundSize: 'cover'
             }}
             onMouseEnter={() => { document.querySelector('#languageChanger').removeAttribute('style') }}
             onMouseLeave={() => {
                 document.querySelector('#languageChanger').setAttribute('style',
-                    `background-image: url(/portofolio/public/storage/images/langIcons/${data.lang}.png);
+                    `background-image: url(${envCorection}/storage/images/langIcons/${data.lang}.png);
                     background-size:cover;`);
 
                 // Fade out for languagePreview
@@ -664,9 +590,9 @@ const App = (props) => {
                                     let previewedLanguage = e.target.getAttribute('data-type');
                                     let dataSet = languageJson.languages.find(x => x.lang == previewedLanguage);
 
-                                    let styleData = `background-image: url(/portofolio/public/storage/images/langIcons/${previewedLanguage}.png);`
+                                    let styleData = `background-image: url(${envCorection}/storage/images/langIcons/${previewedLanguage}.png);`
 
-                                    let langText = `${dataSet.translation[previewedLanguage]} - ${dataSet.translation[data.lang]}`  ;
+                                    let langText = `${dataSet.translation[previewedLanguage]} - ${dataSet.translation[data.lang]}`;
                                     let langTextNode = document.createElement('p');
                                     langTextNode.innerText = langText;
                                     langTextNode.style = `color: ${dataSet.color}; position:absolute; left:25%; width:50%;`;
@@ -674,7 +600,7 @@ const App = (props) => {
                                     previewer.innerHTML = '';
                                     if (dataSet?.uniqueCover) {
                                         let cover = document.createElement('div');
-                                        cover.setAttribute('style', `background-image: url(/portofolio/public/storage/images/langFlags/${previewedLanguage}.png);border-image: url(/portofolio/public/storage/images/langFlags/${previewedLanguage}.png) 1 stretch;`)
+                                        cover.setAttribute('style', `background-image: url(${envCorection}/storage/images/langFlags/${previewedLanguage}.png);border-image: url(${envCorection}/storage/images/langFlags/${previewedLanguage}.png) 1 stretch;`)
                                         cover.appendChild(langTextNode);
                                         previewer.appendChild(cover);
                                     } else {
@@ -687,7 +613,7 @@ const App = (props) => {
                                 data-type={x.lang}
                                 key={'language_option' + index}
                                 className="language_option"
-                                src={`/portofolio/public/storage/images/langIcons/${x.lang + (x.lang == data.lang ? '' : '_OFF')}.png`}
+                                src={`${envCorection}/storage/images/langIcons/${x.lang + (x.lang == data.lang ? '' : '_OFF')}.png`}
                             >
                             </img>
                         )
@@ -703,7 +629,7 @@ const App = (props) => {
             <div id="ruller"
                 key="ruller"
                 style={{
-                    top: `${CalculateHeight(GetUrlParam('p'))}vmin`
+                    top: `${utils.CalculateHeight(utils.GetUrlParam('p'), pagesJson.content.length)}vh`
                 }}>
                 <div id="up"
                     key="up"></div>
