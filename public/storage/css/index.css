@@ -570,72 +570,77 @@ body {
 /* #region EmailSender */
 
 #EmailSender {
+    width: 40vw;
     margin: auto;
-    width: 150vmin;
-    height: 85vmin;
-    margin-top: 5vmin;
-    background-color: black;
-    /* border-radius: 10vmin 0 10vmin 0; */
-}
-
-#EmailSender td,
-th {
-    background-color: white;
-    color: black;
-    font-size: 2.5vmin;
-}
-
-#EmailSender thead th {
-    text-align: right;
-    width: 10%;
-    height: 4vmin;
-}
-
-#EmailSender thead td i {
-    color: #555
-}
-
-[id^="input_"] {
-    height: 85%;
-}
-
-[placeholder] {
-    width: 99.7%;
-    border: none;
-    color: black;
-    font-size: 2.5vmin;
-}
-
-[id^="input_"]:focus {
-    border: none;
-}
-
-input::placeholder,
-#EmailSender textarea::placeholder {
-    font-style: italic;
-}
-
-#EmailSender textarea {
-    vertical-align: top;
-    height: 100%;
-    resize: none;
-}
-
-[email-data="footer"] {
-    height: 5%;
-    background-image: linear-gradient(white, #888);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
 }
 
-[email-data="footer"] button {
-    height: 3vmin;
-    width: 30vmin;
-    margin: 0 10vmin;
-    color: black;
+
+#EmailSender>* {
+    text-align: left;
 }
 
-[email-data="footer"] button:hover {
+#EmailSender>hr {
+    width: 100%;
+}
+
+.emailRow {
+    width: 40%;
+    margin-top: 1.5vh;
+}
+
+.emailRow>input[type="text"],
+.emailRow>textarea {
+    width: 100%;
+    height: 5vh;
+    padding: 0 0 0 5px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    resize: none;
+    outline: none;
+}
+
+.emailRow>textarea {
+    min-height: 20vh;
+}
+
+.emailRow>input[type="text"]:focus,
+.emailRow>textarea:focus {
+    background-color: #1f1f1f;
+    color: white;
+    box-shadow: white 0 0 0 1px;
+}
+
+#EmailSender input[type="submit"] {
+    background-color: #1f1f1f;
+    color: white;
+    box-shadow: white 0 0 0 1px;
+    border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     cursor: pointer;
+}
+
+.invalidRow {
+    box-shadow: red 0 0 0 2px !important;
+}
+
+span.errorRow {
+    color: red;
+    display: block;
+    font-size: .9rem;
+    width: 100%;
+}
+
+@media only screen and (max-width:768px) {
+
+    .emailRow {
+        width: 100%;
+    }
 }
 
 /* #endregion */

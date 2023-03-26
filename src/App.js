@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { getCookie, setCookie, timeUnits } from './cookieService.js';
+import emailService from "./emailService.js";
+import Consts from "./utils/Consts.js";
 import utils from "./utils/utils.js";
+
+// Move from frontend to backends
+import nodemailer from 'nodemailer';
 
 const pagesJson = require('./storage/pages.json');
 // const emailService = require('./storage/scripts/emailService.js');
@@ -92,38 +97,38 @@ const App = (props) => {
         return content;
     }
 
-    function ParseContent(content) {
-        if (content.hasOwnProperty('@usable') && !content['@usable']) {
+    function ParseContent(currentContent) {
+        if (currentContent.hasOwnProperty('@usable') && !currentContent['@usable']) {
             return;
         }
-        switch (content['@contentType']) {
+        switch (currentContent['@contentType']) {
             case 'Q&A':
                 return (
-                    content.content.map((x, index) => {
+                    currentContent.content.map((x, index) => {
                         return [
-                            <h4 key={`Q${content['@type']}${index}`}
-                                data-type={content['@type']}
+                            <h4 key={`Q${currentContent['@type']}${index}`}
+                                data-type={currentContent['@type']}
                                 className="question">
                                 {GetLanguageValue(x.q)}
                             </h4>,
-                            <h6 key={`A${content['@type']}${index}`}
-                                data-type={content['@type']}
+                            <h6 key={`A${currentContent['@type']}${index}`}
+                                data-type={currentContent['@type']}
                                 className="answer">
-                                {utils.ParseBreak(GetLanguageValue(x.a), `${content['@type']}${index}`, '→')}
+                                {utils.ParseBreak(GetLanguageValue(x.a), `${currentContent['@type']}${index}`, '→')}
                             </h6>
                         ]
                     })
                 );
             case 'Table':
                 return (
-                    content.content.map((x, index) => {
+                    currentContent.content.map((x, index) => {
                         return [
                             <li className="header"
-                                key={`liN${content['@type']}${index}`}>
+                                key={`liN${currentContent['@type']}${index}`}>
                                 {GetLanguageValue(x.name)}
                             </li>,
                             <li className="body"
-                                key={`liV${content['@type']}${index}`}
+                                key={`liV${currentContent['@type']}${index}`}
                                 onClick={(e) => {
                                     navigator.clipboard.writeText(GetLanguageValue(x.value));
                                     e.target.innerText = 'Text copied to the clipboard!';
@@ -154,10 +159,10 @@ const App = (props) => {
                     <div id="directoryHeaders"
                         key="directoryHeaders">
                         {
-                            [...content.content].map((x, index) => {
+                            [...currentContent.content].map((x, index) => {
                                 return (<div
                                     className={`directoryHeader${index == data.dir.directory ? ' active' : ''}`}
-                                    key={`directoryHeader${content['@contentType']}${index}`}
+                                    key={`directoryHeader${currentContent['@contentType']}${index}`}
                                     onClick={(e) => {
                                         let newDir = {
                                             directory: index,
@@ -182,18 +187,18 @@ const App = (props) => {
                             <div id="directoryLogoPreview"
                                 key="directoryLogoPreview"
                                 style={{
-                                    "backgroundImage": `url(${envCorection}/storage/images/logos/${content.content[data.dir.directory].content[data.dir.listItem].logo})`,
-                                    "filter": content.content[data.dir.directory].content[data.dir.listItem].shadow
-                                        ? `drop-shadow(0 0 .75rem ${content.content[data.dir.directory].content[data.dir.listItem].logoShadow})` : ''
+                                    "backgroundImage": `url(${envCorection}/storage/images/logos/${currentContent.content[data.dir.directory].content[data.dir.listItem].logo})`,
+                                    "filter": currentContent.content[data.dir.directory].content[data.dir.listItem].shadow
+                                        ? `drop-shadow(0 0 .75rem ${currentContent.content[data.dir.directory].content[data.dir.listItem].logoShadow})` : ''
                                 }}>
 
                             </div>
                             <div>
                                 {
-                                    [...content.content[data.dir.directory].content].map((x, index) => {
+                                    [...currentContent.content[data.dir.directory].content].map((x, index) => {
                                         return (<div
                                             className={`directoryLine${index == data.dir.listItem ? ' active' : ''}`}
-                                            key={`directoryLine${content['@contentType']}${index}`}
+                                            key={`directoryLine${currentContent['@contentType']}${index}`}
                                             onClick={(e) => {
                                                 let newDir = {
                                                     directory: data.dir.directory,
@@ -206,10 +211,10 @@ const App = (props) => {
                                                 setCookie('dir',
                                                     JSON.stringify(newDir), 30, timeUnits.days);
                                             }}>
-                                            <span key={`directoryLineSpan${content['@contentType']}${index}`}>
+                                            <span key={`directoryLineSpan${currentContent['@contentType']}${index}`}>
                                                 {utils.ParseBreak(GetLanguageValue(x.header))}
                                             </span>
-                                            <p key={`directoryLineP${content['@contentType']}${index}`}
+                                            <p key={`directoryLineP${currentContent['@contentType']}${index}`}
                                                 style={{
                                                     color: x.status
                                                 }}>
@@ -222,9 +227,9 @@ const App = (props) => {
                         </div>
                         <div id="directoryContent"
                             key="directoryContent">
-                            {ParseContent(content.content[data.dir.directory].content[data.dir.listItem].details)}
+                            {ParseContent(currentContent.content[data.dir.directory].content[data.dir.listItem].details)}
                             <hr></hr>
-                            {ParseContent(content.content[data.dir.directory].content[data.dir.listItem].info)}
+                            {ParseContent(currentContent.content[data.dir.directory].content[data.dir.listItem].info)}
                         </div>
                     </div>
                 </div >);
@@ -235,10 +240,10 @@ const App = (props) => {
                         <ul id="FileListing"
                             key="FileListing">
                             {
-                                [...content.content.files.map((x, index) => {
+                                [...currentContent.content.files.map((x, index) => {
                                     return (<li
                                         className={`FileLine${index == (+getCookie('file', true) || 0) ? ' active' : ''}`}
-                                        key={`FileLine${content['@contentType']}${index}`}
+                                        key={`FileLine${currentContent['@contentType']}${index}`}
                                         onClick={(e) => {
                                             let target = e.target.className.includes('Icon') ?
                                                 e.target.parentElement : e.target;
@@ -246,7 +251,7 @@ const App = (props) => {
                                             let current = document.querySelector('.FileLine.active');
                                             current.className = 'FileLine';
                                             target.className = 'FileLine active';
-                                            document.querySelector('#FilePreview iframe').setAttribute('src', `${envCorection}/storage/files/${content.content.files[index].name}`)
+                                            document.querySelector('#FilePreview iframe').setAttribute('src', `${envCorection}/storage/files/${currentContent.content.files[index].name}`)
                                             setCookie('file', index, 1, timeUnits.days);
                                         }}>
                                         <div
@@ -254,7 +259,7 @@ const App = (props) => {
                                             style={{
                                                 backgroundImage: `url(${envCorection}/storage/images/filesLogos/${x.name.split('.')[1]}.png)`
                                             }}
-                                            key={`FileIcon${content['@contentType']}${index}`}></div>
+                                            key={`FileIcon${currentContent['@contentType']}${index}`}></div>
                                         {x.displayedName || x.name.split('.').shift()}
                                     </li>);
                                 })]}
@@ -266,7 +271,7 @@ const App = (props) => {
                                 <iframe
                                     key="FileIFrame"
                                     src=
-                                    {`${envCorection}/storage/files/${content.content.files[+getCookie('file', true) || 0].name}`}
+                                    {`${envCorection}/storage/files/${currentContent.content.files[+getCookie('file', true) || 0].name}`}
                                     width="100%"
                                     height="100%">
                                 </iframe>
@@ -276,9 +281,56 @@ const App = (props) => {
                     <div
                         id="FilePreviewNotice"
                         key="FilePreviewNotice">
-                        {GetLanguageValue(content.content.notice)}
+                        {GetLanguageValue(currentContent.content.notice)}
                     </div>
                 ];
+            case 'EmailSender':
+                return (
+                    <div
+                        action={window.location.href}
+                        id="EmailSender"
+                        key="EmailSender">
+                        {utils.ParseBreak(GetLanguageValue(currentContent.content.header))}
+                        <hr />
+                        <div className="emailRow">
+                            {utils.ParseBreak(GetLanguageValue(currentContent.content.email))}
+                            <span className="errorRow">
+                            </span>
+                            <input required
+                                type="text"
+                                placeholder={GetLanguageValue(currentContent.placeholders.email)}
+                                pattern={Consts.emailValidationRegex.email}
+                                title={GetLanguageValue(currentContent.validationErrors.email)}>
+                            </input>
+                        </div>
+                        <div className="emailRow">
+                            {utils.ParseBreak(GetLanguageValue(currentContent.content.subject))}
+                            <span className="errorRow">
+                            </span>
+                            <input
+                                type="text"
+                                placeholder={GetLanguageValue(currentContent.placeholders.subject)}
+                                pattern={Consts.emailValidationRegex.subject}
+                                title={GetLanguageValue(currentContent.validationErrors.subject)}>
+                            </input>
+                        </div>
+                        <div className="emailRow">
+                            {utils.ParseBreak(GetLanguageValue(currentContent.content.body))}
+                            <span className="errorRow">
+                            </span>
+                            <textarea required
+                                placeholder={GetLanguageValue(currentContent.placeholders.body)}
+                                pattern={Consts.emailValidationRegex.body}
+                                title={GetLanguageValue(currentContent.validationErrors.body)}>
+                            </textarea>
+                        </div>
+                        <hr />
+                        <input type="submit"
+                            onClick={emailService.submitForm}
+                            value={GetLanguageValue(currentContent.content.submit)}
+                        ></input>
+                    </div>
+                );
             default:
                 break;
         }
@@ -318,61 +370,6 @@ const App = (props) => {
                 return ParseContent(currentPageJson.content.find(x => x['@type'] == 'eduList'));
             case 3:
                 return ParseContent(currentPageJson.content.find(x => x['@type'] == 'CVpreview'));
-            case 'email':
-                /* region email
-                return (<table
-                    key="EmailSender"
-                    id="EmailSender">
-                    <thead>
-                        {
-                            Object.keys(currentPageJson.content.find(x => x['@type'] == 'email').content.head).map((x, index) => {
-                                return (
-                                    <tr key={`${x}${index}row`}
-                                        email-data={x}>
-                                        <th key={`${x}${index}header`}>
-                                            {GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.head[x])}:
-                                        </th>
-                                        <td key={`${x}${index}input`}>
-                                            {
-                                                x == 'to' ? <i>valentinbanica8@gmail.com</i> : (
-                                                    <input type="text"
-                                                        input-type={x}
-                                                        placeholder={GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
-                                                        id={`input_${x}`}
-                                                        key={`${x}${index}input_${x}`}>
-    
-                                                    </input>
-                                                )
-                                            }
-                                        </td>
-                                    </tr>);
-                            })
-                        }
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colSpan="2"
-                                email-data="body">
-                                <textarea
-                                    placeholder={GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.placeholder)}
-                                ></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td email-data="footer"
-                                colSpan="2">
-                                <button>
-                                    {GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.clear)}
-                                </button>
-                                <button>
-                                    {GetLanguageValue(currentPageJson.content.find(x => x['@type'] == 'email').content.send)}
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table >);
-                */
-                break;
             case 4:
                 let data = [...currentPageJson.content.find(x => x['@type'] == 'socialMedia').content.map((smEntry, smIndex) => {
                     return (<div
@@ -387,6 +384,7 @@ const App = (props) => {
                             datatype={`${smEntry['@type']}`}
                             onClick={(e) => {
                                 if (!smEntry.link) return;
+                                // Add scroll option in JSON for gmail to next page
                                 window.open(smEntry.link);
                             }}
                             onMouseEnter={(e) => {
@@ -452,6 +450,8 @@ const App = (props) => {
                         id="screen">
                         {data}
                     </div>);
+            case 5:
+                return ParseContent(currentPageJson.content.find(x => x['@type'] == 'Contact'));
             default:
                 console.log(data);
                 return (

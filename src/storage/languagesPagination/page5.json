@@ -1,0 +1,51 @@
+{
+    "@type": "email",
+    "content": [
+        {
+            "@type": "Contact",
+            "@contentType": "EmailSender",
+            "content": {
+                "header": {
+                    "EN": "Leave some feedback or reach out!"
+                },
+                "email": {
+                    "EN": "Email"
+                },
+                "subject": {
+                    "EN": "Subject"
+                },
+                "body": {
+                    "EN": "Message body"
+                },
+                "submit": {
+                    "EN": "SUBMIT"
+                }
+            },
+            "placeholders": {
+                "email": {
+                    "EN": "Please enter your email..."
+                },
+                "subject": {
+                    "EN": "You may add a subject to the email"
+                },
+                "body": {
+                    "EN": "Write the message here"
+                }
+            },
+            "validationErrors": {
+                "email": {
+                    "EN": "The email does not respect the correct format. Please try again!"
+                },
+                "subject": {
+                    "EN": "The subject has to be at most 32 characters!"
+                },
+                "body": {
+                    "EN": "The body has to be at least 10 characters!"
+                }
+            }
+        }
+    ],
+    "title": {
+        "default": "Contact me ~ Bănică Ninel-Valentin"
+    }
+}

@@ -50,6 +50,7 @@ export default class utils {
     }
 
     static ParseBreak(string, key, addOn = null) {
+        if (!string.includes('</br>')) return string;
         return string.split('</br>').map((x, index) => {
             return [
                 (addOn ? addOn : ''),
