@@ -6,11 +6,14 @@
 
 ### All the projects that are currently on my GitHub profile
 
-| Name            | Path                                                                                      |
-| --------------- |:-----------------------------------------------------------------------------------------:|
-| Portofolio      | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
-| TicTacToe       | [/TicTacToe/index.html](https://ninel-valentin.github.io/TicTacToe)                       |
-| To be continued |                                                                                           |
+| Name                                   | Path                                                                                      |
+| -------------------------------------- |:-----------------------------------------------------------------------------------------:|
+| Portofolio                             | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
+| TicTacToe                              | [/TicTacToe/index.html](https://ninel-valentin.github.io/TicTacToe)                       |
+| Wave Function Collapse Map Generation  | [/WaveFunctionCollapse/index](https://ninel-valentin.github.io/WaveFunctionCollapse/index)|
+| Cosmos                                 | [/Cosmos/pages/index](https://ninel-valentin.github.io/Cosmos/pages/index.html)           |
+| GraphSearch C++                        | [/GraphSearch C+++]([https://github.com/Ninel-Valentin/GraphSearch])                      |
+| To be continued                        |                                                                                           |
 
 
 >**Note:** I am well versed in multiple technologies and programming other than web development, therefore, I will be adding more pages with info about the ***desktop applications*** I have worked on.
