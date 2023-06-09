@@ -10,9 +10,8 @@
 | -------------------------------------- |:-----------------------------------------------------------------------------------------:|
 | Portofolio                             | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
 | TicTacToe                              | [/TicTacToe/index.html](https://ninel-valentin.github.io/TicTacToe)                       |
-| Wave Function Collapse Map Generation  | [/WaveFunctionCollapse/index](https://ninel-valentin.github.io/WaveFunctionCollapse/index)|
 | Cosmos                                 | [/Cosmos/pages/index](https://ninel-valentin.github.io/Cosmos/pages/index.html)           |
-| GraphSearch C++                        | [/GraphSearch C++]([https://github.com/Ninel-Valentin/GraphSearch])                      |
+| GraphSearch C++                        | [/GraphSearch C++]([https://github.com/Ninel-Valentin/GraphSearch])                       |
 | To be continued                        |                                                                                           |
 
 
