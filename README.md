@@ -8,9 +8,9 @@
 
 | Name                                   | Path                                                                                      |
 | -------------------------------------- |:-----------------------------------------------------------------------------------------:|
-| Portofolio                             | [/portofolio/public/index.html](https://ninel-valentin.github.io/portofolio/public/index) |
-| TicTacToe                              | [/TicTacToe/index.html](https://ninel-valentin.github.io/TicTacToe)                       |
-| Cosmos                                 | [/Cosmos/pages/index](https://ninel-valentin.github.io/Cosmos/pages/index.html)           |
+| Portofolio                             | [/portofolio](https://ninel-valentin.com/public/index.html) |
+| TicTacToe                              | [/TicTacToe](https://ninel-valentin.github.io/TicTacToe)                       |
+| Cosmos                                 | [/Cosmos](https://ninel-valentin.github.io/Cosmos/pages/index.html)           |
 | GraphSearch C++                        | [/GraphSearch C++]([https://github.com/Ninel-Valentin/GraphSearch])                       |
 | To be continued                        |                                                                                           |
 
